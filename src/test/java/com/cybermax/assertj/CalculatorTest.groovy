@@ -11,7 +11,7 @@ class CalculatorTest extends Specification {
     def "should calculate: #x + #y = #sum"() {
 
         expect:
-        take(x).add(y).calculate() == sum
+        Calculator.take(x).add(y).calculate() == sum
 
         where:
         x | y  | sum
@@ -32,10 +32,10 @@ class CalculatorTest extends Specification {
 
     }
 
-    def "should multiply"() {
+    def "should multiply" () {
 
         expect:
-        take(2).multiply(2).calculate() == 4
+        Calculator.take(2).multiply(2).calculate() == 4
 
     }
 }
