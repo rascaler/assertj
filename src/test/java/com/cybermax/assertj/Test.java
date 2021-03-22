@@ -34,5 +34,11 @@ public class Test {
         System.out.println("a".equals(null));
 //        assertThat(set).isNull().thenFailThrow(exception)
 //                .isIn()
+        Map<String, String> map = new HashMap();
+        map.put("111","2222");
+        assertThat(map).containsKey("111").thenFailThrow(exception);
+
+        Hashtable<String, String> table = new Hashtable<>();
+        assertThat(table).containsKey("1111").thenFailThrow(exception);
     }
 }

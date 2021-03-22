@@ -4,9 +4,11 @@ package com.cybermax.assertj;
 import com.cybermax.assertj.core.base.BooleanAssert;
 import com.cybermax.assertj.core.collection.ListAssert;
 import com.cybermax.assertj.core.collection.SetAssert;
+import com.cybermax.assertj.core.map.MapsAssert;
 import com.cybermax.assertj.core.number.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class Assertions {
@@ -62,11 +64,14 @@ public class Assertions {
   }
 
   public static BooleanAssert assertThat(boolean actual) {
-    return new BooleanAssert(actual, Boolean.class);
+    return new BooleanAssert(actual, BooleanAssert.class);
   }
 
   public static BooleanAssert assertThat(Boolean actual) {
-    return new BooleanAssert(actual, Boolean.class);
+    return new BooleanAssert(actual, BooleanAssert.class);
   }
 
+  public static MapsAssert assertThat(Map actual) {
+    return new MapsAssert(actual, MapsAssert.class);
+  }
 }
