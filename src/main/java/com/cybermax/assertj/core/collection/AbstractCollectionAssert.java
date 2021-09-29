@@ -62,7 +62,7 @@ public class AbstractCollectionAssert<SELF extends AbstractCollectionAssert<SELF
     @Override
     public SELF containsAny(Collection<ELEMENT> values) {
         this.passed = CollectionUtils.containsAny(this.actual, values);
-        return null;
+        return myself;
     }
 
     @Override
@@ -77,68 +77,39 @@ public class AbstractCollectionAssert<SELF extends AbstractCollectionAssert<SELF
         return myself;
     }
 
-//    @Override
-//    public <T> SELF isAnyIn(T... values) {
-//        CollectionUtils.containsAny()
-//        for (ELEMENT e : this.actual) {
-//        }
-//        return null;
-//    }
-
-//    @Override
-//    public SELF isAnyIn(Iterable<?> values) {
-//        return null;
-//    }
-//
-//    @Override
-//    public SELF isAllIn(ELEMENT... values) {
-//        return null;
-//    }
-//
-//    @Override
-//    public SELF isAllIn(Iterable<?> values) {
-//        return null;
-//    }
-//
-//    @Override
-//    public SELF isNotIn(Object... values) {
-//        this.passed = true;
-//        for (Object value : values) {
-//            if (this.actual.equals(value)) {
-//                this.passed = false;
-//                break;
-//            }
-//        }
-//        return myself;
-//    }
-//
-//    @Override
-//    public SELF isNotIn(Iterable<?> values) {
-//        this.passed = true;
-//        for (Object value : values) {
-//            if (this.actual.equals(value)) {
-//                this.passed = false;
-//                break;
-//            }
-//        }
-//        return myself;
-//    }
-
     @Override
-    public SELF thenFailThrow(RuntimeException exception) {
-        if (!this.passed) {
-            throw exception;
-        }
+    public <T> SELF hasAnyIn(T... values) {
+        this.passed = CollectionUtils.containsAny(Arrays.asList(values), this.actual);
         return myself;
     }
 
     @Override
-    public SELF thenFailThrow(Error error) {
-        if (!this.passed) {
-            throw error;
-        }
+    public SELF hasAnyIn(Collection<ELEMENT> values) {
+        this.passed = CollectionUtils.containsAny(values, this.actual);
         return myself;
     }
 
+    @Override
+    public <T> SELF isAllIn(T... values) {
+        this.passed = CollectionUtils.containsAll(Arrays.asList(values), this.actual);
+        return myself;
+    }
 
+    @Override
+    public SELF isAllIn(Collection<ELEMENT> values) {
+        this.passed = CollectionUtils.containsAll(values, this.actual);
+        return myself;
+    }
+
+    @Override
+    public <T> SELF hasNoneIn(T... values) {
+        this.passed = !CollectionUtils.containsAny(Arrays.asList(values), this.actual);
+        return myself;
+    }
+
+    @Override
+    public SELF hasNoneIn(Collection<ELEMENT> values) {
+        this.passed = !CollectionUtils.containsAny(values, this.actual);
+        return myself;
+    }
 }

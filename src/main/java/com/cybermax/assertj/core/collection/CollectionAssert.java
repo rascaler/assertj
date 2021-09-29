@@ -55,15 +55,39 @@ extends SizeComparableAssert<SELF, ACTUAL> {
    */
   SELF doseNotContains(Collection<ELEMENT> values);
 
-//  <T> SELF isAnyIn(T... values);
-//
-//  SELF isAnyIn(Iterable<?> values);
-//
-//  <T> SELF isAllIn(T... values);
-//
-//  SELF isAllIn(Iterable<?> values);
-//
-//  SELF isNotIn(ELEMENT... values);
-//
-//  SELF isNotIn(Iterable<?> values);
+  /**
+   * 是否存在部分值
+   * @return
+   */
+  <T> SELF hasAnyIn(T... values);
+
+  /**
+   * 是否存在部分值
+   * @return
+   */
+  SELF hasAnyIn(Collection<ELEMENT> values);
+
+  /**
+   * 是否所有值都存在
+   * @return
+   */
+  <T> SELF isAllIn(T... values);
+
+  /**
+   * 是否所有值都存在
+   * @return
+   */
+  SELF isAllIn(Collection<ELEMENT> values);
+
+  /**
+   * 一个元素都不存在
+   * @return
+   */
+  <T> SELF hasNoneIn(T... values);
+
+  /**
+   * 一个元素都不存在
+   * @return
+   */
+  SELF hasNoneIn(Collection<ELEMENT> values);
 }
