@@ -12,6 +12,11 @@
  */
 package com.cybermax.assertj.core;
 
+import com.cybermax.assertj.core.exception.ExceptionConvertor;
+
+import java.lang.reflect.ParameterizedType;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -32,12 +37,25 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
   protected final ACTUAL actual;
   protected final SELF myself;
   protected boolean passed;
+  // 异常转换器
+  private static Map<Class<?>, ExceptionConvertor> mapping = new HashMap<>();
+
 
   @SuppressWarnings("unchecked")
   protected AbstractAssert(ACTUAL actual, Class<?> selfType) {
     myself = (SELF) selfType.cast(this);
     this.actual = actual;
   }
+
+  public  static void addExceptionConvertor(ExceptionConvertor convertor) {
+    Class clz = (Class)((ParameterizedType)convertor.getClass().getGenericInterfaces()[0]).getActualTypeArguments()[0];
+    // 每种数据类型只能有一种转换器
+    if (null != mapping.get(clz)) {
+      throw new RuntimeException(String.format("convertor of class[%s] has already existed", clz));
+    }
+    mapping.put(clz, convertor);
+  }
+
 
   @Override
   public SELF isEqualTo(Object expected) {
@@ -135,6 +153,18 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
   public SELF thenFailThrow(Error error) {
     if (!this.passed) {
       throw error;
+    }
+    return myself;
+  }
+
+//  @Override
+  public <T> SELF thenFailThrow(T obj) {
+    ExceptionConvertor convertor = mapping.get(obj.getClass());
+    if (null == convertor) {
+      throw new RuntimeException(String.format("cannot find exception convertor by [%s] class", obj.getClass()));
+    }
+    if (!this.passed) {
+      throw convertor.getException(obj);
     }
     return myself;
   }

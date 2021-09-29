@@ -164,4 +164,6 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> {
 
   SELF thenFailThrow(Error error);
 
+  <T> SELF thenFailThrow(T code);
+
 }

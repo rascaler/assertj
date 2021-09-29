@@ -1,9 +1,11 @@
 package com.cybermax.assertj;
 
 
+import com.cybermax.assertj.core.AbstractAssert;
 import com.cybermax.assertj.core.base.BooleanAssert;
 import com.cybermax.assertj.core.collection.ListAssert;
 import com.cybermax.assertj.core.collection.SetAssert;
+import com.cybermax.assertj.core.exception.ExceptionConvertor;
 import com.cybermax.assertj.core.map.MapsAssert;
 import com.cybermax.assertj.core.number.*;
 
@@ -14,6 +16,10 @@ import java.util.Set;
 public class Assertions {
 
   protected Assertions() {}
+
+  public static void addExceptionCoverters(ExceptionConvertor covert) {
+    AbstractAssert.addExceptionConvertor(covert);
+  }
 
   public static ByteAssert assertThat(byte actual) {
     return new ByteAssert(actual);
