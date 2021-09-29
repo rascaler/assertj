@@ -157,7 +157,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
     return myself;
   }
 
-//  @Override
+  @Override
   public <T> SELF thenFailThrow(T obj) {
     ExceptionConvertor convertor = mapping.get(obj.getClass());
     if (null == convertor) {
