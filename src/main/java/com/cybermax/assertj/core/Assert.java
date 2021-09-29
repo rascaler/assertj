@@ -159,11 +159,32 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> {
    */
   SELF isNotIn(Iterable<?> values);
 
-
+  /**
+   * description: 断言失败抛异常
+   * @param exception
+   * @return SELF
+   * @author wurenqing
+   * @time 2021-09-29 17:11
+   */
   SELF thenFailThrow(RuntimeException exception);
 
+  /**
+   * description: 断言失败抛异常
+   * @param error
+   * @return SELF
+   * @author wurenqing
+   * @time 2021-09-29 17:11
+   */
   SELF thenFailThrow(Error error);
 
-  <T> SELF thenFailThrow(T code);
+  /**
+   * description: 断言失败抛异常
+   * 需要添加com.cybermax.assertj.core.exception.ExceptionConvertor才能正常使用
+   * @param obj
+   * @return SELF
+   * @author wurenqing
+   * @time 2021-09-29 17:11
+   */
+  <T> SELF thenFailThrow(T obj);
 
 }
