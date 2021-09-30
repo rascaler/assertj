@@ -16,48 +16,72 @@ public abstract class AbstractBigDecimalAssert<SELF extends AbstractBigDecimalAs
 
   @Override
   public SELF isZero() {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = actual.compareTo(new BigDecimal(0)) == 0;
     return myself;
   }
 
   @Override
   public SELF isNotZero() {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = !(actual.compareTo(new BigDecimal(0)) == 0);
     return myself;
   }
 
   @Override
   public SELF isOne() {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = actual.compareTo(new BigDecimal(1)) == 0;
     return myself;
   }
 
   @Override
   public SELF isNotOne() {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = !(actual.compareTo(new BigDecimal(1)) == 0);
     return myself;
   }
 
   @Override
   public SELF isPositive() {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = actual.compareTo(new BigDecimal(0)) > 0;
     return myself;
   }
 
   @Override
   public SELF isNegative() {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = actual.compareTo(new BigDecimal(0)) < 0;
     return myself;
   }
 
   @Override
   public SELF isNotNegative() {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = !(actual.compareTo(new BigDecimal(0)) < 0);
     return myself;
   }
 
   @Override
   public SELF isNotPositive() {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = !(actual.compareTo(new BigDecimal(0)) > 0);
     return myself;
   }

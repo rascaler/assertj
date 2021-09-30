@@ -13,6 +13,7 @@
 package com.cybermax.assertj.core;
 
 import com.cybermax.assertj.core.exception.ExceptionConvertor;
+import org.apache.commons.collections4.CollectionUtils;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;
@@ -36,7 +37,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   protected final ACTUAL actual;
   protected final SELF myself;
-  protected boolean passed;
+  protected boolean passed = true;
   // 异常转换器
   private static Map<Class<?>, ExceptionConvertor> mapping = new HashMap<>();
 
@@ -59,42 +60,45 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isEqualTo(Object expected) {
-    if (expected.equals(this.actual))
-      this.passed = true;
-    else
-      this.passed = false;
+    if (!this.passed) {
+      return myself;
+    }
+    this.passed = expected.equals(this.actual);
     return myself;
   }
 
   @Override
   public SELF isNotEqualTo(Object other) {
-    if (!other.equals(this.actual))
-      this.passed = true;
-    else
-      this.passed = false;
+    if (!this.passed) {
+      return myself;
+    }
+    this.passed = !other.equals(this.actual);
     return myself;
   }
 
   @Override
   public SELF isNull() {
-    if (Objects.isNull(this.actual))
-      this.passed = true;
-    else
-      this.passed = false;
+    if (!this.passed) {
+      return myself;
+    }
+    this.passed = Objects.isNull(this.actual);
     return myself;
   }
 
   @Override
   public SELF isNotNull() {
-    if (!Objects.isNull(this.actual))
-      this.passed = true;
-    else
-      this.passed = false;
+    if (!this.passed) {
+      return myself;
+    }
+    this.passed = !Objects.isNull(this.actual);
     return myself;
   }
 
   @Override
   public SELF isIn(Object... values) {
+    if (!this.passed) {
+      return myself;
+    }
     for (Object value : values) {
       if (this.actual.equals(value)) {
         this.passed = true;
@@ -107,18 +111,24 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isNotIn(Object... values) {
-    this.passed = true;
+    if (!this.passed) {
+      return myself;
+    }
     for (Object value : values) {
       if (this.actual.equals(value)) {
         this.passed = false;
-        break;
+        return myself;
       }
     }
+    this.passed = true;
     return myself;
   }
 
   @Override
   public SELF isIn(Iterable<?> values) {
+    if (!this.passed) {
+      return myself;
+    }
     for (Object value : values) {
       if (this.actual.equals(value)) {
         this.passed = true;
@@ -131,13 +141,16 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isNotIn(Iterable<?> values) {
-    this.passed = true;
+    if (!this.passed) {
+      return myself;
+    }
     for (Object value : values) {
       if (this.actual.equals(value)) {
         this.passed = false;
-        break;
+        return myself;
       }
     }
+    this.passed = true;
     return myself;
   }
 

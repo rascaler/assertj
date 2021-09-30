@@ -3,6 +3,7 @@ package com.cybermax.assertj;
 
 import com.cybermax.assertj.core.AbstractAssert;
 import com.cybermax.assertj.core.base.BooleanAssert;
+import com.cybermax.assertj.core.base.StringAssert;
 import com.cybermax.assertj.core.collection.ListAssert;
 import com.cybermax.assertj.core.collection.SetAssert;
 import com.cybermax.assertj.core.exception.ExceptionConvertor;
@@ -76,6 +77,11 @@ public class Assertions {
   public static BooleanAssert assertThat(Boolean actual) {
     return new BooleanAssert(actual, BooleanAssert.class);
   }
+
+  public static StringAssert assertThat(String actual) {
+    return new StringAssert(actual, StringAssert.class);
+  }
+
 
   public static MapsAssert assertThat(Map actual) {
     return new MapsAssert(actual, MapsAssert.class);

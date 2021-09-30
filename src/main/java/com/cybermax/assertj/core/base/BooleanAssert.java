@@ -14,11 +14,17 @@ public class BooleanAssert extends AbstractAssert<BooleanAssert, Boolean> {
 
 
     public BooleanAssert isTrue() {
+        if (!this.passed) {
+            return myself;
+        }
         this.passed = this.actual;
         return this;
     }
 
     public BooleanAssert isFalse() {
+        if (!this.passed) {
+            return myself;
+        }
         this.passed = !this.actual;
         return this;
     }
