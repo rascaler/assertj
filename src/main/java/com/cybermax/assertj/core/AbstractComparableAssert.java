@@ -13,13 +13,19 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isLessThan(ACTUAL other) {
-    this.passed = this.actual.compareTo(other) == 0;
+    if (!this.passed) {
+      return myself;
+    }
+    this.passed = this.actual.compareTo(other) < 0;
     return myself;
   }
 
   /** {@inheritDoc} */
   @Override
   public SELF isLessThanOrEqualTo(ACTUAL other) {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = this.actual.compareTo(other) <= 0;
     return myself;
   }
@@ -27,6 +33,9 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isGreaterThan(ACTUAL other) {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = this.actual.compareTo(other) > 0;
     return myself;
   }
@@ -34,6 +43,9 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isGreaterThanOrEqualTo(ACTUAL other) {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = this.actual.compareTo(other) >= 0;
     return myself;
   }
@@ -41,6 +53,9 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isBetween(ACTUAL startInclusive, ACTUAL endInclusive) {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = this.actual.compareTo(startInclusive) >= 0
             && this.actual.compareTo(endInclusive) <= 0;
     return myself;
@@ -49,6 +64,9 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isStrictlyBetween(ACTUAL startExclusive, ACTUAL endExclusive) {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = this.actual.compareTo(startExclusive) > 0
             && this.actual.compareTo(endExclusive) < 0;
     return myself;
@@ -56,6 +74,9 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
 
   @Override
   public SELF isStartInclusiveBetween(ACTUAL startInclusive, ACTUAL endExclusive) {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = this.actual.compareTo(startInclusive) >= 0
             && this.actual.compareTo(endExclusive) < 0;
     return myself;
@@ -63,6 +84,9 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
 
   @Override
   public SELF isEndInclusiveBetween(ACTUAL startExclusive, ACTUAL endInclusive) {
+    if (!this.passed) {
+      return myself;
+    }
     this.passed = this.actual.compareTo(startExclusive) > 0
             && this.actual.compareTo(endInclusive) <= 0;
     return myself;

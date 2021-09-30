@@ -17,7 +17,13 @@ public class Test2 {
 //        assertThat(1).isNotNull().thenFailThrow("2000")
 //                .isEqualTo(1).thenFailThrow("2000");
 
-        assertThat(NumberUtils.isCreatable("11")).isTrue().thenFailThrow("2000");
+//        assertThat(NumberUtils.isCreatable("11")).isTrue().thenFailThrow("2000");
 //        assertThat("1").is
+//        assertThat('a').isLessThanOrEqualTo('a').thenFailThrow("2000");
+
+//        Character.UnicodeBlock unicodeBlock = Character.UnicodeBlock.of('µ');
+        assertThat(" ").isNotBlank().contains(" ").thenFailThrow("2000");
+        System.out.println(1);
     }
+
 }

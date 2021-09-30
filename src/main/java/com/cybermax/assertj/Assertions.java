@@ -3,6 +3,7 @@ package com.cybermax.assertj;
 
 import com.cybermax.assertj.core.AbstractAssert;
 import com.cybermax.assertj.core.base.BooleanAssert;
+import com.cybermax.assertj.core.base.CharacterAssert;
 import com.cybermax.assertj.core.base.StringAssert;
 import com.cybermax.assertj.core.collection.ListAssert;
 import com.cybermax.assertj.core.collection.SetAssert;
@@ -80,6 +81,14 @@ public class Assertions {
 
   public static StringAssert assertThat(String actual) {
     return new StringAssert(actual, StringAssert.class);
+  }
+
+  public static CharacterAssert assertThat(char actual) {
+    return new CharacterAssert(actual, CharacterAssert.class);
+  }
+
+  public static CharacterAssert assertThat(Character actual) {
+    return new CharacterAssert(actual, CharacterAssert.class);
   }
 
 
