@@ -91,7 +91,6 @@ public class Assertions {
     return new CharacterAssert(actual, CharacterAssert.class);
   }
 
-
   public static MapsAssert assertThat(Map actual) {
     return new MapsAssert(actual, MapsAssert.class);
   }

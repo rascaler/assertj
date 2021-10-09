@@ -2,6 +2,7 @@ package com.cybermax.assertj.core.collection;
 
 import com.cybermax.assertj.core.AbstractSizeComparableAssert;
 import org.apache.commons.collections4.CollectionUtils;
+
 import java.util.*;
 
 public class AbstractCollectionAssert<SELF extends AbstractCollectionAssert<SELF, ACTUAL, ELEMENT>, ACTUAL extends Collection<ELEMENT>, ELEMENT>
