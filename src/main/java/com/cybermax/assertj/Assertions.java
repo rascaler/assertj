@@ -2,7 +2,7 @@ package com.cybermax.assertj;
 
 
 import com.cybermax.assertj.core.AbstractAssert;
-import com.cybermax.assertj.core.array.IntArrayAssert;
+import com.cybermax.assertj.core.array.*;
 import com.cybermax.assertj.core.base.BooleanAssert;
 import com.cybermax.assertj.core.base.CharacterAssert;
 import com.cybermax.assertj.core.base.StringAssert;
@@ -96,8 +96,48 @@ public class Assertions {
     return new MapsAssert(actual, MapsAssert.class);
   }
 
+
+  public static ByteArrayAssert assertThat(byte[] actual) {
+    return new ByteArrayAssert(actual, ByteArrayAssert.class);
+  }
+  public static BoxedByteArrayAssert assertThat(Byte[] actual) {
+    return new BoxedByteArrayAssert(actual, BoxedByteArrayAssert.class);
+  }
+  public static ShortArrayAssert assertThat(short[] actual) {
+    return new ShortArrayAssert(actual, ShortArrayAssert.class);
+  }
+  public static BoxedShortArrayAssert assertThat(Short[] actual) {
+    return new BoxedShortArrayAssert(actual, BoxedShortArrayAssert.class);
+  }
   public static IntArrayAssert assertThat(int[] actual) {
     return new IntArrayAssert(actual, IntArrayAssert.class);
+  }
+  public static BoxedIntArrayAssert assertThat(Integer[] actual) {
+    return new BoxedIntArrayAssert(actual, BoxedIntArrayAssert.class);
+  }
+  public static FloatArrayAssert assertThat(float[] actual) {
+    return new FloatArrayAssert(actual, FloatArrayAssert.class);
+  }
+  public static BoxedFloatArrayAssert assertThat(Float[] actual) {
+    return new BoxedFloatArrayAssert(actual, BoxedFloatArrayAssert.class);
+  }
+  public static DoubleArrayAssert assertThat(double[] actual) {
+    return new DoubleArrayAssert(actual, DoubleArrayAssert.class);
+  }
+  public static BoxedDoubleArrayAssert assertThat(Double[] actual) {
+    return new BoxedDoubleArrayAssert(actual, BoxedDoubleArrayAssert.class);
+  }
+  public static LongArrayAssert assertThat(long[] actual) {
+    return new LongArrayAssert(actual, LongArrayAssert.class);
+  }
+  public static BoxedLongArrayAssert assertThat(Long[] actual) {
+    return new BoxedLongArrayAssert(actual, BoxedLongArrayAssert.class);
+  }
+  public static CharacterArrayAssert assertThat(char[] actual) {
+    return new CharacterArrayAssert(actual, CharacterArrayAssert.class);
+  }
+  public static BoxedCharacterArrayAssert assertThat(Character[] actual) {
+    return new BoxedCharacterArrayAssert(actual, BoxedCharacterArrayAssert.class);
   }
 
 }
