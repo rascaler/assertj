@@ -5,6 +5,7 @@ import java.util.Collection;
 public interface ArrayAssert<SELF extends ArrayAssert<SELF, ACTUAL>, ACTUAL>
 extends SizeComparableAssert<SELF, ACTUAL> {
 
+
   /**
    * 是否为空
    * @return

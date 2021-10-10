@@ -20,14 +20,16 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
     super(actual, selfType);
   }
 
-  protected abstract int size(ACTUAL value);
+  protected abstract int size();
+
+  protected abstract Object get(int index);
 
   @Override
   public SELF hasOneSize() {
     if (!this.passed) {
       return myself;
     }
-    this.passed = size(this.actual) == 1;
+    this.passed = size() == 1;
     return myself;
   }
 
@@ -36,7 +38,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
     if (!this.passed) {
       return myself;
     }
-    this.passed = size(this.actual) > 1;
+    this.passed = size() > 1;
     return myself;
   }
 
@@ -45,7 +47,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
     if (!this.passed) {
       return myself;
     }
-    this.passed = size(this.actual) == boundary;
+    this.passed = size() == boundary;
     return myself;
   }
 
@@ -54,7 +56,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
     if (!this.passed) {
       return myself;
     }
-    this.passed = size(this.actual) < boundary;
+    this.passed = size() < boundary;
     return myself;
   }
 
@@ -63,7 +65,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
     if (!this.passed) {
       return myself;
     }
-    this.passed = size(this.actual) <= boundary;
+    this.passed = size() <= boundary;
     return myself;
   }
 
@@ -72,7 +74,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
     if (!this.passed) {
       return myself;
     }
-    this.passed = size(this.actual) > boundary;
+    this.passed = size() > boundary;
     return myself;
   }
 
@@ -81,7 +83,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
     if (!this.passed) {
       return myself;
     }
-    this.passed = size(this.actual) >= boundary;
+    this.passed = size() >= boundary;
     return myself;
   }
 
@@ -90,8 +92,8 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
     if (!this.passed) {
       return myself;
     }
-    this.passed = size(this.actual) >= startInclusiveBoundary
-            && size(this.actual) <= endInclusiveBoundary;
+    this.passed = size() >= startInclusiveBoundary
+            && size() <= endInclusiveBoundary;
     return myself;
   }
 
@@ -100,8 +102,8 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
     if (!this.passed) {
       return myself;
     }
-    this.passed = size(this.actual) > startExclusiveBoundary
-            && size(this.actual) < endExclusiveBoundary;
+    this.passed = size() > startExclusiveBoundary
+            && size() < endExclusiveBoundary;
     return myself;
   }
 
@@ -110,8 +112,8 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
     if (!this.passed) {
       return myself;
     }
-    this.passed = size(this.actual) >= startInclusiveBoundary
-            && size(this.actual) < endExclusiveBoundary;
+    this.passed = size() >= startInclusiveBoundary
+            && size() < endExclusiveBoundary;
     return myself;
   }
 
@@ -120,8 +122,8 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
     if (!this.passed) {
       return myself;
     }
-    this.passed = size(this.actual) > startExclusiveBoundary
-            && size(this.actual) <= endInclusiveBoundary;
+    this.passed = size() > startExclusiveBoundary
+            && size() <= endInclusiveBoundary;
     return myself;
   }
 }

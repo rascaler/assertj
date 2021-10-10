@@ -5,7 +5,7 @@ import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.*;
 
-public class AbstractCollectionAssert<SELF extends AbstractCollectionAssert<SELF, ACTUAL, ELEMENT>, ACTUAL extends Collection<ELEMENT>, ELEMENT>
+public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAssert<SELF, ACTUAL, ELEMENT>, ACTUAL extends Collection<ELEMENT>, ELEMENT>
         extends AbstractSizeComparableAssert<SELF, ACTUAL>
         implements CollectionAssert<SELF, ACTUAL, ELEMENT> {
 
@@ -14,8 +14,8 @@ public class AbstractCollectionAssert<SELF extends AbstractCollectionAssert<SELF
     }
 
     @Override
-    protected int size(ACTUAL value) {
-        return value.size();
+    protected int size() {
+        return this.actual.size();
     }
 
     @Override
