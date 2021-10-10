@@ -28,7 +28,7 @@ public class Test2 {
 
 //        Character.UnicodeBlock unicodeBlock = Character.UnicodeBlock.of('µ');
 //        assertThat(" ").isNotBlank().contains(" ").thenFailThrow("2000");
-        Object[] a = new Integer[] {1, 2};
+        Integer[] a = new Integer[] {1, 2};
 //        Object[] b = new int[] {1, 2};
 //        Integer[] c = (Integer[])new int[] {1, 2};
 //        int[] a = new Integer[] {1};
@@ -37,6 +37,7 @@ public class Test2 {
         Integer m  = 1;
         int n = 2;
         int r = size(b);
+        assertThat(b).containsAny(new Integer[] {1}).thenFailThrow("1000");
         System.out.println(1);
     }
 

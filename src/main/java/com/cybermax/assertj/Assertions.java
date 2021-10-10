@@ -2,6 +2,7 @@ package com.cybermax.assertj;
 
 
 import com.cybermax.assertj.core.AbstractAssert;
+import com.cybermax.assertj.core.array.IntArrayAssert;
 import com.cybermax.assertj.core.base.BooleanAssert;
 import com.cybermax.assertj.core.base.CharacterAssert;
 import com.cybermax.assertj.core.base.StringAssert;
@@ -94,4 +95,9 @@ public class Assertions {
   public static MapsAssert assertThat(Map actual) {
     return new MapsAssert(actual, MapsAssert.class);
   }
+
+  public static IntArrayAssert assertThat(int[] actual) {
+    return new IntArrayAssert(actual, IntArrayAssert.class);
+  }
+
 }

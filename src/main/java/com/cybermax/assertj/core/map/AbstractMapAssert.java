@@ -15,7 +15,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
     }
 
     @Override
-    protected int size(ACTUAL value) {
+    protected int size() {
         return actual.size();
     }
 
