@@ -6,12 +6,18 @@ import com.cybermax.assertj.core.array.*;
 import com.cybermax.assertj.core.base.BooleanAssert;
 import com.cybermax.assertj.core.base.CharacterAssert;
 import com.cybermax.assertj.core.base.StringAssert;
+import com.cybermax.assertj.core.calendar.DateAssert;
+import com.cybermax.assertj.core.calendar.LocalDateAssert;
+import com.cybermax.assertj.core.calendar.LocalDateTimeAssert;
 import com.cybermax.assertj.core.collection.ListAssert;
 import com.cybermax.assertj.core.collection.SetAssert;
 import com.cybermax.assertj.core.exception.ExceptionConvertor;
 import com.cybermax.assertj.core.map.MapsAssert;
 import com.cybermax.assertj.core.number.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -139,5 +145,18 @@ public class Assertions {
   public static BoxedCharacterArrayAssert assertThat(Character[] actual) {
     return new BoxedCharacterArrayAssert(actual, BoxedCharacterArrayAssert.class);
   }
+
+  public static LocalDateAssert assertThat(LocalDate actual, String pattern) {
+    return new LocalDateAssert(actual, pattern, LocalDateAssert.class);
+  }
+
+  public static LocalDateTimeAssert assertThat(LocalDateTime actual, String pattern) {
+    return new LocalDateTimeAssert(actual, pattern, LocalDateTimeAssert.class);
+  }
+
+  public static DateAssert assertThat(Date actual, String pattern) {
+    return new DateAssert(actual, pattern, DateAssert.class);
+  }
+
 
 }
