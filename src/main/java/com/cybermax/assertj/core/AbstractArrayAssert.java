@@ -20,7 +20,7 @@ implements ArrayAssert<SELF, ACTUAL> {
     if (!this.passed) {
       return myself;
     }
-    this.passed = null == this.actual || size() == 0;
+    this.passed = null == this.actual || this.size() == 0;
     return myself;
   }
 
@@ -29,12 +29,15 @@ implements ArrayAssert<SELF, ACTUAL> {
     if (!this.passed) {
       return myself;
     }
-    this.passed = null != this.actual && size() > 0;
+    this.passed = null != this.actual && this.size() > 0;
     return myself;
   }
 
   @Override
   public <T> SELF containsAll(T... values) {
+    if (!this.passed) {
+      return myself;
+    }
     if (null == values || values.length == 0) {
       this.passed = true;
       return myself;
@@ -46,7 +49,7 @@ implements ArrayAssert<SELF, ACTUAL> {
       }
 
       boolean foundCurrentElement = false;
-      for (int i = 0; i < size(); i++) {
+      for (int i = 0; i < this.size(); i++) {
         final Object p = get(i);
         elementsAlreadySeen.add(p);
         if (nextElement == null ? p == null : nextElement.equals(p)) {
@@ -66,9 +69,11 @@ implements ArrayAssert<SELF, ACTUAL> {
   }
 
   @Override
-  public <T> SELF containsAll(Collection<T> values) {
-    if (values.isEmpty()
-    ) {
+  public  SELF containsAll(Collection<?> values) {
+    if (!this.passed) {
+      return myself;
+    }
+    if (values.isEmpty()) {
       this.passed = true;
       return myself;
     }
@@ -80,7 +85,7 @@ implements ArrayAssert<SELF, ACTUAL> {
       }
 
       boolean foundCurrentElement = false;
-      for (int i = 0; i < size(); i++) {
+      for (int i = 0; i < this.size(); i++) {
         final Object p = get(i);
         elementsAlreadySeen.add(p);
         if (nextElement == null ? p == null : nextElement.equals(p)) {
@@ -100,22 +105,19 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF containsAny(T... values) {
-    if (size() < values.length) {
-      for (int i=0;i< size();i++) {
-        Object aColl1 = get(i);
-        if (ArrayUtils.contains(values, aColl1)) {
+    if (!this.passed) {
+      return myself;
+    }
+    if (this.size() < values.length) {
+       if (anyIn(values)) {
+         this.passed = true;
+         return myself;
+       }
+    } else {
+      for (final Object el2 : values) {
+        if (contains(el2)) {
           this.passed = true;
           return myself;
-        }
-      }
-    } else {
-      for (final Object aColl2 : values) {
-        for (int i=0;i< size();i++) {
-          Object aColl1 = get(i);
-          if (aColl1.equals(aColl2)) {
-            this.passed = true;
-            return myself;
-          }
         }
       }
     }
@@ -124,23 +126,20 @@ implements ArrayAssert<SELF, ACTUAL> {
   }
 
   @Override
-  public <T> SELF containsAny(Collection<T> values) {
-    if (size() < values.size()) {
-      for (int i=0;i< size();i++) {
-        Object aColl1 = get(i);
-        if (values.contains(aColl1)) {
-          this.passed = true;
-          return myself;
-        }
+  public SELF containsAny(Collection<?> values) {
+    if (!this.passed) {
+      return myself;
+    }
+    if (this.size() < values.size()) {
+      if (this.anyIn(values)) {
+        this.passed = true;
+        return myself;
       }
     } else {
       for (final Object aColl2 : values) {
-        for (int i=0;i< size();i++) {
-          Object aColl1 = get(i);
-          if (aColl1.equals(aColl2)) {
-            this.passed = true;
-            return myself;
-          }
+        if (this.contains(aColl2)) {
+          this.passed = true;
+          return myself;
         }
       }
     }
@@ -150,50 +149,177 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF doseNotContains(T... values) {
-    if (values.length > size()) {
-      this.passed = true;
+    if (!this.passed) {
       return myself;
     }
-
+    if (this.size() < values.length) {
+      if (this.anyIn(values)) {
+        this.passed = false;
+        return myself;
+      }
+    } else {
+      for (final Object aColl2 : values) {
+        if (contains(aColl2)) {
+          this.passed = false;
+          return myself;
+        }
+      }
+    }
+    this.passed = true;
     return myself;
   }
 
   @Override
-  public <T> SELF doseNotContains(Collection<T> values) {
-    if (values.size() > size()) {
-      this.passed = true;
+  public SELF doseNotContains(Collection<?> values) {
+    if (!this.passed) {
       return myself;
     }
+    if (this.size() < values.size()) {
+      if (this.anyIn(values)) {
+        this.passed = false;
+        return myself;
+      }
+    } else {
+      for (final Object aColl2 : values) {
+        if (this.contains(aColl2)) {
+          this.passed = false;
+          return myself;
+        }
+      }
+    }
+    this.passed = true;
     return myself;
   }
 
   @Override
   public <T> SELF hasAnyIn(T... values) {
-    return null;
+    if (!this.passed) {
+      return myself;
+    }
+    this.passed = this.anyIn(values);
+    return myself;
   }
 
   @Override
-  public <T> SELF hasAnyIn(Collection<T> values) {
-    return null;
+  public  SELF hasAnyIn(Collection<?> values) {
+    if (!this.passed) {
+      return myself;
+    }
+    this.passed = anyIn(values);
+    return myself;
   }
 
   @Override
   public <T> SELF isAllIn(T... values) {
-    return null;
+    if (!this.passed) {
+      return myself;
+    }
+    if (null == this.actual || this.size() == 0) {
+      this.passed = true;
+      return myself;
+    }
+    final Set<Object> elementsAlreadySeen = new HashSet<>();
+    for (int i = 0; i < this.size(); i++) {
+      final Object nextElement = get(i);
+      if (elementsAlreadySeen.contains(nextElement)) {
+        continue;
+      }
+      boolean foundCurrentElement = false;
+      for (final Object p : values) {
+        elementsAlreadySeen.add(p);
+        if (nextElement == null ? p == null : nextElement.equals(p)) {
+          foundCurrentElement = true;
+          break;
+        }
+      }
+      if (!foundCurrentElement) {
+        this.passed = false;
+        return myself;
+      }
+    }
+    this.passed = true;
+    return myself;
   }
 
   @Override
-  public <T> SELF isAllIn(Collection<T> values) {
-    return null;
+  public SELF isAllIn(Collection<?> values) {
+    if (!this.passed) {
+      return myself;
+    }
+    if (null == this.actual || this.size() == 0) {
+      this.passed = true;
+      return myself;
+    }
+    final Set<Object> elementsAlreadySeen = new HashSet<>();
+    for (int i = 0; i < this.size(); i++) {
+      final Object nextElement = get(i);
+      if (elementsAlreadySeen.contains(nextElement)) {
+        continue;
+      }
+      boolean foundCurrentElement = false;
+      for (final Object p : values) {
+        elementsAlreadySeen.add(p);
+        if (nextElement == null ? p == null : nextElement.equals(p)) {
+          foundCurrentElement = true;
+          break;
+        }
+      }
+      if (!foundCurrentElement) {
+        this.passed = false;
+        return myself;
+      }
+    }
+    this.passed = true;
+    return myself;
   }
 
   @Override
   public <T> SELF hasNoneIn(T... values) {
-    return null;
+    if (!this.passed) {
+      return myself;
+    }
+    this.passed = !this.anyIn(values);
+    return myself;
   }
 
   @Override
-  public <T> SELF hasNoneIn(Collection<T> values) {
-    return null;
+  public SELF hasNoneIn(Collection<?> values) {
+    if (!this.passed) {
+      return myself;
+    }
+    this.passed = !this.anyIn(values);
+    return myself;
   }
+
+  protected boolean contains(Object valueToFind) {
+    for (int i = 0; i < this.size(); i++) {
+      Object nextValue = get(i);
+      if (nextValue.equals(valueToFind)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  protected boolean anyIn(Collection<?> values) {
+    for (int i = 0; i < this.size(); i++) {
+      Object nextValue = get(i);
+      if (values.contains(nextValue)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  protected <T> boolean anyIn(T... values) {
+    for (int i = 0; i < this.size(); i++) {
+      Object nextValue = get(i);
+      if (ArrayUtils.contains(values, nextValue)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+
 }

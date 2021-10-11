@@ -4,7 +4,8 @@ import com.cybermax.assertj.core.SizeComparableAssert;
 
 import java.util.Collection;
 
-public interface CollectionAssert<SELF extends CollectionAssert<SELF, ACTUAL, ELEMENT>, ACTUAL extends Collection<ELEMENT>, ELEMENT>
+
+public interface CollectionAssert<SELF extends CollectionAssert<SELF, ACTUAL>, ACTUAL extends Collection<?>>
 extends SizeComparableAssert<SELF, ACTUAL> {
 
   /**
@@ -23,37 +24,37 @@ extends SizeComparableAssert<SELF, ACTUAL> {
    * 是否包含所有值
    * @return
    */
-  SELF containsAll(ELEMENT... values);
+  <T> SELF containsAll(T... values);
 
   /**
    * 是否包含所有值
    * @return
    */
-  SELF containsAll(Collection<ELEMENT> values);
+  SELF containsAll(Collection<?> values);
 
   /**
    * 是否包含某值
    * @return
    */
-  SELF containsAny(ELEMENT... values);
+  <T> SELF containsAny(T... values);
 
   /**
    * 是否包含某值
    * @return
    */
-  SELF containsAny(Collection<ELEMENT> values);
+  SELF containsAny(Collection<?> values);
 
   /**
    * 是否不包含所有值
    * @return
    */
-  SELF doseNotContains(ELEMENT... values);
+  <T> SELF doseNotContains(T... values);
 
   /**
    * 是否不包含所有值
    * @return
    */
-  SELF doseNotContains(Collection<ELEMENT> values);
+  SELF doseNotContains(Collection<?> values);
 
   /**
    * 是否存在部分值
@@ -65,7 +66,7 @@ extends SizeComparableAssert<SELF, ACTUAL> {
    * 是否存在部分值
    * @return
    */
-  SELF hasAnyIn(Collection<ELEMENT> values);
+  SELF hasAnyIn(Collection<?> values);
 
   /**
    * 是否所有值都存在
@@ -77,7 +78,7 @@ extends SizeComparableAssert<SELF, ACTUAL> {
    * 是否所有值都存在
    * @return
    */
-  SELF isAllIn(Collection<ELEMENT> values);
+  SELF isAllIn(Collection<?> values);
 
   /**
    * 一个元素都不存在
@@ -89,5 +90,5 @@ extends SizeComparableAssert<SELF, ACTUAL> {
    * 一个元素都不存在
    * @return
    */
-  SELF hasNoneIn(Collection<ELEMENT> values);
+  SELF hasNoneIn(Collection<?> values);
 }

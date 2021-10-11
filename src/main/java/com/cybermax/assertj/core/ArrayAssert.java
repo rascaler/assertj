@@ -28,7 +28,7 @@ extends SizeComparableAssert<SELF, ACTUAL> {
    * 是否包含所有值
    * @return
    */
-  <T> SELF containsAll(Collection<T> values);
+  SELF containsAll(Collection<?> values);
 
   /**
    * 是否包含某值
@@ -40,7 +40,7 @@ extends SizeComparableAssert<SELF, ACTUAL> {
    * 是否包含某值
    * @return
    */
-  <T> SELF containsAny(Collection<T> values);
+  SELF containsAny(Collection<?> values);
 
   /**
    * 是否不包含所有值
@@ -52,7 +52,7 @@ extends SizeComparableAssert<SELF, ACTUAL> {
    * 是否不包含所有值
    * @return
    */
-  <T> SELF doseNotContains(Collection<T> values);
+  SELF doseNotContains(Collection<?> values);
 
   /**
    * 是否存在部分值
@@ -64,7 +64,7 @@ extends SizeComparableAssert<SELF, ACTUAL> {
    * 是否存在部分值
    * @return
    */
-  <T> SELF hasAnyIn(Collection<T> values);
+  SELF hasAnyIn(Collection<?> values);
 
   /**
    * 是否所有值都存在
@@ -76,7 +76,7 @@ extends SizeComparableAssert<SELF, ACTUAL> {
    * 是否所有值都存在
    * @return
    */
-  <T> SELF isAllIn(Collection<T> values);
+  SELF isAllIn(Collection<?> values);
 
   /**
    * 一个元素都不存在
@@ -88,5 +88,5 @@ extends SizeComparableAssert<SELF, ACTUAL> {
    * 一个元素都不存在
    * @return
    */
-  <T> SELF hasNoneIn(Collection<T> values);
+  SELF hasNoneIn(Collection<?> values);
 }

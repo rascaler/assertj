@@ -5,7 +5,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Set;
 
-public class SetAssert<ELEMENT> extends AbstractCollectionAssert<SetAssert<ELEMENT>, Set<ELEMENT>, ELEMENT> {
+public class SetAssert<ELEMENT> extends AbstractCollectionAssert<SetAssert<ELEMENT>, Set<ELEMENT>> {
 
   public SetAssert(Set<ELEMENT> elements) {
     super(elements, SetAssert.class);

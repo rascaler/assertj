@@ -5,7 +5,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
-public class ListAssert<ELEMENT> extends AbstractCollectionAssert<ListAssert<ELEMENT>, List<ELEMENT>, ELEMENT> {
+public class ListAssert<ELEMENT> extends AbstractCollectionAssert<ListAssert<ELEMENT>, List<ELEMENT>> {
 
   public ListAssert(List<ELEMENT> elements) {
     super(elements, ListAssert.class);

@@ -5,9 +5,9 @@ import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.*;
 
-public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAssert<SELF, ACTUAL, ELEMENT>, ACTUAL extends Collection<ELEMENT>, ELEMENT>
+public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAssert<SELF, ACTUAL>, ACTUAL extends Collection<?>>
         extends AbstractSizeComparableAssert<SELF, ACTUAL>
-        implements CollectionAssert<SELF, ACTUAL, ELEMENT> {
+        implements CollectionAssert<SELF, ACTUAL> {
 
     protected AbstractCollectionAssert(ACTUAL actual, Class<?> selfType) {
         super(actual, selfType);
@@ -55,7 +55,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
     }
 
     @Override
-    public SELF containsAll(ELEMENT... values) {
+    public <T> SELF containsAll(T... values) {
         if (!this.passed) {
             return myself;
         }
@@ -64,7 +64,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
     }
 
     @Override
-    public SELF containsAll(Collection<ELEMENT> values) {
+    public SELF containsAll(Collection<?> values) {
         if (!this.passed) {
             return myself;
         }
@@ -73,7 +73,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
     }
 
     @Override
-    public SELF containsAny(ELEMENT... values) {
+    public <T> SELF containsAny(T... values) {
         if (!this.passed) {
             return myself;
         }
@@ -82,7 +82,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
     }
 
     @Override
-    public SELF containsAny(Collection<ELEMENT> values) {
+    public SELF containsAny(Collection<?> values) {
         if (!this.passed) {
             return myself;
         }
@@ -91,7 +91,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
     }
 
     @Override
-    public SELF doseNotContains(ELEMENT... values) {
+    public <T> SELF doseNotContains(T... values) {
         if (!this.passed) {
             return myself;
         }
@@ -100,7 +100,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
     }
 
     @Override
-    public SELF doseNotContains(Collection<ELEMENT> values) {
+    public SELF doseNotContains(Collection<?> values) {
         if (!this.passed) {
             return myself;
         }
@@ -118,7 +118,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
     }
 
     @Override
-    public SELF hasAnyIn(Collection<ELEMENT> values) {
+    public SELF hasAnyIn(Collection<?> values) {
         if (!this.passed) {
             return myself;
         }
@@ -136,7 +136,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
     }
 
     @Override
-    public SELF isAllIn(Collection<ELEMENT> values) {
+    public SELF isAllIn(Collection<?> values) {
         if (!this.passed) {
             return myself;
         }
@@ -154,7 +154,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
     }
 
     @Override
-    public SELF hasNoneIn(Collection<ELEMENT> values) {
+    public SELF hasNoneIn(Collection<?> values) {
         if (!this.passed) {
             return myself;
         }
