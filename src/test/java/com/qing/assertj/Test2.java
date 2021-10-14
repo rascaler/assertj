@@ -31,7 +31,6 @@ public class Test2 {
         int n = 2;
         int r = size(b);
         Assertions.assertThat(b).containsAny(new Integer[] {3}).thenFailWithLogThrow("1000","测试");
-//        Assertions.assertThat(b).containsAny(new Integer[] {3}).thenFailWithLogThrow("1000","测试{}","test");
         System.out.println(1);
     }
 
