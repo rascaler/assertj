@@ -81,4 +81,18 @@
     </build>
 
 
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <name>Nexus Release Repository</name>
+            <url>http://192.168.66.138:8081/repository/3rdParty/</url>
+        </repository>
+<!--        <snapshotRepository>-->
+<!--            <id>nexus-snapshots</id>-->
+<!--            <name>Nexus Snapshot Repository</name>-->
+<!--            <url>http://127.0.0.1:8080/nexus/content/repositories/snapshots/</url>-->
+<!--        </snapshotRepository>-->
+    </distributionManagement>
+
+
 </project>
