@@ -3,7 +3,7 @@ package com.qing.assertj.core;
 import java.util.Collection;
 
 public interface ArrayAssert<SELF extends ArrayAssert<SELF, ACTUAL>, ACTUAL>
-extends SizeComparableAssert<SELF, ACTUAL> {
+extends SizeComparableAssert<SELF, ACTUAL>{
 
 
   /**

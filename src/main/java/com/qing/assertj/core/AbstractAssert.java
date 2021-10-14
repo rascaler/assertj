@@ -13,6 +13,8 @@
 package com.qing.assertj.core;
 
 import com.qing.assertj.core.exception.ExceptionConvertor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;
@@ -37,6 +39,8 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
   protected final ACTUAL actual;
   protected final SELF myself;
   protected boolean passed = true;
+  protected   Logger log;
+
   // 异常转换器
   private static Map<Class<?>, ExceptionConvertor> mapping = new HashMap<>();
 
@@ -44,6 +48,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
   @SuppressWarnings("unchecked")
   protected AbstractAssert(ACTUAL actual, Class<?> selfType) {
     myself = (SELF) selfType.cast(this);
+    this.log = LoggerFactory.getLogger(selfType);
     this.actual = actual;
   }
 
@@ -153,6 +158,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
     return myself;
   }
 
+
   @Override
   public SELF thenFailThrow(RuntimeException exception) {
     if (!this.passed) {
@@ -179,5 +185,22 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
       throw convertor.getException(obj);
     }
     return myself;
+  }
+
+  @Override
+  public <T> SELF thenFailWithLogThrow(T obj, String format, Object... arguments) {
+    if (!this.passed) {
+      log.error(format, arguments);
+    }
+    return thenFailThrow(obj);
+  }
+
+
+  @Override
+  public <T> SELF thenFailWithLogThrow(T obj, String msg) {
+    if (!this.passed) {
+      log.error(msg);
+    }
+    return thenFailThrow(obj);
   }
 }
