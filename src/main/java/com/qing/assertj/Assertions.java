@@ -5,6 +5,7 @@ import com.qing.assertj.core.AbstractAssert;
 import com.qing.assertj.core.array.*;
 import com.qing.assertj.core.base.BooleanAssert;
 import com.qing.assertj.core.base.CharacterAssert;
+import com.qing.assertj.core.base.ObjectAssert;
 import com.qing.assertj.core.base.StringAssert;
 import com.qing.assertj.core.calendar.DateAssert;
 import com.qing.assertj.core.calendar.LocalDateAssert;
@@ -158,5 +159,7 @@ public class Assertions {
     return new DateAssert(actual, pattern, DateAssert.class);
   }
 
-
+  public static ObjectAssert assertThat(Object actual) {
+    return new ObjectAssert(actual, ObjectAssert.class);
+  }
 }

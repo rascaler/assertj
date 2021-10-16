@@ -1,5 +1,6 @@
 package com.qing.assertj;
 
+import com.qing.assertj.core.Assert;
 import com.qing.assertj.exception.ApiExceptionConvertor;
 import org.junit.Before;
 import org.junit.BeforeClass;
