@@ -15,52 +15,33 @@ package com.qing.assertj.core.number;
 
 import com.qing.assertj.core.AbstractComparableAssert;
 
-/**
- * Base class for all implementations of assertions for {@link Double}s.
- *
- * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
- *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>&quot;
- *          for more details.
- *
- * @author Drummond Dawson
- * @author Yvonne Wang
- * @author David DIDIER
- * @author Alex Ruiz
- * @author Ansgar Konermann
- * @author Joel Costigliola
- * @author Mikhail Mazursky
- * @author Nicolas François
- */
-public abstract class AbstractByteAssert<SELF extends AbstractByteAssert<SELF>> extends
-        AbstractComparableAssert<SELF, Byte> implements NumberAssert<SELF, Byte> {
 
-  private final boolean isPrimitive;
+public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SELF, ACTUAL>,  ACTUAL extends Number & Comparable<? super ACTUAL>> extends
+        AbstractComparableAssert<SELF, ACTUAL> implements NumberAssert<SELF, ACTUAL> {
 
-  protected AbstractByteAssert(Byte actual, Class<?> selfType) {
+
+  protected AbstractNumberAssert(ACTUAL actual, Class<?> selfType) {
     super(actual, selfType);
-    this.isPrimitive = false;
   }
 
-  public AbstractByteAssert(byte actual, Class<?> selfType) {
-    super(actual, selfType);
-    this.isPrimitive = true;
-  }
+  protected abstract ACTUAL getZero();
+
+  protected abstract ACTUAL getOne();
 
   @Override
   public SELF isZero() {
     if (!this.passed) {
       return myself;
     }
-    this.passed = actual.equals((byte)0);
+    this.passed = actual.equals(getZero());
     return myself;
   }
-
   @Override
   public SELF isNotZero() {
     if (!this.passed) {
       return myself;
     }
-    this.passed = !actual.equals((byte)0);
+    this.passed = !actual.equals(getZero());
     return myself;
   }
 
@@ -69,7 +50,7 @@ public abstract class AbstractByteAssert<SELF extends AbstractByteAssert<SELF>> 
     if (!this.passed) {
       return myself;
     }
-    this.passed = actual.equals((byte)1);
+    this.passed = actual.equals(getOne());
     return myself;
   }
 
@@ -78,7 +59,7 @@ public abstract class AbstractByteAssert<SELF extends AbstractByteAssert<SELF>> 
     if (!this.passed) {
       return myself;
     }
-    this.passed = !actual.equals((byte)1);
+    this.passed = !actual.equals(getOne());
     return myself;
   }
 
@@ -87,7 +68,7 @@ public abstract class AbstractByteAssert<SELF extends AbstractByteAssert<SELF>> 
     if (!this.passed) {
       return myself;
     }
-    this.passed = actual > (byte)0;
+    this.passed = actual.compareTo(getZero()) > 0;
     return myself;
   }
 
@@ -96,7 +77,7 @@ public abstract class AbstractByteAssert<SELF extends AbstractByteAssert<SELF>> 
     if (!this.passed) {
       return myself;
     }
-    this.passed = actual < (byte)0;
+    this.passed = actual.compareTo(getZero()) < 0;
     return myself;
   }
 
@@ -105,7 +86,7 @@ public abstract class AbstractByteAssert<SELF extends AbstractByteAssert<SELF>> 
     if (!this.passed) {
       return myself;
     }
-    this.passed = !(actual < (byte)0);
+    this.passed = actual.compareTo(getZero()) >= 0;
     return myself;
   }
 
@@ -114,7 +95,7 @@ public abstract class AbstractByteAssert<SELF extends AbstractByteAssert<SELF>> 
     if (!this.passed) {
       return myself;
     }
-    this.passed = !(actual > (byte)0);
+    this.passed = actual.compareTo(getZero()) <= 0;
     return myself;
   }
 

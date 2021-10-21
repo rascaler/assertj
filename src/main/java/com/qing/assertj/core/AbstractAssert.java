@@ -24,15 +24,10 @@ import java.util.Objects;
 /**
  * Base class for all assertions.
  *
- * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
- *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>&quot;
- *          for more details.
+ * @param <SELF> the "self" type of this assertion class.
  * @param <ACTUAL> the type of the "actual" value.
  *
- * @author Alex Ruiz
- * @author Joel Costigliola
- * @author Mikhail Mazursky
- * @author Nicolas François
+ * @author wurenqng
  */
 public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, ACTUAL> implements Assert<SELF, ACTUAL> {
 
@@ -202,5 +197,9 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
       log.error(msg);
     }
     return thenFailThrow(obj);
+  }
+
+  public boolean getResult() {
+    return this.passed;
   }
 }
