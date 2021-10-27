@@ -8,14 +8,13 @@ import spock.lang.Unroll
 @Unroll
 class NumberAssertTest extends Specification {
 
-    private RuntimeException testException = new RuntimeException("test cannot passed");
 
     def "NumberAssert:isZero"() {
         expect:
         // passed
-        new IntegerAssert(a).isZero().getResult() == true
+        new IntegerAssert(a).isZero().getResult()
         // not passed
-        new IntegerAssert(b).isZero().getResult() == false
+        !new IntegerAssert(b).isZero().getResult()
 
         where:
         a | b
@@ -26,9 +25,9 @@ class NumberAssertTest extends Specification {
     def "NumberAssert:isNotZero"() {
         expect:
         // passed
-        new IntegerAssert(a).isNotZero().getResult() == true
+        new IntegerAssert(a).isNotZero().getResult()
         // not passed
-        new IntegerAssert(b).isNotZero().getResult() == false
+        !new IntegerAssert(b).isNotZero().getResult()
         where:
         a << [1,-1]
         b << [0,0]
@@ -37,9 +36,9 @@ class NumberAssertTest extends Specification {
     def "NumberAssert:isOne"() {
         expect:
         // passed
-        new IntegerAssert(a).isOne().getResult() == true
+        new IntegerAssert(a).isOne().getResult()
         // not passed
-        new IntegerAssert(b).isOne().getResult() == false
+        !new IntegerAssert(b).isOne().getResult()
         where:
         a << [1,1,1]
         b << [0,2,-2]
@@ -48,9 +47,9 @@ class NumberAssertTest extends Specification {
     def "NumberAssert:isNotOne"() {
         expect:
         // passed
-        new IntegerAssert(a).isNotOne().getResult() == true
+        new IntegerAssert(a).isNotOne().getResult()
         // not passed
-        new IntegerAssert(b).isNotOne().getResult() == false
+        !new IntegerAssert(b).isNotOne().getResult()
         where:
         a << [0,2,-2]
         b << [1,1,1]
@@ -59,9 +58,9 @@ class NumberAssertTest extends Specification {
     def "NumberAssert:isPositive"() {
         expect:
         // passed
-        new IntegerAssert(a).isPositive().getResult() == true
+        new IntegerAssert(a).isPositive().getResult()
         // not passed
-        new IntegerAssert(b).isPositive().getResult() == false
+        !new IntegerAssert(b).isPositive().getResult()
         where:
         a << [1, 2, 3]
         b << [0, 0,-1]
@@ -70,9 +69,9 @@ class NumberAssertTest extends Specification {
     def "NumberAssert:isNegative"() {
         expect:
         // passed
-        new IntegerAssert(a).isNegative().getResult() == true
+        new IntegerAssert(a).isNegative().getResult()
         // not passed
-        new IntegerAssert(b).isNegative().getResult() == false
+        !new IntegerAssert(b).isNegative().getResult()
         where:
         a << [-1,-2,-3]
         b << [0, 0, 1]
@@ -81,9 +80,9 @@ class NumberAssertTest extends Specification {
     def "NumberAssert:isNotNegative"() {
         expect:
         // passed
-        new IntegerAssert(a).isNotNegative().getResult() == true
+        new IntegerAssert(a).isNotNegative().getResult()
         // not passed
-        new IntegerAssert(b).isNotNegative().getResult() == false
+        !new IntegerAssert(b).isNotNegative().getResult()
         where:
         a << [0, 1, 2]
         b << [-1,-2,-3]
@@ -92,102 +91,161 @@ class NumberAssertTest extends Specification {
     def "NumberAssert:isNotPositive"() {
         expect:
         // passed
-        new IntegerAssert(a).isNotPositive().getResult() == true
+        new IntegerAssert(a).isNotPositive().getResult()
         // not passed
-        new IntegerAssert(b).isNotPositive().getResult() == false
+        !new IntegerAssert(b).isNotPositive().getResult()
         where:
         a << [0,-1, -2]
         b << [1, 2, 3]
     }
 
-    def "NumberAssert:isLessThan"() {
+    def "NumberAssert:isLessThan passed"() {
         expect:
-        // passed
-        new IntegerAssert(a).isLessThan(b).getResult() == true
-        // not passed
-        new IntegerAssert(a).isLessThan(b).getResult() == false
+        new IntegerAssert(a).isLessThan(b).getResult()
         where:
-        a << [0,-1, -2]
-        b << [1, 2, 3]
+        a | b
+        0 | 1
+        -1| 1
     }
-
-    def "NumberAssert:isLessThanOrEqualTo"() {
+    def "NumberAssert:isLessThan not passed"() {
         expect:
-        // passed
-        new IntegerAssert(a).isNotPositive().getResult() == true
-        // not passed
-        new IntegerAssert(b).isNotPositive().getResult() == false
+        !new IntegerAssert(a).isLessThan(b).getResult()
         where:
-        a << [0,-1, -2]
-        b << [1, 2, 3]
-    }
-
-    def "NumberAssert:isGreaterThan"() {
-        expect:
-        // passed
-        new IntegerAssert(a).isNotPositive().getResult() == true
-        // not passed
-        new IntegerAssert(b).isNotPositive().getResult() == false
-        where:
-        a << [0,-1, -2]
-        b << [1, 2, 3]
+        a | b
+        1 | 1
+        2 | 1
     }
 
 
-    def "NumberAssert:isGreaterThanOrEqualTo"() {
+    def "NumberAssert:isLessThanOrEqualTo pased"() {
         expect:
         // passed
-        new IntegerAssert(a).isNotPositive().getResult() == true
-        // not passed
-        new IntegerAssert(b).isNotPositive().getResult() == false
+        new IntegerAssert(a).isLessThanOrEqualTo(b).getResult()
         where:
-        a << [0,-1, -2]
-        b << [1, 2, 3]
+        a | b
+        0 | 1
+        1 | 1
     }
 
-    def "NumberAssert:isBetween"() {
+    def "NumberAssert:isLessThanOrEqualTo not passed"() {
         expect:
         // passed
-        new IntegerAssert(a).isNotPositive().getResult() == true
-        // not passed
-        new IntegerAssert(b).isNotPositive().getResult() == false
+        !new IntegerAssert(a).isLessThanOrEqualTo(b).getResult()
         where:
-        a << [0,-1, -2]
-        b << [1, 2, 3]
+        a | b
+        2 | 1
     }
 
-    def "NumberAssert:isStrictlyBetween"() {
+    def "NumberAssert:isGreaterThan passed"() {
         expect:
-        // passed
-        new IntegerAssert(a).isNotPositive().getResult() == true
-        // not passed
-        new IntegerAssert(b).isNotPositive().getResult() == false
+        new IntegerAssert(a).isGreaterThan(b).getResult()
         where:
-        a << [0,-1, -2]
-        b << [1, 2, 3]
+        a | b
+        2 | 1
+    }
+
+    def "NumberAssert:isGreaterThan not passed"() {
+        expect:
+        !new IntegerAssert(a).isGreaterThan(b).getResult()
+        where:
+        a | b
+        0 | 1
+        1 | 1
     }
 
 
-    def "NumberAssert:isStartInclusiveBetween"() {
+    def "NumberAssert:isGreaterThanOrEqualTo passed"() {
         expect:
-        // passed
-        new IntegerAssert(a).isNotPositive().getResult() == true
-        // not passed
-        new IntegerAssert(b).isNotPositive().getResult() == false
+        new IntegerAssert(a).isGreaterThanOrEqualTo(b).getResult()
         where:
-        a << [0,-1, -2]
-        b << [1, 2, 3]
+        a | b
+        1 | 1
+        2 | 1
     }
 
-    def "NumberAssert:isEndInclusiveBetween"() {
+    def "NumberAssert:isGreaterThanOrEqualTo not passed"() {
         expect:
-        // passed
-        new IntegerAssert(a).isNotPositive().getResult() == true
-        // not passed
-        new IntegerAssert(b).isNotPositive().getResult() == false
+        !new IntegerAssert(a).isGreaterThanOrEqualTo(b).getResult()
         where:
-        a << [0,-1, -2]
-        b << [1, 2, 3]
+        a | b
+        1 | 2
+    }
+
+    def "NumberAssert:isBetween passed "() {
+        expect:
+        new IntegerAssert(a).isBetween(b, c).getResult()
+        where:
+        a | b | c
+        0 | 0 | 2
+        1 | 0 | 2
+        2 | 0 | 2
+    }
+
+    def "NumberAssert:isBetween not passed"() {
+        expect:
+        !new IntegerAssert(a).isBetween(b, c).getResult()
+        where:
+        a | b | c
+        -1| 0 | 2
+        3 | 0 | 2
+    }
+
+    def "NumberAssert:isStrictlyBetween passed"() {
+        expect:
+        new IntegerAssert(a).isStrictlyBetween(b, c).getResult()
+        where:
+        a | b | c
+        1 | 0 | 2
+    }
+
+    def "NumberAssert:isStrictlyBetween not passed"() {
+        expect:
+        !new IntegerAssert(a).isStrictlyBetween(b, c).getResult()
+        where:
+        a | b | c
+        0 | 0 | 2
+        2 | 0 | 2
+        -1| 0 | 2
+        3 | 0 | 2
+    }
+
+
+    def "NumberAssert:isStartInclusiveBetween passed"() {
+        expect:
+        new IntegerAssert(a).isStartInclusiveBetween(b, c).getResult()
+        where:
+        a | b | c
+        0 | 0 | 2
+        1 | 0 | 2
+    }
+
+    def "NumberAssert:isStartInclusiveBetween not passed"() {
+        expect:
+        !new IntegerAssert(a).isStartInclusiveBetween(b, c).getResult()
+        where:
+        a | b | c
+        -1| 0 | 2
+        2 | 0 | 2
+        3 | 0 | 2
+    }
+
+    def "NumberAssert:isEndInclusiveBetween passed"() {
+        expect:
+        new IntegerAssert(a).isEndInclusiveBetween(b, c).getResult()
+        where:
+        a | b | c
+        1 | 0 | 2
+        2 | 0 | 2
+    }
+
+    def "NumberAssert:isEndInclusiveBetween not passed"() {
+        expect:
+        !new IntegerAssert(a).isEndInclusiveBetween(b, c).getResult()
+        where:
+        a | b | c
+        0 | 0 | 2
+        -1 | 0 | 2
+        3 | 0 | 2
     }
 
 
