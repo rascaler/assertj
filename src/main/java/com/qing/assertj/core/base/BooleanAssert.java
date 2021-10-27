@@ -4,12 +4,12 @@ import com.qing.assertj.core.AbstractAssert;
 
 public class BooleanAssert extends AbstractAssert<BooleanAssert, Boolean> {
 
-    public BooleanAssert(Boolean b, Class<?> selfType) {
-        super(b, selfType);
+    public BooleanAssert(Boolean b) {
+        super(b, BooleanAssert.class);
     }
 
-    public BooleanAssert(boolean b, Class<?> selfType) {
-        super(b, selfType);
+    public BooleanAssert(boolean b) {
+        super(b, BooleanAssert.class);
     }
 
 

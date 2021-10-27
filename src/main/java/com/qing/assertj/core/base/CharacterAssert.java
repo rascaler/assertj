@@ -4,8 +4,8 @@ import org.apache.commons.lang3.CharUtils;
 
 public class CharacterAssert extends AbstractCharacterAssert<CharacterAssert> {
 
-    public CharacterAssert(Character b, Class<?> selfType) {
-        super(b, selfType);
+    public CharacterAssert(Character b) {
+        super(b, CharacterAssert.class);
     }
 
     public CharacterAssert isLowerCase() {

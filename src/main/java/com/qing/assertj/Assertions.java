@@ -80,23 +80,23 @@ public class Assertions {
   }
 
   public static BooleanAssert assertThat(boolean actual) {
-    return new BooleanAssert(actual, BooleanAssert.class);
+    return new BooleanAssert(actual);
   }
 
   public static BooleanAssert assertThat(Boolean actual) {
-    return new BooleanAssert(actual, BooleanAssert.class);
+    return new BooleanAssert(actual);
   }
 
   public static StringAssert assertThat(String actual) {
-    return new StringAssert(actual, StringAssert.class);
+    return new StringAssert(actual);
   }
 
   public static CharacterAssert assertThat(char actual) {
-    return new CharacterAssert(actual, CharacterAssert.class);
+    return new CharacterAssert(actual);
   }
 
   public static CharacterAssert assertThat(Character actual) {
-    return new CharacterAssert(actual, CharacterAssert.class);
+    return new CharacterAssert(actual);
   }
 
   public static MapsAssert assertThat(Map actual) {

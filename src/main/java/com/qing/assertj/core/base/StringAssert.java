@@ -6,8 +6,8 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 public class StringAssert extends AbstractAssert<StringAssert, String> {
 
-    public StringAssert(String b, Class<?> selfType) {
-        super(b, selfType);
+    public StringAssert(String b) {
+        super(b, StringAssert.class);
     }
 
     public StringAssert isEmpty() {
