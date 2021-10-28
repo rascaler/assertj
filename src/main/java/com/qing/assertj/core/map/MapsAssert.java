@@ -8,8 +8,8 @@ import java.util.Map;
 public class MapsAssert<SELF extends MapsAssert<SELF, K, V>, K, V>
 extends AbstractMapAssert<SELF, Map<K, V>, K, V> {
 
-  public MapsAssert(Map<K, V> kvMap, Class<?> selfType) {
-    super(kvMap, selfType);
+  public MapsAssert(Map<K, V> kvMap) {
+    super(kvMap, MapsAssert.class);
   }
 
   @Override

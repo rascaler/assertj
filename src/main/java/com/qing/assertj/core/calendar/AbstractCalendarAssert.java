@@ -10,18 +10,10 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
 
     protected String pattern;
 
-    protected AbstractCalendarAssert(ACTUAL actual, String pattern, Class<?> selfType) {
+    protected AbstractCalendarAssert(ACTUAL actual, Class<?> selfType) {
         super(actual, selfType);
-        this.pattern = pattern;
     }
 
-    protected abstract ACTUAL parse(String dateString);
-
-    @Override
-    public SELF setPattern(String pattern) {
-        this.pattern = pattern;
-        return myself;
-    }
 
     @Override
     public SELF isEqualTo(ACTUAL expected) {
@@ -103,91 +95,4 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
         this.passed = this.actual.compareTo(startExclusiveBoundary) >= 0 && this.actual.compareTo(endInclusiveBoundary) <= 0;
         return myself;
     }
-
-    @Override
-    public SELF isEqualTo(String expected) {
-        if (!this.passed) {
-            return myself;
-        }
-        this.passed = this.actual.equals(this.parse(expected));
-        return myself;
-    }
-
-    @Override
-    public SELF isBefore(String boundary) {
-        if (!this.passed) {
-            return myself;
-        }
-        this.passed = this.actual.compareTo(this.parse(boundary)) < 0;
-        return myself;
-    }
-
-    @Override
-    public SELF isBeforeOrEqualTo(String boundary) {
-        if (!this.passed) {
-            return myself;
-        }
-        this.passed = this.actual.compareTo(this.parse(boundary)) <= 0;
-        return myself;
-    }
-
-    @Override
-    public SELF isAfter(String boundary) {
-        if (!this.passed) {
-            return myself;
-        }
-        this.passed = this.actual.compareTo(this.parse(boundary)) > 0;
-        return myself;
-    }
-
-    @Override
-    public SELF isAfterOrEqualTo(String boundary) {
-        if (!this.passed) {
-            return myself;
-        }
-        this.passed = this.actual.compareTo(this.parse(boundary)) >= 0;
-        return myself;
-    }
-
-    @Override
-    public SELF isBetween(String startInclusiveBoundary, String endInclusiveBoundary) {
-        if (!this.passed) {
-            return myself;
-        }
-        this.passed = this.actual.compareTo(this.parse(startInclusiveBoundary)) >= 0
-                && this.actual.compareTo(this.parse(endInclusiveBoundary)) <= 0;
-        return myself;
-    }
-
-    @Override
-    public SELF isStrictlyBetween(String startExclusiveBoundary, String endExclusiveBoundary) {
-        if (!this.passed) {
-            return myself;
-        }
-        this.passed = this.actual.compareTo(this.parse(startExclusiveBoundary)) > 0
-                && this.actual.compareTo(this.parse(endExclusiveBoundary)) < 0;
-        return myself;
-    }
-
-
-    @Override
-    public SELF isStartInclusiveBetween(String startInclusiveBoundary, String endExclusiveBoundary) {
-        if (!this.passed) {
-            return myself;
-        }
-        this.passed = this.actual.compareTo(this.parse(startInclusiveBoundary)) >= 0
-                && this.actual.compareTo(this.parse(endExclusiveBoundary)) < 0;
-        return myself;
-    }
-
-    @Override
-    public SELF isEndInclusiveBetween(String startExclusiveBoundary, String endInclusiveBoundary) {
-        if (!this.passed) {
-            return myself;
-        }
-        this.passed = this.actual.compareTo(this.parse(startExclusiveBoundary)) > 0
-                && this.actual.compareTo(this.parse(endInclusiveBoundary)) <= 0;
-        return myself;
-    }
-
 }

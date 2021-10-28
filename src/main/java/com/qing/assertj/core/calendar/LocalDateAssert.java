@@ -9,14 +9,7 @@ public class LocalDateAssert<SELF extends LocalDateAssert<SELF>>
         extends AbstractCalendarAssert<SELF, LocalDate>
         implements Assert<SELF, LocalDate>, CalendarAssert<SELF, LocalDate>{
 
-    public LocalDateAssert(LocalDate date, String pattern, Class<?> selfType) {
-        super(date, pattern, selfType);
+    public LocalDateAssert(LocalDate date) {
+        super(date, LocalDateAssert.class);
     }
-
-    @Override
-    protected LocalDate parse(String dateString) {
-        return LocalDate.parse(dateString, DateTimeFormatter.ofPattern(this.pattern));
-    }
-
-
 }

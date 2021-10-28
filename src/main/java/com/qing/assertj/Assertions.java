@@ -100,12 +100,12 @@ public class Assertions {
   }
 
   public static MapsAssert assertThat(Map actual) {
-    return new MapsAssert(actual, MapsAssert.class);
+    return new MapsAssert(actual);
   }
 
 
   public static ByteArrayAssert assertThat(byte[] actual) {
-    return new ByteArrayAssert(actual, ByteArrayAssert.class);
+    return new ByteArrayAssert(actual);
   }
   public static BoxedByteArrayAssert assertThat(Byte[] actual) {
     return new BoxedByteArrayAssert(actual, BoxedByteArrayAssert.class);
@@ -117,49 +117,56 @@ public class Assertions {
     return new BoxedShortArrayAssert(actual, BoxedShortArrayAssert.class);
   }
   public static IntArrayAssert assertThat(int[] actual) {
-    return new IntArrayAssert(actual, IntArrayAssert.class);
+    return new IntArrayAssert(actual);
   }
   public static BoxedIntArrayAssert assertThat(Integer[] actual) {
-    return new BoxedIntArrayAssert(actual, BoxedIntArrayAssert.class);
+    return new BoxedIntArrayAssert(actual);
   }
   public static FloatArrayAssert assertThat(float[] actual) {
-    return new FloatArrayAssert(actual, FloatArrayAssert.class);
+    return new FloatArrayAssert(actual);
   }
   public static BoxedFloatArrayAssert assertThat(Float[] actual) {
-    return new BoxedFloatArrayAssert(actual, BoxedFloatArrayAssert.class);
+    return new BoxedFloatArrayAssert(actual);
   }
   public static DoubleArrayAssert assertThat(double[] actual) {
-    return new DoubleArrayAssert(actual, DoubleArrayAssert.class);
+    return new DoubleArrayAssert(actual);
   }
   public static BoxedDoubleArrayAssert assertThat(Double[] actual) {
-    return new BoxedDoubleArrayAssert(actual, BoxedDoubleArrayAssert.class);
+    return new BoxedDoubleArrayAssert(actual);
   }
   public static LongArrayAssert assertThat(long[] actual) {
-    return new LongArrayAssert(actual, LongArrayAssert.class);
+    return new LongArrayAssert(actual);
   }
   public static BoxedLongArrayAssert assertThat(Long[] actual) {
-    return new BoxedLongArrayAssert(actual, BoxedLongArrayAssert.class);
+    return new BoxedLongArrayAssert(actual);
   }
   public static CharacterArrayAssert assertThat(char[] actual) {
-    return new CharacterArrayAssert(actual, CharacterArrayAssert.class);
+    return new CharacterArrayAssert(actual);
   }
   public static BoxedCharacterArrayAssert assertThat(Character[] actual) {
-    return new BoxedCharacterArrayAssert(actual, BoxedCharacterArrayAssert.class);
+    return new BoxedCharacterArrayAssert(actual);
   }
 
-  public static LocalDateAssert assertThat(LocalDate actual, String pattern) {
-    return new LocalDateAssert(actual, pattern, LocalDateAssert.class);
+  public static BooleanArrayAssert assertThat(boolean[] actual) {
+    return new BooleanArrayAssert(actual);
+  }
+  public static BoxedBooleanArrayAssert assertThat(Boolean[] actual) {
+    return new BoxedBooleanArrayAssert(actual);
   }
 
-  public static LocalDateTimeAssert assertThat(LocalDateTime actual, String pattern) {
-    return new LocalDateTimeAssert(actual, pattern, LocalDateTimeAssert.class);
+  public static LocalDateAssert assertThat(LocalDate actual) {
+    return new LocalDateAssert(actual);
   }
 
-  public static DateAssert assertThat(Date actual, String pattern) {
-    return new DateAssert(actual, pattern, DateAssert.class);
+  public static LocalDateTimeAssert assertThat(LocalDateTime actual) {
+    return new LocalDateTimeAssert(actual);
+  }
+
+  public static DateAssert assertThat(Date actual) {
+    return new DateAssert(actual);
   }
 
   public static ObjectAssert assertThat(Object actual) {
-    return new ObjectAssert(actual, ObjectAssert.class);
+    return new ObjectAssert(actual);
   }
 }

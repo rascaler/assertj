@@ -5,8 +5,8 @@ import com.qing.assertj.core.AbstractArrayAssert;
 
 public  class CharacterArrayAssert extends AbstractArrayAssert<CharacterArrayAssert, char[]> {
 
-  public CharacterArrayAssert(char[] actual, Class<?> selfType) {
-    super(actual, selfType);
+  public CharacterArrayAssert(char[] actual) {
+    super(actual, CharacterArrayAssert.class);
   }
 
   @Override

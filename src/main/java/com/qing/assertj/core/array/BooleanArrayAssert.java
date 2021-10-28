@@ -3,10 +3,10 @@ package com.qing.assertj.core.array;
 import com.qing.assertj.core.AbstractArrayAssert;
 
 
-public  class BooleanArrayAssert extends AbstractArrayAssert<BooleanArrayAssert, int[]> {
+public  class BooleanArrayAssert extends AbstractArrayAssert<BooleanArrayAssert, boolean[]> {
 
-  public BooleanArrayAssert(int[] actual, Class<?> selfType) {
-    super(actual, selfType);
+  public BooleanArrayAssert(boolean[] actual) {
+    super(actual, BooleanArrayAssert.class);
   }
 
   @Override

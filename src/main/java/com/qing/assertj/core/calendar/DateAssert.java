@@ -8,13 +8,8 @@ public class DateAssert<SELF extends DateAssert<SELF>>
         extends AbstractCalendarAssert<SELF, Date>
         implements Assert<SELF, Date>, CalendarAssert<SELF, Date>{
 
-    public DateAssert(Date date, String pattern, Class<?> selfType) {
-        super(date, pattern, selfType);
-    }
-
-    @Override
-    protected Date parse(String dateString) {
-        return null;
+    public DateAssert(Date date) {
+        super(date, DateAssert.class);
     }
 
 }

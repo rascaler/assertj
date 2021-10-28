@@ -5,8 +5,8 @@ import com.qing.assertj.core.AbstractArrayAssert;
 
 public  class BoxedIntArrayAssert extends AbstractArrayAssert<BoxedIntArrayAssert, Integer[]> {
 
-  public BoxedIntArrayAssert(Integer[] actual, Class<?> selfType) {
-    super(actual, selfType);
+  public BoxedIntArrayAssert(Integer[] actual) {
+    super(actual, BoxedIntArrayAssert.class);
   }
 
   @Override

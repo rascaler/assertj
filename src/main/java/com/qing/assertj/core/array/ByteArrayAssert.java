@@ -5,8 +5,8 @@ import com.qing.assertj.core.AbstractArrayAssert;
 
 public  class ByteArrayAssert extends AbstractArrayAssert<ByteArrayAssert, byte[]> {
 
-  public ByteArrayAssert(byte[] actual, Class<?> selfType) {
-    super(actual, selfType);
+  public ByteArrayAssert(byte[] actual) {
+    super(actual, ByteArrayAssert.class);
   }
 
   @Override

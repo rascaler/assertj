@@ -5,8 +5,8 @@ import com.qing.assertj.core.AbstractArrayAssert;
 
 public  class FloatArrayAssert extends AbstractArrayAssert<FloatArrayAssert, float[]> {
 
-  public FloatArrayAssert(float[] actual, Class<?> selfType) {
-    super(actual, selfType);
+  public FloatArrayAssert(float[] actual) {
+    super(actual, FloatArrayAssert.class);
   }
 
   @Override

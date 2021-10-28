@@ -6,8 +6,8 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 public class ObjectAssert extends AbstractAssert<ObjectAssert, Object> {
 
-    public ObjectAssert(Object b, Class<?> selfType) {
-        super(b, selfType);
+    public ObjectAssert(Object b) {
+        super(b, ObjectAssert.class);
     }
 
 }
