@@ -19,6 +19,12 @@ extends SizeComparableAssert<SELF, ACTUAL>{
   SELF isNotEmpty();
 
   /**
+   * 是否存在空元素
+   * @return
+   */
+  SELF hasEmptyElement();
+
+  /**
    * 是否包含所有值
    * @return
    */
@@ -46,13 +52,13 @@ extends SizeComparableAssert<SELF, ACTUAL>{
    * 是否不包含所有值
    * @return
    */
-  <T> SELF doseNotContains(T... values);
+  <T> SELF containsNone(T... values);
 
   /**
    * 是否不包含所有值
    * @return
    */
-  SELF doseNotContains(Collection<?> values);
+  SELF containsNone(Collection<?> values);
 
   /**
    * 是否存在部分值
@@ -70,13 +76,13 @@ extends SizeComparableAssert<SELF, ACTUAL>{
    * 是否所有值都存在
    * @return
    */
-  <T> SELF isAllIn(T... values);
+  <T> SELF hasAllIn(T... values);
 
   /**
    * 是否所有值都存在
    * @return
    */
-  SELF isAllIn(Collection<?> values);
+  SELF hasAllIn(Collection<?> values);
 
   /**
    * 一个元素都不存在

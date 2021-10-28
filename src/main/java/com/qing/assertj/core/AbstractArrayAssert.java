@@ -34,6 +34,21 @@ implements ArrayAssert<SELF, ACTUAL> {
   }
 
   @Override
+  public SELF hasEmptyElement() {
+    if (!this.passed) {
+      return myself;
+    }
+    for (int i = 0; i < this.size(); i++) {
+      if (null == get(i)) {
+        this.passed = true;
+        return myself;
+      }
+    }
+    this.passed = false;
+    return myself;
+  }
+
+  @Override
   public <T> SELF containsAll(T... values) {
     if (!this.passed) {
       return myself;
@@ -148,7 +163,7 @@ implements ArrayAssert<SELF, ACTUAL> {
   }
 
   @Override
-  public <T> SELF doseNotContains(T... values) {
+  public <T> SELF containsNone(T... values) {
     if (!this.passed) {
       return myself;
     }
@@ -170,7 +185,7 @@ implements ArrayAssert<SELF, ACTUAL> {
   }
 
   @Override
-  public SELF doseNotContains(Collection<?> values) {
+  public SELF containsNone(Collection<?> values) {
     if (!this.passed) {
       return myself;
     }
@@ -210,7 +225,7 @@ implements ArrayAssert<SELF, ACTUAL> {
   }
 
   @Override
-  public <T> SELF isAllIn(T... values) {
+  public <T> SELF hasAllIn(T... values) {
     if (!this.passed) {
       return myself;
     }
@@ -242,7 +257,7 @@ implements ArrayAssert<SELF, ACTUAL> {
   }
 
   @Override
-  public SELF isAllIn(Collection<?> values) {
+  public SELF hasAllIn(Collection<?> values) {
     if (!this.passed) {
       return myself;
     }
