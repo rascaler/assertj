@@ -78,13 +78,13 @@ extends SizeComparableAssert<SELF, ACTUAL> {
    * 是否所有值都存在
    * @return
    */
-  <T> SELF hasAllIn(T... values);
+  <T> SELF isAllIn(T... values);
 
   /**
    * 是否所有值都存在
    * @return
    */
-  SELF hasAllIn(Collection<?> values);
+  SELF isAllIn(Collection<?> values);
 
   /**
    * 一个元素都不存在

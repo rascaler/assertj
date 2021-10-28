@@ -225,7 +225,7 @@ implements ArrayAssert<SELF, ACTUAL> {
   }
 
   @Override
-  public <T> SELF hasAllIn(T... values) {
+  public <T> SELF isAllIn(T... values) {
     if (!this.passed) {
       return myself;
     }
@@ -257,7 +257,7 @@ implements ArrayAssert<SELF, ACTUAL> {
   }
 
   @Override
-  public SELF hasAllIn(Collection<?> values) {
+  public SELF isAllIn(Collection<?> values) {
     if (!this.passed) {
       return myself;
     }

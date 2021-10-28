@@ -142,7 +142,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
     }
 
     @Override
-    public <T> SELF hasAllIn(T... values) {
+    public <T> SELF isAllIn(T... values) {
         if (!this.passed) {
             return myself;
         }
@@ -151,7 +151,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
     }
 
     @Override
-    public SELF hasAllIn(Collection<?> values) {
+    public SELF isAllIn(Collection<?> values) {
         if (!this.passed) {
             return myself;
         }
