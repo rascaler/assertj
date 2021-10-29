@@ -11,9 +11,4 @@ extends AbstractMapAssert<SELF, Map<K, V>, K, V> {
   public MapsAssert(Map<K, V> kvMap) {
     super(kvMap, MapsAssert.class);
   }
-
-  @Override
-  protected Object get(int index) {
-    throw new NotImplementedException();
-  }
 }

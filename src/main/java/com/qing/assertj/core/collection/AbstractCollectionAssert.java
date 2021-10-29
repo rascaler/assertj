@@ -18,6 +18,8 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
         return this.actual.size();
     }
 
+    protected abstract Object get(int index);
+
     @Override
     public SELF isEmpty() {
         if (!this.passed) {

@@ -22,8 +22,6 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   protected abstract int size();
 
-  protected abstract Object get(int index);
-
   @Override
   public SELF hasOneSize() {
     if (!this.passed) {

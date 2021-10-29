@@ -14,6 +14,7 @@ implements ArrayAssert<SELF, ACTUAL> {
     super(actual, selfType);
   }
 
+  protected abstract Object get(int index);
 
   @Override
   public SELF isEmpty() {
