@@ -8,8 +8,6 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
         extends AbstractAssert<SELF, ACTUAL>
         implements Assert<SELF, ACTUAL>, CalendarAssert<SELF, ACTUAL>{
 
-    protected String pattern;
-
     protected AbstractCalendarAssert(ACTUAL actual, Class<?> selfType) {
         super(actual, selfType);
     }
@@ -92,7 +90,7 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
         if (!this.passed) {
             return myself;
         }
-        this.passed = this.actual.compareTo(startExclusiveBoundary) >= 0 && this.actual.compareTo(endInclusiveBoundary) <= 0;
+        this.passed = this.actual.compareTo(startExclusiveBoundary) > 0 && this.actual.compareTo(endInclusiveBoundary) <= 0;
         return myself;
     }
 }
