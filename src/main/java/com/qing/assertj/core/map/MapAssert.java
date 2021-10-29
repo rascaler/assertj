@@ -2,6 +2,7 @@ package com.qing.assertj.core.map;
 
 import com.qing.assertj.core.Assert;
 
+import java.util.Collection;
 import java.util.Map;
 
 public interface MapAssert<SELF extends MapAssert<SELF, ACTUAL, K, V>, ACTUAL extends Map<K, V>, K, V> extends Assert<SELF, ACTUAL> {
@@ -28,7 +29,13 @@ public interface MapAssert<SELF extends MapAssert<SELF, ACTUAL, K, V>, ACTUAL ex
      * 是否含有key列表
      * @return
      */
-    SELF containsKeys(K... keys);
+    <T> SELF containsKeys(T... keys);
+
+    /**
+     * 是否含有key列表
+     * @return
+     */
+    SELF containsKeys(Collection<?> keys);
 
     /**
      * 是否不含有key列表
@@ -40,7 +47,13 @@ public interface MapAssert<SELF extends MapAssert<SELF, ACTUAL, K, V>, ACTUAL ex
      * 是否不含有key列表
      * @return
      */
-    SELF doesNotContainKeys(K... key);
+    <T> SELF doesNotContainKeys(T... keys);
+
+    /**
+     * 是否不含有key列表
+     * @return
+     */
+    SELF doesNotContainKeys(Collection<?> keys);
 
     /**
      * 是否含有值
@@ -52,7 +65,13 @@ public interface MapAssert<SELF extends MapAssert<SELF, ACTUAL, K, V>, ACTUAL ex
      * 是否含有值列表
      * @return
      */
-    SELF containsValues(V... values);
+    <T> SELF containsValues(T... values);
+
+    /**
+     * 是否含有值列表
+     * @return
+     */
+    SELF containsValues(Collection<?> values);
 
     /**
      * 是否不含有值
@@ -64,6 +83,12 @@ public interface MapAssert<SELF extends MapAssert<SELF, ACTUAL, K, V>, ACTUAL ex
      * 是否不含有值列表
      * @return
      */
-    SELF doesNotContainValues(V... values);
+    <T> SELF doesNotContainValues(T... values);
+
+    /**
+     * 是否不含有值列表
+     * @return
+     */
+    SELF doesNotContainValues(Collection<?> values);
 
 }

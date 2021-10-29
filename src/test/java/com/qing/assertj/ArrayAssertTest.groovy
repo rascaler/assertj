@@ -67,7 +67,7 @@ class ArrayAssertTest extends Specification {
         new Integer[] {1,2} | new Integer[] {}
         new Integer[] {1,2} | new Integer[] {1}
         new Integer[] {1,2} | new Integer[] {1,1,1}
-        new Integer[] {1,2} | Arrays.asList()
+        new Integer[] {} | Arrays.asList()
         new Integer[] {1,2} | Arrays.asList()
         new Integer[] {1,2} | Arrays.asList(1)
         new Integer[] {1,2} | Arrays.asList(1,1,1)

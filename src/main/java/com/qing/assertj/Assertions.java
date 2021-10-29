@@ -10,18 +10,14 @@ import com.qing.assertj.core.base.StringAssert;
 import com.qing.assertj.core.calendar.DateAssert;
 import com.qing.assertj.core.calendar.LocalDateAssert;
 import com.qing.assertj.core.calendar.LocalDateTimeAssert;
-import com.qing.assertj.core.collection.ListAssert;
-import com.qing.assertj.core.collection.SetAssert;
+import com.qing.assertj.core.collection.DefaultCollectionAssert;
 import com.qing.assertj.core.exception.ExceptionConvertor;
-import com.qing.assertj.core.map.MapsAssert;
+import com.qing.assertj.core.map.DefaultMapAssert;
 import com.qing.assertj.core.number.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Assertions {
 
@@ -71,12 +67,8 @@ public class Assertions {
     return new DoubleAssert(actual);
   }
 
-  public static <T> ListAssert<T> assertThat(List<T> actual) {
-    return new ListAssert<T>(actual);
-  }
-
-  public static <T> SetAssert<T> assertThat(Set<T> actual) {
-    return new SetAssert<T>(actual);
+  public static DefaultCollectionAssert assertThat(Collection<?> actual) {
+    return new DefaultCollectionAssert(actual);
   }
 
   public static BooleanAssert assertThat(boolean actual) {
@@ -99,8 +91,8 @@ public class Assertions {
     return new CharacterAssert(actual);
   }
 
-  public static MapsAssert assertThat(Map actual) {
-    return new MapsAssert(actual);
+  public static DefaultMapAssert assertThat(Map actual) {
+    return new DefaultMapAssert(actual);
   }
 
 
