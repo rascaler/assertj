@@ -5,7 +5,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 @Unroll
-class ArrayAssertTest extends Specification {
+class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isEmpty passed"() {
         expect:

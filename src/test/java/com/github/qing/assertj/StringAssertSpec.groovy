@@ -5,7 +5,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 @Unroll
-class StringAssertTest extends Specification {
+class StringAssertSpec extends Specification {
 
     def "StringAssert:isEmpty passed"() {
         expect:

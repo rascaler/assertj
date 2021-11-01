@@ -5,7 +5,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 @Unroll
-class NumberAssertTest extends Specification {
+class NumberAssertSpec extends Specification {
 
 
     def "NumberAssert:isZero"() {

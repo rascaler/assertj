@@ -23,7 +23,7 @@ public interface MapAssert<SELF extends MapAssert<SELF, ACTUAL, K, V>, ACTUAL ex
      * 是否含有key
      * @return
      */
-    SELF containsKey(K key);
+    SELF containsKey(Object key);
 
     /**
      * 是否含有key列表
@@ -41,7 +41,7 @@ public interface MapAssert<SELF extends MapAssert<SELF, ACTUAL, K, V>, ACTUAL ex
      * 是否不含有key列表
      * @return
      */
-    SELF doesNotContainKey(K key);
+    SELF doesNotContainKey(Object key);
 
     /**
      * 是否不含有key列表
@@ -59,7 +59,7 @@ public interface MapAssert<SELF extends MapAssert<SELF, ACTUAL, K, V>, ACTUAL ex
      * 是否含有值
      * @return
      */
-    SELF containsValue(V value);
+    SELF containsValue(Object value);
 
     /**
      * 是否含有值列表
@@ -77,7 +77,7 @@ public interface MapAssert<SELF extends MapAssert<SELF, ACTUAL, K, V>, ACTUAL ex
      * 是否不含有值
      * @return
      */
-    SELF doesNotContainValue(V value);
+    SELF doesNotContainValue(Object value);
 
     /**
      * 是否不含有值列表

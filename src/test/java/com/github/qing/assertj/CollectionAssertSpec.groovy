@@ -5,7 +5,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 @Unroll
-class CollectionAssertTest extends Specification {
+class CollectionAssertSpec extends Specification {
 
 
     def "ListAssert:isEmpty passed"() {

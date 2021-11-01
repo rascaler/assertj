@@ -15,17 +15,6 @@ public class ExceptionExample {
         Assertions.addExceptionCoverters(new ApiExceptionConvertor());
     }
 
-//    @Before
-//    public void init() {
-//        Assertions.addExceptionCoverters(new ApiExceptionConvertor());
-//    }
-
-    /*
-     * description: 异常
-     * @return void
-     * @author wurenqing
-     * @time 2021-10-14 10:24
-     */
     @Test
     public void testException() {
         Assertions.assertThat(1).isLessThan(1).thenFailThrow("1000");

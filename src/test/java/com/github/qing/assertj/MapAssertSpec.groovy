@@ -5,7 +5,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 @Unroll
-class MapAssertTest extends Specification {
+class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:isEmpty passed"() {
         expect:

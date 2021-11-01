@@ -39,7 +39,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
     }
 
     @Override
-    public SELF containsKey(K key) {
+    public SELF containsKey(Object key) {
         if (!this.passed) {
             return myself;
         }
@@ -48,7 +48,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
     }
 
     @Override
-    public <T> SELF containsKeys(T... keys) {
+    public final <T> SELF containsKeys(T... keys) {
         if (!this.passed) {
             return myself;
         }
@@ -66,7 +66,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
     }
 
     @Override
-    public SELF doesNotContainKey(K key) {
+    public SELF doesNotContainKey(Object key) {
         if (!this.passed) {
             return myself;
         }
@@ -93,7 +93,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
     }
 
     @Override
-    public SELF containsValue(V value) {
+    public SELF containsValue(Object value) {
         if (!this.passed) {
             return myself;
         }
@@ -102,7 +102,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
     }
 
     @Override
-    public <T> SELF containsValues(T... values) {
+    public final <T> SELF containsValues(T... values) {
         if (!this.passed) {
             return myself;
         }
@@ -120,7 +120,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
     }
 
     @Override
-    public SELF doesNotContainValue(V value) {
+    public SELF doesNotContainValue(Object value) {
         if (!this.passed) {
             return myself;
         }

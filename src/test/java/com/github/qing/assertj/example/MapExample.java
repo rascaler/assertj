@@ -1,5 +1,7 @@
 package com.github.qing.assertj.example;
 
+import org.apache.commons.collections4.MapUtils;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

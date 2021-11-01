@@ -91,8 +91,8 @@ public class Assertions {
     return new CharacterAssert(actual);
   }
 
-  public static DefaultMapAssert assertThat(Map actual) {
-    return new DefaultMapAssert(actual);
+  public static  <K,V> DefaultMapAssert<K,V> assertThat(Map<K,V> actual) {
+    return new DefaultMapAssert<K,V>(actual);
   }
 
 

@@ -5,7 +5,7 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 @Unroll
-class CalendarAssertTest extends Specification {
+class CalendarAssertSpec extends Specification {
 
 
     def "DateAssert:isEqualTo passed"() {
