@@ -183,7 +183,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
   }
 
   @Override
-  public <T> SELF thenFailWithLogThrow(T obj, String format, Object... arguments) {
+  public <T> SELF thenFailThrow(T obj, String format, Object... arguments) {
     if (!this.passed) {
       log.error(format, arguments);
     }
@@ -192,7 +192,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
 
   @Override
-  public <T> SELF thenFailWithLogThrow(T obj, String msg) {
+  public <T> SELF thenFailThrow(T obj, String msg) {
     if (!this.passed) {
       log.error(msg);
     }

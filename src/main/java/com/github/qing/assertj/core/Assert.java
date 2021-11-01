@@ -195,7 +195,7 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> {
    * @author wurenqing
    * @time 2021-09-29 17:11
    */
-  <T> SELF thenFailWithLogThrow(T obj, String format, Object... arguments);
+  <T> SELF thenFailThrow(T obj, String format, Object... arguments);
 
   /**
    * description: 断言失败抛异常
@@ -205,6 +205,6 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> {
    * @author wurenqing
    * @time 2021-09-29 17:11
    */
-  <T> SELF thenFailWithLogThrow(T obj, String msg);
+  <T> SELF thenFailThrow(T obj, String msg);
 
 }
