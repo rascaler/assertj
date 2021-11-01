@@ -163,11 +163,43 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
   }
 
   @Override
+  public SELF thenFailThrow(RuntimeException exception, String msg) {
+    if (!this.passed) {
+      log.error(msg);
+    }
+    return thenFailThrow(exception);
+  }
+
+  @Override
+  public SELF thenFailThrow(RuntimeException exception, String format, Object... arguments) {
+    if (!this.passed) {
+      log.error(format, arguments);
+    }
+    return thenFailThrow(exception);
+  }
+
+  @Override
   public SELF thenFailThrow(Error error) {
     if (!this.passed) {
       throw error;
     }
     return myself;
+  }
+
+  @Override
+  public SELF thenFailThrow(Error error, String msg) {
+    if (!this.passed) {
+      log.error(msg);
+    }
+    return thenFailThrow(error);
+  }
+
+  @Override
+  public SELF thenFailThrow(Error error, String format, Object... arguments) {
+    if (!this.passed) {
+      log.error(format, arguments);
+    }
+    return thenFailThrow(error);
   }
 
   @Override

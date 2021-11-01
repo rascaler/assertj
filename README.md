@@ -6,7 +6,7 @@
 
 为什么不用assertj-core而直接造轮子？
 
-1.assertj-core无法自定义异常，AssertError包揽一切
+1.assertj-core无法自定义异常，AssertionError包揽一切
 
 2.assertj-core过于笨重,业务编码过程中，实际就只是对一些基础类型的数据和集合进行验证，所以没有必要用到
 
@@ -18,10 +18,20 @@ if (object == null) {
     throw new BizException(OBJECT_CANNOT_BE_NULL);
 }
 ```
-加入你的方法体里有很多这种要判断的，那么可能一个简单的函数，都会变得冗长，而且语义上，看起来长篇大幅，肯定不如
+假如你的方法体里有很多这种要判断的，那么可能一个简单的函数，都会变得冗长，而且语义上，看起来长篇大幅，肯定不如
 ```java
 assertThat(object).isNotNull().thenFailThrow(new BizException(OBJECT_CANNOT_BE_NULL))
 ```
+多个验证共用一个异常
+```java
+assertThat(object).isNotNull().isEqualTo(1).thenFailThrow(new BizException(OBJECT_CANNOT_BE_NULL))
+```
+不同的验证用不同的异常
+```java
+assertThat(object).isNotNull().thenFailThrow(new BizException(OBJECT_CANNOT_BE_NULL))
+        .isEqualTo(1).thenFailThrow(new BizException(OBJECT_IS_NOT_EQAULS))
+```
+
 此外，本包是一个断言工具包,只判断对和错，所以不会对原生数据类型有任何的操作，比如做转换，日期格式化等,数据转换的操作应该在业务中处理，然后再执行断言。
 
 后续待完善：

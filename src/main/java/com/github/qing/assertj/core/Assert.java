@@ -168,6 +168,11 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> {
    */
   SELF thenFailThrow(RuntimeException exception);
 
+  SELF thenFailThrow(RuntimeException exception, String msg);
+
+  SELF thenFailThrow(RuntimeException exception, String format, Object... arguments);
+
+
   /**
    * description: 断言失败抛异常
    * @param error
@@ -176,6 +181,10 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> {
    * @time 2021-09-29 17:11
    */
   SELF thenFailThrow(Error error);
+
+  SELF thenFailThrow(Error error, String msg);
+
+  SELF thenFailThrow(Error error, String format, Object... arguments);
 
   /**
    * description: 断言失败抛异常
