@@ -1,6 +1,6 @@
 package com.github.qing.assertj
 
-
+import com.github.qing.assertj.core.base.StringAssert
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -9,7 +9,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:isEmpty passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).isEmpty().getResult()
+        new StringAssert(a).isEmpty().getResult()
 
         where:
         a << [null, ""]
@@ -17,7 +17,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:isEmpty not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).isEmpty().getResult()
+        !new StringAssert(a).isEmpty().getResult()
 
         where:
         a << [" ","111"]
@@ -25,21 +25,21 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:isNotEmpty passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).isNotEmpty().getResult()
+        new StringAssert(a).isNotEmpty().getResult()
         where:
         a << ["1111", " "]
     }
 
     def "StringAssert:isNotEmpty not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).isNotEmpty().getResult()
+        !new StringAssert(a).isNotEmpty().getResult()
         where:
         a << [null, ""]
     }
 
     def "StringAssert:isBlank passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).isBlank().getResult()
+        new StringAssert(a).isBlank().getResult()
 
         where:
         a << [null, "", " "]
@@ -47,7 +47,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:isBlank not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).isBlank().getResult()
+        !new StringAssert(a).isBlank().getResult()
 
         where:
         a << ["test", " test"]
@@ -55,7 +55,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:isNotBlank passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).isNotBlank().getResult()
+        new StringAssert(a).isNotBlank().getResult()
 
         where:
         a << ["test", " test"]
@@ -63,7 +63,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:isNotBlank not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).isNotBlank().getResult()
+        !new StringAssert(a).isNotBlank().getResult()
 
         where:
         a << [null, "", " "]
@@ -72,7 +72,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:startsWith passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).startsWith(b).getResult()
+        new StringAssert(a).startsWith(b).getResult()
 
         where:
         a | b
@@ -82,7 +82,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:startsWith not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).startsWith(b).getResult()
+        !new StringAssert(a).startsWith(b).getResult()
 
         where:
         a      | b
@@ -94,7 +94,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:doseNotStartWith passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).doseNotStartWith(b).getResult()
+        new StringAssert(a).doseNotStartWith(b).getResult()
 
         where:
         a | b
@@ -105,7 +105,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:doseNotStartWith not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).doseNotStartWith(b).getResult()
+        !new StringAssert(a).doseNotStartWith(b).getResult()
 
         where:
         a | b
@@ -115,7 +115,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:endsWith passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).endsWith(b).getResult()
+        new StringAssert(a).endsWith(b).getResult()
 
         where:
         a | b
@@ -126,7 +126,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:endsWith not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).endsWith(b).getResult()
+        !new StringAssert(a).endsWith(b).getResult()
 
         where:
         a | b
@@ -136,7 +136,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:doesNotEndWith passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).doesNotEndWith(b).getResult()
+        new StringAssert(a).doesNotEndWith(b).getResult()
 
         where:
         a | b
@@ -146,7 +146,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:doesNotEndWith not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).doesNotEndWith(b).getResult()
+        !new StringAssert(a).doesNotEndWith(b).getResult()
 
         where:
         a | b
@@ -157,7 +157,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:contains passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).contains(b).getResult()
+        new StringAssert(a).contains(b).getResult()
 
         where:
         a | b
@@ -170,7 +170,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:contains not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).contains(b).getResult()
+        !new StringAssert(a).contains(b).getResult()
 
         where:
         a | b
@@ -181,7 +181,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:doesNotContain passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).doesNotContain(b).getResult()
+        new StringAssert(a).doesNotContain(b).getResult()
 
         where:
         a | b
@@ -191,7 +191,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:doesNotContain not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).doesNotContain(b).getResult()
+        !new StringAssert(a).doesNotContain(b).getResult()
 
         where:
         a | b
@@ -205,7 +205,7 @@ class StringAssertSpec extends Specification {
     def "StringAssert:isAllLowerCase passed"() {
         expect:
         // passed
-        new com.github.qing.assertj.core.base.StringAssert(a).isAllLowerCase().getResult()
+        new StringAssert(a).isAllLowerCase().getResult()
 
         where:
         a << ["aa"]
@@ -213,7 +213,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:isAllUpperCase not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).isAllLowerCase().getResult()
+        !new StringAssert(a).isAllLowerCase().getResult()
 
         where:
         a << ["", "Aa"]
@@ -222,7 +222,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:isNumberCreatable passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).isNumberCreatable().getResult()
+        new StringAssert(a).isNumberCreatable().getResult()
 
         where:
         a << ["1", "1.1", "1D", "1F"]
@@ -230,7 +230,7 @@ class StringAssertSpec extends Specification {
 
     def "StringAssert:isNumberCreatable not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).isNumberCreatable().getResult()
+        !new StringAssert(a).isNumberCreatable().getResult()
 
         where:
         a << ["","1c","aa"]

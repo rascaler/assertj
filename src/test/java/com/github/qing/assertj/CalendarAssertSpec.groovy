@@ -1,6 +1,6 @@
 package com.github.qing.assertj
 
-
+import com.github.qing.assertj.core.calendar.DateAssert
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -10,7 +10,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isEqualTo passed"() {
         expect:
-        new com.github.qing.assertj.core.calendar.DateAssert(a).isEqualTo(b).getResult()
+        new DateAssert(a).isEqualTo(b).getResult()
 
         where:
         a | b
@@ -19,7 +19,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isEqualTo not passed"() {
         expect:
-        !new com.github.qing.assertj.core.calendar.DateAssert(a).isEqualTo(b).getResult()
+        !new DateAssert(a).isEqualTo(b).getResult()
 
         where:
         a | b
@@ -28,7 +28,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isBefore passed"() {
         expect:
-        new com.github.qing.assertj.core.calendar.DateAssert(a).isBefore(b).getResult()
+        new DateAssert(a).isBefore(b).getResult()
 
         where:
         a | b
@@ -37,7 +37,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isBefore not passed"() {
         expect:
-        !new com.github.qing.assertj.core.calendar.DateAssert(a).isBefore(b).getResult()
+        !new DateAssert(a).isBefore(b).getResult()
 
         where:
         a | b
@@ -46,7 +46,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isBeforeOrEqualTo passed"() {
         expect:
-        new com.github.qing.assertj.core.calendar.DateAssert(a).isBeforeOrEqualTo(b).getResult()
+        new DateAssert(a).isBeforeOrEqualTo(b).getResult()
 
         where:
         a | b
@@ -56,7 +56,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isBeforeOrEqualTo not passed"() {
         expect:
-        !new com.github.qing.assertj.core.calendar.DateAssert(a).isBeforeOrEqualTo(b).getResult()
+        !new DateAssert(a).isBeforeOrEqualTo(b).getResult()
 
         where:
         a | b
@@ -65,7 +65,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isAfter passed"() {
         expect:
-        new com.github.qing.assertj.core.calendar.DateAssert(a).isAfter(b).getResult()
+        new DateAssert(a).isAfter(b).getResult()
 
         where:
         a | b
@@ -74,7 +74,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isAfter not passed"() {
         expect:
-        !new com.github.qing.assertj.core.calendar.DateAssert(a).isAfter(b).getResult()
+        !new DateAssert(a).isAfter(b).getResult()
 
         where:
         a | b
@@ -83,7 +83,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isAfterOrEqualTo passed"() {
         expect:
-        new com.github.qing.assertj.core.calendar.DateAssert(a).isAfterOrEqualTo(b).getResult()
+        new DateAssert(a).isAfterOrEqualTo(b).getResult()
 
         where:
         a | b
@@ -93,7 +93,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isAfterOrEqualTo not passed"() {
         expect:
-        !new com.github.qing.assertj.core.calendar.DateAssert(a).isAfterOrEqualTo(b).getResult()
+        !new DateAssert(a).isAfterOrEqualTo(b).getResult()
 
         where:
         a | b
@@ -103,7 +103,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isBetween passed"() {
         expect:
-        new com.github.qing.assertj.core.calendar.DateAssert(a).isBetween(b, c).getResult()
+        new DateAssert(a).isBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -114,7 +114,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isBetween not passed"() {
         expect:
-        !new com.github.qing.assertj.core.calendar.DateAssert(a).isBetween(b, c).getResult()
+        !new DateAssert(a).isBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -125,7 +125,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isStrictlyBetween passed"() {
         expect:
-        new com.github.qing.assertj.core.calendar.DateAssert(a).isStrictlyBetween(b, c).getResult()
+        new DateAssert(a).isStrictlyBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -134,7 +134,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isStrictlyBetween not passed"() {
         expect:
-        !new com.github.qing.assertj.core.calendar.DateAssert(a).isStrictlyBetween(b, c).getResult()
+        !new DateAssert(a).isStrictlyBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -147,7 +147,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isStartInclusiveBetween passed"() {
         expect:
-        new com.github.qing.assertj.core.calendar.DateAssert(a).isStartInclusiveBetween(b, c).getResult()
+        new DateAssert(a).isStartInclusiveBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -157,7 +157,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isStartInclusiveBetween not passed"() {
         expect:
-        !new com.github.qing.assertj.core.calendar.DateAssert(a).isStartInclusiveBetween(b, c).getResult()
+        !new DateAssert(a).isStartInclusiveBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -169,7 +169,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isEndInclusiveBetween passed"() {
         expect:
-        new com.github.qing.assertj.core.calendar.DateAssert(a).isEndInclusiveBetween(b, c).getResult()
+        new DateAssert(a).isEndInclusiveBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -179,7 +179,7 @@ class CalendarAssertSpec extends Specification {
 
     def "DateAssert:isEndInclusiveBetween not passed"() {
         expect:
-        !new com.github.qing.assertj.core.calendar.DateAssert(a).isEndInclusiveBetween(b, c).getResult()
+        !new DateAssert(a).isEndInclusiveBetween(b, c).getResult()
 
         where:
         a | b | c

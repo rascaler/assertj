@@ -1,6 +1,6 @@
 package com.github.qing.assertj
 
-
+import com.github.qing.assertj.core.array.BoxedIntArrayAssert
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -9,7 +9,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isEmpty passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isEmpty().getResult()
+        new BoxedIntArrayAssert(a).isEmpty().getResult()
 
         where:
         a <<[new Integer[] {}, null]
@@ -17,7 +17,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isEmpty not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isEmpty().getResult()
+        !new BoxedIntArrayAssert(a).isEmpty().getResult()
 
         where:
         a <<[new Integer[] {1}]
@@ -25,7 +25,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isNotEmpty passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isNotEmpty().getResult()
+        new BoxedIntArrayAssert(a).isNotEmpty().getResult()
 
         where:
         a <<[new Integer[] {1}]
@@ -33,7 +33,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isNotEmpty not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isNotEmpty().getResult()
+        !new BoxedIntArrayAssert(a).isNotEmpty().getResult()
 
         where:
         a <<[new Integer[] {}, null]
@@ -41,7 +41,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:hasEmptyElement passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).hasEmptyElement().getResult()
+        new BoxedIntArrayAssert(a).hasEmptyElement().getResult()
 
         where:
         a << [new Integer[] {1, null, 2}]
@@ -50,7 +50,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:hasEmptyElement not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).hasEmptyElement().getResult()
+        !new BoxedIntArrayAssert(a).hasEmptyElement().getResult()
 
         where:
         a << [new Integer[] {1, 2}]
@@ -58,7 +58,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:containsAll passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).containsAll(b).getResult()
+        new BoxedIntArrayAssert(a).containsAll(b).getResult()
 
         where:
         a | b
@@ -74,7 +74,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:containsAll not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).containsAll(b).getResult()
+        !new BoxedIntArrayAssert(a).containsAll(b).getResult()
 
         where:
         a | b
@@ -85,7 +85,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:containsAny passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).containsAny(b).getResult()
+        new BoxedIntArrayAssert(a).containsAny(b).getResult()
 
         where:
         a | b
@@ -95,7 +95,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:containsAny not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).containsAny(b).getResult()
+        !new BoxedIntArrayAssert(a).containsAny(b).getResult()
 
         where:
         a | b
@@ -105,7 +105,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:containsNone passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).containsNone(b).getResult()
+        new BoxedIntArrayAssert(a).containsNone(b).getResult()
 
         where:
         a | b
@@ -116,7 +116,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:containsNone not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).containsNone(b).getResult()
+        !new BoxedIntArrayAssert(a).containsNone(b).getResult()
 
         where:
         a | b
@@ -134,7 +134,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:hasAnyIn passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).hasAnyIn(b).getResult()
+        new BoxedIntArrayAssert(a).hasAnyIn(b).getResult()
 
         where:
         a | b
@@ -148,7 +148,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:hasAnyIn not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).hasAnyIn(b).getResult()
+        !new BoxedIntArrayAssert(a).hasAnyIn(b).getResult()
 
         where:
         a | b
@@ -158,7 +158,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isAllIn passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isAllIn(b).getResult()
+        new BoxedIntArrayAssert(a).isAllIn(b).getResult()
 
         where:
         a | b
@@ -170,7 +170,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isAllIn not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isAllIn(b).getResult()
+        !new BoxedIntArrayAssert(a).isAllIn(b).getResult()
 
         where:
         a | b
@@ -182,7 +182,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:hasNoneIn passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).hasNoneIn(b).getResult()
+        new BoxedIntArrayAssert(a).hasNoneIn(b).getResult()
 
         where:
         a | b
@@ -192,7 +192,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:hasNoneIn not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).hasNoneIn(b).getResult()
+        !new BoxedIntArrayAssert(a).hasNoneIn(b).getResult()
 
         where:
         a | b
@@ -204,7 +204,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:hasOneSize passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).hasOneSize().getResult()
+        new BoxedIntArrayAssert(a).hasOneSize().getResult()
 
         where:
         a << [new Integer[] {null}, new Integer[] {1}]
@@ -212,7 +212,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:hasOneSize not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).hasOneSize().getResult()
+        !new BoxedIntArrayAssert(a).hasOneSize().getResult()
 
         where:
         a << [new Integer[] {}, new Integer[] {1,2}]
@@ -220,7 +220,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:hasMoreThanOneSize passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).hasMoreThanOneSize().getResult()
+        new BoxedIntArrayAssert(a).hasMoreThanOneSize().getResult()
 
         where:
         a << [new Integer[] {1,2}]
@@ -228,7 +228,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:hasMoreThanOneSize not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).hasMoreThanOneSize().getResult()
+        !new BoxedIntArrayAssert(a).hasMoreThanOneSize().getResult()
 
         where:
         a << [new Integer[] {null}, new Integer[] {1}]
@@ -236,7 +236,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeEqualTo passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeEqualTo(b).getResult()
+        new BoxedIntArrayAssert(a).isSizeEqualTo(b).getResult()
 
         where:
         a | b
@@ -246,7 +246,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeEqualTo not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeEqualTo(b).getResult()
+        !new BoxedIntArrayAssert(a).isSizeEqualTo(b).getResult()
 
         where:
         a | b
@@ -256,7 +256,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeLessThan passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeLessThan(b).getResult()
+        new BoxedIntArrayAssert(a).isSizeLessThan(b).getResult()
 
         where:
         a | b
@@ -265,7 +265,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeLessThan not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeLessThan(b).getResult()
+        !new BoxedIntArrayAssert(a).isSizeLessThan(b).getResult()
 
         where:
         a | b
@@ -274,7 +274,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeLessThanOrEqualTo passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeLessThanOrEqualTo(b).getResult()
+        new BoxedIntArrayAssert(a).isSizeLessThanOrEqualTo(b).getResult()
 
         where:
         a | b
@@ -284,7 +284,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeLessThanOrEqualTo not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeLessThanOrEqualTo(b).getResult()
+        !new BoxedIntArrayAssert(a).isSizeLessThanOrEqualTo(b).getResult()
 
         where:
         a | b
@@ -294,7 +294,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeGreaterThan passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeGreaterThan(b).getResult()
+        new BoxedIntArrayAssert(a).isSizeGreaterThan(b).getResult()
 
         where:
         a | b
@@ -303,7 +303,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeGreaterThan not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeGreaterThan(b).getResult()
+        !new BoxedIntArrayAssert(a).isSizeGreaterThan(b).getResult()
 
         where:
         a | b
@@ -314,7 +314,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeGreaterThanOrEqualTo passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeGreaterThanOrEqualTo(b).getResult()
+        new BoxedIntArrayAssert(a).isSizeGreaterThanOrEqualTo(b).getResult()
 
         where:
         a | b
@@ -324,7 +324,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeGreaterThanOrEqualTo not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeGreaterThanOrEqualTo(b).getResult()
+        !new BoxedIntArrayAssert(a).isSizeGreaterThanOrEqualTo(b).getResult()
 
         where:
         a | b
@@ -333,7 +333,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeBetween passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeBetween(b, c).getResult()
+        new BoxedIntArrayAssert(a).isSizeBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -344,7 +344,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeBetween not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeBetween(b, c).getResult()
+        !new BoxedIntArrayAssert(a).isSizeBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -354,7 +354,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeStrictlyBetween passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeStrictlyBetween(b, c).getResult()
+        new BoxedIntArrayAssert(a).isSizeStrictlyBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -363,7 +363,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeStrictlyBetween not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeStrictlyBetween(b, c).getResult()
+        !new BoxedIntArrayAssert(a).isSizeStrictlyBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -376,7 +376,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeStartInclusiveBetween passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeStartInclusiveBetween(b, c).getResult()
+        new BoxedIntArrayAssert(a).isSizeStartInclusiveBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -386,7 +386,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeStartInclusiveBetween not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeStartInclusiveBetween(b, c).getResult()
+        !new BoxedIntArrayAssert(a).isSizeStartInclusiveBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -398,7 +398,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeEndInclusiveBetween passed"() {
         expect:
-        new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeEndInclusiveBetween(b, c).getResult()
+        new BoxedIntArrayAssert(a).isSizeEndInclusiveBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -408,7 +408,7 @@ class ArrayAssertSpec extends Specification {
 
     def "BoxedIntArrayAssert:isSizeEndInclusiveBetween not passed"() {
         expect:
-        !new com.github.qing.assertj.core.array.BoxedIntArrayAssert(a).isSizeEndInclusiveBetween(b, c).getResult()
+        !new BoxedIntArrayAssert(a).isSizeEndInclusiveBetween(b, c).getResult()
 
         where:
         a | b | c

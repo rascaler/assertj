@@ -1,6 +1,6 @@
 package com.github.qing.assertj
 
-
+import com.github.qing.assertj.core.map.DefaultMapAssert
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -9,7 +9,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:isEmpty passed"() {
         expect:
-        new com.github.qing.assertj.core.map.DefaultMapAssert(a).isEmpty().getResult()
+        new DefaultMapAssert(a).isEmpty().getResult()
 
         where:
         a << [new HashMap<>(), null]
@@ -17,7 +17,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:isEmpty not passed"() {
         expect:
-        !new com.github.qing.assertj.core.map.DefaultMapAssert(a).isEmpty().getResult()
+        !new DefaultMapAssert(a).isEmpty().getResult()
 
         where:
         a << [[a: 1]]
@@ -25,7 +25,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:isNotEmpty passed"() {
         expect:
-        new com.github.qing.assertj.core.map.DefaultMapAssert(a).isNotEmpty().getResult()
+        new DefaultMapAssert(a).isNotEmpty().getResult()
 
         where:
         a << [[a:1]]
@@ -33,7 +33,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:isNotEmpty not passed"() {
         expect:
-        !new com.github.qing.assertj.core.map.DefaultMapAssert(a).isNotEmpty().getResult()
+        !new DefaultMapAssert(a).isNotEmpty().getResult()
 
         where:
         a << [new HashMap<>(), null]
@@ -41,7 +41,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:containsKey passed"() {
         expect:
-        new com.github.qing.assertj.core.map.DefaultMapAssert(a).containsKey(b).getResult()
+        new DefaultMapAssert(a).containsKey(b).getResult()
 
         where:
         a | b
@@ -50,7 +50,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:containsKey not passed"() {
         expect:
-        !new com.github.qing.assertj.core.map.DefaultMapAssert(a).containsKey(b).getResult()
+        !new DefaultMapAssert(a).containsKey(b).getResult()
 
         where:
         a | b
@@ -60,7 +60,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:doesNotContainKey passed"() {
         expect:
-        new com.github.qing.assertj.core.map.DefaultMapAssert(a).doesNotContainKey(b).getResult()
+        new DefaultMapAssert(a).doesNotContainKey(b).getResult()
 
         where:
         a | b
@@ -70,7 +70,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:doesNotContainKey not passed"() {
         expect:
-        !new com.github.qing.assertj.core.map.DefaultMapAssert(a).doesNotContainKey(b).getResult()
+        !new DefaultMapAssert(a).doesNotContainKey(b).getResult()
 
         where:
         a | b
@@ -79,7 +79,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:containsKeys passed"() {
         expect:
-        new com.github.qing.assertj.core.map.DefaultMapAssert(a).containsKeys(b).getResult()
+        new DefaultMapAssert(a).containsKeys(b).getResult()
 
         where:
         a | b
@@ -91,7 +91,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:containsKeys not passed"() {
         expect:
-        !new com.github.qing.assertj.core.map.DefaultMapAssert(a).containsKeys(b).getResult()
+        !new DefaultMapAssert(a).containsKeys(b).getResult()
 
         where:
         a | b
@@ -103,7 +103,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:doesNotContainKeys passed"() {
         expect:
-        new com.github.qing.assertj.core.map.DefaultMapAssert(a).doesNotContainKeys(b).getResult()
+        new DefaultMapAssert(a).doesNotContainKeys(b).getResult()
 
         where:
         a | b
@@ -115,7 +115,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:doesNotContainKeys not passed"() {
         expect:
-        !new com.github.qing.assertj.core.map.DefaultMapAssert(a).isEmpty().getResult()
+        !new DefaultMapAssert(a).isEmpty().getResult()
 
         where:
         a | b
@@ -127,7 +127,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:containsValue passed"() {
         expect:
-        new com.github.qing.assertj.core.map.DefaultMapAssert(a).containsValue(b).getResult()
+        new DefaultMapAssert(a).containsValue(b).getResult()
 
         where:
         a | b
@@ -137,7 +137,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:containsValue not passed"() {
         expect:
-        !new com.github.qing.assertj.core.map.DefaultMapAssert(a).containsValue(b).getResult()
+        !new DefaultMapAssert(a).containsValue(b).getResult()
 
         where:
         a | b
@@ -147,7 +147,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:containsValues passed"() {
         expect:
-        new com.github.qing.assertj.core.map.DefaultMapAssert(a).containsValues(b).getResult()
+        new DefaultMapAssert(a).containsValues(b).getResult()
 
         where:
         a | b
@@ -159,7 +159,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:containsValues not passed"() {
         expect:
-        !new com.github.qing.assertj.core.map.DefaultMapAssert(a).containsValues(b).getResult()
+        !new DefaultMapAssert(a).containsValues(b).getResult()
 
         where:
         a | b
@@ -171,7 +171,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:doesNotContainValue passed"() {
         expect:
-        new com.github.qing.assertj.core.map.DefaultMapAssert(a).doesNotContainValue(b).getResult()
+        new DefaultMapAssert(a).doesNotContainValue(b).getResult()
 
         where:
         a | b
@@ -181,7 +181,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:doesNotContainValue not passed"() {
         expect:
-        !new com.github.qing.assertj.core.map.DefaultMapAssert(a).doesNotContainValue(b).getResult()
+        !new DefaultMapAssert(a).doesNotContainValue(b).getResult()
 
         where:
         a | b
@@ -191,7 +191,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:doesNotContainValues passed"() {
         expect:
-        new com.github.qing.assertj.core.map.DefaultMapAssert(a).doesNotContainValues(b).getResult()
+        new DefaultMapAssert(a).doesNotContainValues(b).getResult()
 
         where:
         a | b
@@ -203,7 +203,7 @@ class MapAssertSpec extends Specification {
 
     def "DefaultMapAssert:doesNotContainValues not passed"() {
         expect:
-        !new com.github.qing.assertj.core.map.DefaultMapAssert(a).doesNotContainValues(b).getResult()
+        !new DefaultMapAssert(a).doesNotContainValues(b).getResult()
 
         where:
         a | b

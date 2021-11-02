@@ -1,6 +1,6 @@
 package com.github.qing.assertj
 
-
+import com.github.qing.assertj.core.collection.DefaultCollectionAssert
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -10,7 +10,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isEmpty passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isEmpty().getResult()
+        new DefaultCollectionAssert(a).isEmpty().getResult()
 
         where:
         a << [Arrays.asList(), null]
@@ -18,7 +18,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isEmpty not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isEmpty().getResult()
+        !new DefaultCollectionAssert(a).isEmpty().getResult()
 
         where:
         a <<[Arrays.asList(1)]
@@ -26,7 +26,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isNotEmpty passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isNotEmpty().getResult()
+        new DefaultCollectionAssert(a).isNotEmpty().getResult()
 
         where:
         a <<[Arrays.asList(1)]
@@ -34,7 +34,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isNotEmpty not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isNotEmpty().getResult()
+        !new DefaultCollectionAssert(a).isNotEmpty().getResult()
 
         where:
         a <<[Arrays.asList(), null]
@@ -42,7 +42,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:hasEmptyElement passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).hasEmptyElement().getResult()
+        new DefaultCollectionAssert(a).hasEmptyElement().getResult()
 
         where:
         a << [Arrays.asList(1, null, 2)]
@@ -51,7 +51,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:hasEmptyElement not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).hasEmptyElement().getResult()
+        !new DefaultCollectionAssert(a).hasEmptyElement().getResult()
 
         where:
         a << [Arrays.asList(1, 2)]
@@ -59,7 +59,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:containsAll passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).containsAll(b).getResult()
+        new DefaultCollectionAssert(a).containsAll(b).getResult()
 
         where:
         a | b
@@ -75,7 +75,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:containsAll not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).containsAll(b).getResult()
+        !new DefaultCollectionAssert(a).containsAll(b).getResult()
 
         where:
         a | b
@@ -86,7 +86,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:containsAny passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).containsAny(b).getResult()
+        new DefaultCollectionAssert(a).containsAny(b).getResult()
 
         where:
         a | b
@@ -96,7 +96,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:containsAny not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).containsAny(b).getResult()
+        !new DefaultCollectionAssert(a).containsAny(b).getResult()
 
         where:
         a | b
@@ -106,7 +106,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:containsNone passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).containsNone(b).getResult()
+        new DefaultCollectionAssert(a).containsNone(b).getResult()
 
         where:
         a | b
@@ -117,7 +117,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:containsNone not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).containsNone(b).getResult()
+        !new DefaultCollectionAssert(a).containsNone(b).getResult()
 
         where:
         a | b
@@ -135,7 +135,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:hasAnyIn passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).hasAnyIn(b).getResult()
+        new DefaultCollectionAssert(a).hasAnyIn(b).getResult()
 
         where:
         a | b
@@ -149,7 +149,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:hasAnyIn not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).hasAnyIn(b).getResult()
+        !new DefaultCollectionAssert(a).hasAnyIn(b).getResult()
 
         where:
         a | b
@@ -159,7 +159,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isAllIn passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isAllIn(b).getResult()
+        new DefaultCollectionAssert(a).isAllIn(b).getResult()
 
         where:
         a | b
@@ -171,7 +171,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isAllIn not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isAllIn(b).getResult()
+        !new DefaultCollectionAssert(a).isAllIn(b).getResult()
 
         where:
         a | b
@@ -183,7 +183,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:hasNoneIn passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).hasNoneIn(b).getResult()
+        new DefaultCollectionAssert(a).hasNoneIn(b).getResult()
 
         where:
         a | b
@@ -193,7 +193,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:hasNoneIn not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).hasNoneIn(b).getResult()
+        !new DefaultCollectionAssert(a).hasNoneIn(b).getResult()
 
         where:
         a | b
@@ -205,7 +205,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:hasOneSize passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).hasOneSize().getResult()
+        new DefaultCollectionAssert(a).hasOneSize().getResult()
 
         where:
         a << [Arrays.asList(new Integer[] {null}),Arrays.asList(1)]
@@ -213,7 +213,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:hasOneSize not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).hasOneSize().getResult()
+        !new DefaultCollectionAssert(a).hasOneSize().getResult()
 
         where:
         a << [Arrays.asList(), Arrays.asList(1,2)]
@@ -221,7 +221,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:hasMoreThanOneSize passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).hasMoreThanOneSize().getResult()
+        new DefaultCollectionAssert(a).hasMoreThanOneSize().getResult()
 
         where:
         a << [Arrays.asList(1,2)]
@@ -229,7 +229,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:hasMoreThanOneSize not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).hasMoreThanOneSize().getResult()
+        !new DefaultCollectionAssert(a).hasMoreThanOneSize().getResult()
 
         where:
         a << [Arrays.asList(new Integer[] {null}), Arrays.asList(new Integer[] {1})]
@@ -237,7 +237,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeEqualTo passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeEqualTo(b).getResult()
+        new DefaultCollectionAssert(a).isSizeEqualTo(b).getResult()
 
         where:
         a | b
@@ -247,7 +247,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeEqualTo not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeEqualTo(b).getResult()
+        !new DefaultCollectionAssert(a).isSizeEqualTo(b).getResult()
 
         where:
         a | b
@@ -257,7 +257,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeLessThan passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeLessThan(b).getResult()
+        new DefaultCollectionAssert(a).isSizeLessThan(b).getResult()
 
         where:
         a | b
@@ -266,7 +266,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeLessThan not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeLessThan(b).getResult()
+        !new DefaultCollectionAssert(a).isSizeLessThan(b).getResult()
 
         where:
         a | b
@@ -275,7 +275,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeLessThanOrEqualTo passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeLessThanOrEqualTo(b).getResult()
+        new DefaultCollectionAssert(a).isSizeLessThanOrEqualTo(b).getResult()
 
         where:
         a | b
@@ -285,7 +285,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeLessThanOrEqualTo not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeLessThanOrEqualTo(b).getResult()
+        !new DefaultCollectionAssert(a).isSizeLessThanOrEqualTo(b).getResult()
 
         where:
         a | b
@@ -295,7 +295,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeGreaterThan passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeGreaterThan(b).getResult()
+        new DefaultCollectionAssert(a).isSizeGreaterThan(b).getResult()
 
         where:
         a | b
@@ -304,7 +304,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeGreaterThan not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeGreaterThan(b).getResult()
+        !new DefaultCollectionAssert(a).isSizeGreaterThan(b).getResult()
 
         where:
         a | b
@@ -315,7 +315,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeGreaterThanOrEqualTo passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeGreaterThanOrEqualTo(b).getResult()
+        new DefaultCollectionAssert(a).isSizeGreaterThanOrEqualTo(b).getResult()
 
         where:
         a | b
@@ -325,7 +325,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeGreaterThanOrEqualTo not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeGreaterThanOrEqualTo(b).getResult()
+        !new DefaultCollectionAssert(a).isSizeGreaterThanOrEqualTo(b).getResult()
 
         where:
         a | b
@@ -334,7 +334,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeBetween passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeBetween(b, c).getResult()
+        new DefaultCollectionAssert(a).isSizeBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -345,7 +345,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeBetween not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeBetween(b, c).getResult()
+        !new DefaultCollectionAssert(a).isSizeBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -355,7 +355,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeStrictlyBetween passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeStrictlyBetween(b, c).getResult()
+        new DefaultCollectionAssert(a).isSizeStrictlyBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -364,7 +364,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeStrictlyBetween not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeStrictlyBetween(b, c).getResult()
+        !new DefaultCollectionAssert(a).isSizeStrictlyBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -377,7 +377,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeStartInclusiveBetween passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeStartInclusiveBetween(b, c).getResult()
+        new DefaultCollectionAssert(a).isSizeStartInclusiveBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -387,7 +387,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeStartInclusiveBetween not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeStartInclusiveBetween(b, c).getResult()
+        !new DefaultCollectionAssert(a).isSizeStartInclusiveBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -399,7 +399,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeEndInclusiveBetween passed"() {
         expect:
-        new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeEndInclusiveBetween(b, c).getResult()
+        new DefaultCollectionAssert(a).isSizeEndInclusiveBetween(b, c).getResult()
 
         where:
         a | b | c
@@ -409,7 +409,7 @@ class CollectionAssertSpec extends Specification {
 
     def "ListAssert:isSizeEndInclusiveBetween not passed"() {
         expect:
-        !new com.github.qing.assertj.core.collection.DefaultCollectionAssert(a).isSizeEndInclusiveBetween(b, c).getResult()
+        !new DefaultCollectionAssert(a).isSizeEndInclusiveBetween(b, c).getResult()
 
         where:
         a | b | c
