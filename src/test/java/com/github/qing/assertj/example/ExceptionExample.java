@@ -12,7 +12,7 @@ public class ExceptionExample {
     @BeforeClass
     public static void  init() {
         // 设置异常转换器，在项目初始化的时候设置
-        Assertions.addExceptionCoverters(new ApiExceptionConvertor());
+        Assertions.addExceptionConvertor(new ApiExceptionConvertor());
     }
 
     @Test

@@ -23,8 +23,8 @@ public class Assertions {
 
   protected Assertions() {}
 
-  public static void addExceptionCoverters(ExceptionConvertor covert) {
-    AbstractAssert.addExceptionConvertor(covert);
+  public static void addExceptionConvertor(ExceptionConvertor convertor) {
+    AbstractAssert.addExceptionConvertor(convertor);
   }
 
   public static ByteAssert assertThat(byte actual) {
