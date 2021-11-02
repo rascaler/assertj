@@ -50,7 +50,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
         return myself;
     }
 
-    public StringAssert doseNotStartsWith(String prefix) {
+    public StringAssert doseNotStartWith(String prefix) {
         if (!this.passed) {
             return myself;
         }
@@ -66,7 +66,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
         return myself;
     }
 
-    public StringAssert doseNotEndsWith(String suffix) {
+    public StringAssert doesNotEndWith(String suffix) {
         if (!this.passed) {
             return myself;
         }
@@ -82,7 +82,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
         return myself;
     }
 
-    public StringAssert doseNotContains(String searchStr) {
+    public StringAssert doesNotContain(String searchStr) {
         if (!this.passed) {
             return myself;
         }

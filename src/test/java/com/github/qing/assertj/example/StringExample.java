@@ -26,7 +26,7 @@ public class StringExample {
         assertThat(str).isNumberCreatable().thenFailThrow(exception);
         assertThat(str).isEqualTo("string").thenFailThrow(exception);
         assertThat(str).contains("tr").thenFailThrow(exception);
-        assertThat(str).doseNotContains("aa").thenFailThrow(exception);
+        assertThat(str).doesNotContain("aa").thenFailThrow(exception);
         assertThat(str).startsWith("str").thenFailThrow(exception);
         assertThat(str).endsWith("ing").thenFailThrow(exception);
     }

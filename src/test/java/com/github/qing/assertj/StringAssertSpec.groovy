@@ -92,9 +92,9 @@ class StringAssertSpec extends Specification {
     }
 
 
-    def "StringAssert:doseNotStartsWith passed"() {
+    def "StringAssert:doseNotStartWith passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).doseNotStartsWith(b).getResult()
+        new com.github.qing.assertj.core.base.StringAssert(a).doseNotStartWith(b).getResult()
 
         where:
         a | b
@@ -103,9 +103,9 @@ class StringAssertSpec extends Specification {
         "string" | "tr"
     }
 
-    def "StringAssert:doseNotStartsWith not passed"() {
+    def "StringAssert:doseNotStartWith not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).doseNotStartsWith(b).getResult()
+        !new com.github.qing.assertj.core.base.StringAssert(a).doseNotStartWith(b).getResult()
 
         where:
         a | b
@@ -134,9 +134,9 @@ class StringAssertSpec extends Specification {
         "string" | "i"
     }
 
-    def "StringAssert:doseNotEndsWith passed"() {
+    def "StringAssert:doesNotEndWith passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).doseNotEndsWith(b).getResult()
+        new com.github.qing.assertj.core.base.StringAssert(a).doesNotEndWith(b).getResult()
 
         where:
         a | b
@@ -144,9 +144,9 @@ class StringAssertSpec extends Specification {
         "string" | "i"
     }
 
-    def "StringAssert:doseNotEndsWith not passed"() {
+    def "StringAssert:doesNotEndWith not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).doseNotEndsWith(b).getResult()
+        !new com.github.qing.assertj.core.base.StringAssert(a).doesNotEndWith(b).getResult()
 
         where:
         a | b
@@ -179,9 +179,9 @@ class StringAssertSpec extends Specification {
     }
 
 
-    def "StringAssert:doseNotContains passed"() {
+    def "StringAssert:doesNotContain passed"() {
         expect:
-        new com.github.qing.assertj.core.base.StringAssert(a).doseNotContains(b).getResult()
+        new com.github.qing.assertj.core.base.StringAssert(a).doesNotContain(b).getResult()
 
         where:
         a | b
@@ -189,9 +189,9 @@ class StringAssertSpec extends Specification {
         "string" | "m"
     }
 
-    def "StringAssert:doseNotContains not passed"() {
+    def "StringAssert:doesNotContain not passed"() {
         expect:
-        !new com.github.qing.assertj.core.base.StringAssert(a).doseNotContains(b).getResult()
+        !new com.github.qing.assertj.core.base.StringAssert(a).doesNotContain(b).getResult()
 
         where:
         a | b
