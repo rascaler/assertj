@@ -29,6 +29,15 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
   protected abstract ACTUAL getOne();
 
   @Override
+  public SELF isEqualTo(ACTUAL expected) {
+    if (!this.passed) {
+      return myself;
+    }
+    this.passed = actual.equals(expected);
+    return myself;
+  }
+
+  @Override
   public SELF isZero() {
     if (!this.passed) {
       return myself;

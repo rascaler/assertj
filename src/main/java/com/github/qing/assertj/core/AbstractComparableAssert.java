@@ -10,85 +10,94 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
     super(actual, selfType);
   }
 
-  /** {@inheritDoc} */
   @Override
-  public SELF isLessThan(ACTUAL other) {
+  public SELF isEqualTo(ACTUAL expected) {
     if (!this.passed) {
       return myself;
     }
-    this.passed = this.actual.compareTo(other) < 0;
+    this.passed = this.actual.equals(expected);
     return myself;
   }
 
   /** {@inheritDoc} */
   @Override
-  public SELF isLessThanOrEqualTo(ACTUAL other) {
+  public SELF isLessThan(ACTUAL boundary) {
     if (!this.passed) {
       return myself;
     }
-    this.passed = this.actual.compareTo(other) <= 0;
+    this.passed = this.actual.compareTo(boundary) < 0;
     return myself;
   }
 
   /** {@inheritDoc} */
   @Override
-  public SELF isGreaterThan(ACTUAL other) {
+  public SELF isLessThanOrEqualTo(ACTUAL boundary) {
     if (!this.passed) {
       return myself;
     }
-    this.passed = this.actual.compareTo(other) > 0;
+    this.passed = this.actual.compareTo(boundary) <= 0;
     return myself;
   }
 
   /** {@inheritDoc} */
   @Override
-  public SELF isGreaterThanOrEqualTo(ACTUAL other) {
+  public SELF isGreaterThan(ACTUAL boundary) {
     if (!this.passed) {
       return myself;
     }
-    this.passed = this.actual.compareTo(other) >= 0;
+    this.passed = this.actual.compareTo(boundary) > 0;
     return myself;
   }
 
   /** {@inheritDoc} */
   @Override
-  public SELF isBetween(ACTUAL startInclusive, ACTUAL endInclusive) {
+  public SELF isGreaterThanOrEqualTo(ACTUAL boundary) {
     if (!this.passed) {
       return myself;
     }
-    this.passed = this.actual.compareTo(startInclusive) >= 0
-            && this.actual.compareTo(endInclusive) <= 0;
+    this.passed = this.actual.compareTo(boundary) >= 0;
     return myself;
   }
 
   /** {@inheritDoc} */
   @Override
-  public SELF isStrictlyBetween(ACTUAL startExclusive, ACTUAL endExclusive) {
+  public SELF isBetween(ACTUAL startInclusiveBoundary, ACTUAL endInclusiveBoundary) {
     if (!this.passed) {
       return myself;
     }
-    this.passed = this.actual.compareTo(startExclusive) > 0
-            && this.actual.compareTo(endExclusive) < 0;
+    this.passed = this.actual.compareTo(startInclusiveBoundary) >= 0
+            && this.actual.compareTo(endInclusiveBoundary) <= 0;
+    return myself;
+  }
+
+  /** {@inheritDoc} */
+  @Override
+  public SELF isStrictlyBetween(ACTUAL startExclusiveBoundary, ACTUAL endExclusiveBoundary) {
+    if (!this.passed) {
+      return myself;
+    }
+    this.passed = this.actual.compareTo(startExclusiveBoundary) > 0
+            && this.actual.compareTo(endExclusiveBoundary) < 0;
     return myself;
   }
 
   @Override
-  public SELF isStartInclusiveBetween(ACTUAL startInclusive, ACTUAL endExclusive) {
+  public SELF isStartInclusiveBetween(ACTUAL startInclusiveBoundary, ACTUAL endExclusiveBoundary) {
     if (!this.passed) {
       return myself;
     }
-    this.passed = this.actual.compareTo(startInclusive) >= 0
-            && this.actual.compareTo(endExclusive) < 0;
+    this.passed = this.actual.compareTo(startInclusiveBoundary) >= 0
+            && this.actual.compareTo(endExclusiveBoundary) < 0;
     return myself;
   }
 
   @Override
-  public SELF isEndInclusiveBetween(ACTUAL startExclusive, ACTUAL endInclusive) {
+  public SELF isEndInclusiveBetween(ACTUAL startExclusiveBoundary, ACTUAL endInclusiveBoundary) {
     if (!this.passed) {
       return myself;
     }
-    this.passed = this.actual.compareTo(startExclusive) > 0
-            && this.actual.compareTo(endInclusive) <= 0;
+    this.passed = this.actual.compareTo(startExclusiveBoundary) > 0
+            && this.actual.compareTo(endInclusiveBoundary) <= 0;
     return myself;
   }
 }
