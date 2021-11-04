@@ -168,24 +168,24 @@ public class ExceptionTest {
          * 设置异常转换器，在项目初始化的时候设置
          * 如果你使用的springboot,你可以可以在@Configuration中配置
          */
-        Assertions.addExceptionCoverters(new ApiExceptionConvertor());
+        addExceptionCoverters(new ApiExceptionConvertor());
     }
 
     @Test
     public void testException() {
-        Assertions.assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL);
+        assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL);
     }
 
     @Test
     public void testExceptionWithLog() {
         // 无占位符
-        Assertions.assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL,"日志测试");
+        assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL,"日志测试");
     }
 
     @Test
     public void testExceptionWithLog2() {
         // 有占位符
-        Assertions.assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL,"日志测试[{}]", "占位符");
+        assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL,"日志测试[{}]", "占位符");
     }
 }
 ```
