@@ -1,4 +1,7 @@
 # assertj
+java版: https://github.com/rascaler/assertj
+
+python版: https://github.com/rascaler/assertpy
 
 本项目参考：https://github.com/assertj/assertj-core
 
