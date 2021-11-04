@@ -173,19 +173,19 @@ public class ExceptionTest {
 
     @Test
     public void testException() {
-        Assertions.assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL);
+        assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL);
     }
 
     @Test
     public void testExceptionWithLog() {
         // 无占位符
-        Assertions.assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL,"日志测试");
+        assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL,"日志测试");
     }
 
     @Test
     public void testExceptionWithLog2() {
         // 有占位符
-        Assertions.assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL,"日志测试[{}]", "占位符");
+        assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL,"日志测试[{}]", "占位符");
     }
 }
 ```
