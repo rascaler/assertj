@@ -50,7 +50,7 @@ assertThat(object).isNotNull().thenFailThrow(new BizException(OBJECT_CANNOT_BE_N
 
 ```xml
 <dependency>
-    <groupId>com.github.qing</groupId>
+    <groupId>io.github.rascaler</groupId>
     <artifactId>assertj</artifactId>
     <version>1.0.0</version>
 </dependency>
