@@ -59,7 +59,7 @@ assertThat(object).isNotNull().thenFailThrow(new BizException(OBJECT_CANNOT_BE_N
 
 ### 例子
 ```java
-import static com.github.qing.assertj.Assertions.assertThat;
+import static Assertions.assertThat;
 public class Example {
     public static void main(String[] args) {
         String str = "str";
@@ -177,7 +177,7 @@ public class ExceptionTest {
 ```java
 import java.util.ArrayList;
 import java.util.List;
-import static com.github.qing.assertj.Assertions.assertThat;
+import static Assertions.assertThat;
 
 public class StringExample {
     public static final RuntimeException exception = new RuntimeException("失败");
@@ -214,7 +214,7 @@ public class StringExample {
 
 import java.util.ArrayList;
 import java.util.List;
-import static com.github.qing.assertj.Assertions.assertThat;
+import static Assertions.assertThat;
 
 public class CharacterExample {
     public static final RuntimeException exception = new RuntimeException("失败");
@@ -245,7 +245,7 @@ public class CharacterExample {
 ```java
 import java.util.ArrayList;
 import java.util.List;
-import static com.github.qing.assertj.Assertions.assertThat;
+import static Assertions.assertThat;
 
 public class NumberExample {
     public static final RuntimeException exception = new RuntimeException("失败");
@@ -279,7 +279,7 @@ public class NumberExample {
 
 import java.util.ArrayList;
 import java.util.List;
-import static com.github.qing.assertj.Assertions.assertThat;
+import static Assertions.assertThat;
 
 public class BooleanExample {
     public static final RuntimeException exception = new RuntimeException("失败");
@@ -311,7 +311,7 @@ public class BooleanExample {
 
 import java.util.ArrayList;
 import java.util.List;
-import static com.github.qing.assertj.Assertions.assertThat;
+import static Assertions.assertThat;
 
 public class ArrayExample {
     public static final RuntimeException exception = new RuntimeException("失败");
@@ -354,7 +354,7 @@ public class ArrayExample {
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.github.qing.assertj.Assertions.assertThat;
+import static Assertions.assertThat;
 
 public class CollectionExample {
 public static final RuntimeException exception = new RuntimeException("失败");
@@ -399,7 +399,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import static com.github.qing.assertj.Assertions.assertThat;
+import static Assertions.assertThat;
 
 public class MapExample {
     public static final RuntimeException exception = new RuntimeException("失败");
