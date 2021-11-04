@@ -139,6 +139,26 @@ public class ApiExceptionConvertor implements ExceptionConvertor<String,ApiExcep
 ```
 
 ```java
+public class ExceptionMessage {
+    public static final String FAIL = "1001";
+    public static final String SUCCESS = "1000";
+    public static final String OBJECT_CANNOT_BE_EMPTY = "1002";
+    public static final Map<String, String> messages = new HashMap<>();
+    static {
+        /**
+         * 消息提示你可以放入资源文件 key-value,然后加载如
+         * 如：
+         * 1001=失败
+         * 1000=成功
+         */
+        messages.put(SUCCESS, "失败");
+        messages.put(FAIL, "失败");
+        messages.put(OBJECT_CANNOT_BE_EMPTY, "不能为空");
+    }
+}
+```
+
+```java
 //异常测试
 public class ExceptionTest {
 
@@ -153,19 +173,19 @@ public class ExceptionTest {
 
     @Test
     public void testException() {
-        Assertions.assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.Exceptio);
+        Assertions.assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL);
     }
 
     @Test
     public void testExceptionWithLog() {
         // 无占位符
-        Assertions.assertThat(1).isLessThan(1).thenFailThrow("1000","日志测试");
+        Assertions.assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL,"日志测试");
     }
 
     @Test
     public void testExceptionWithLog2() {
         // 有占位符
-        Assertions.assertThat(1).isLessThan(1).thenFailThrow("1000","日志测试[{}]", "占位符");
+        Assertions.assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL,"日志测试[{}]", "占位符");
     }
 }
 ```
