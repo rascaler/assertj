@@ -8,6 +8,9 @@
     <artifactId>assertj</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
+    <name>assertj</name>
+    <description>java toolkit for assert</description>
+    <url>https://github.com/rascaler/assertj</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
