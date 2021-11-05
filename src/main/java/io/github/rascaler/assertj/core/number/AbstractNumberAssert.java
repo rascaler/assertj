@@ -16,8 +16,8 @@ package io.github.rascaler.assertj.core.number;
 import io.github.rascaler.assertj.core.AbstractComparableAssert;
 
 
-public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SELF, ACTUAL>,  ACTUAL extends Number & Comparable<? super ACTUAL>> extends
-        AbstractComparableAssert<SELF, ACTUAL> implements NumberAssert<SELF, ACTUAL> {
+public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SELF, ACTUAL>,  ACTUAL extends Number & Comparable<? super ACTUAL>>
+        extends AbstractComparableAssert<SELF, ACTUAL> implements NumberAssert<SELF, ACTUAL> {
 
 
   protected AbstractNumberAssert(ACTUAL actual, Class<?> selfType) {

@@ -1,6 +1,7 @@
 package io.github.rascaler.assertj.core.base;
 
-import org.apache.commons.lang3.CharUtils;
+
+import io.github.rascaler.assertj.util.CharUtils;
 
 public class CharacterAssert extends AbstractCharacterAssert<CharacterAssert> {
 

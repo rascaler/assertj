@@ -1,9 +1,12 @@
-package io.github.rascaler.assertj.core;
+package io.github.rascaler.assertj.core.array;
+
+import io.github.rascaler.assertj.core.Assert;
+import io.github.rascaler.assertj.core.SizeComparableAssert;
 
 import java.util.Collection;
 
 public interface ArrayAssert<SELF extends ArrayAssert<SELF, ACTUAL>, ACTUAL>
-extends SizeComparableAssert<SELF, ACTUAL>{
+extends SizeComparableAssert<SELF, ACTUAL>, Assert<SELF, ACTUAL> {
 
 
   /**

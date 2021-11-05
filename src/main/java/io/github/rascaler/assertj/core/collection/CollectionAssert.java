@@ -1,12 +1,13 @@
 package io.github.rascaler.assertj.core.collection;
 
+import io.github.rascaler.assertj.core.Assert;
 import io.github.rascaler.assertj.core.SizeComparableAssert;
 
 import java.util.Collection;
 
 
 public interface CollectionAssert<SELF extends CollectionAssert<SELF, ACTUAL>, ACTUAL extends Collection<?>>
-extends SizeComparableAssert<SELF, ACTUAL> {
+extends SizeComparableAssert<SELF, ACTUAL>, Assert<SELF, ACTUAL> {
 
   /**
    * 是否为空

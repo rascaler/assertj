@@ -1,11 +1,13 @@
 package io.github.rascaler.assertj.core.map;
 
 import io.github.rascaler.assertj.core.Assert;
+import io.github.rascaler.assertj.core.SizeComparableAssert;
 
 import java.util.Collection;
 import java.util.Map;
 
-public interface MapAssert<SELF extends MapAssert<SELF, ACTUAL, K, V>, ACTUAL extends Map<K, V>, K, V> extends Assert<SELF, ACTUAL> {
+public interface MapAssert<SELF extends MapAssert<SELF, ACTUAL, K, V>, ACTUAL extends Map<K, V>, K, V>
+        extends SizeComparableAssert<SELF, ACTUAL>, Assert<SELF, ACTUAL> {
 
     /**
      * map是否为空

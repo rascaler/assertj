@@ -1,7 +1,7 @@
 package io.github.rascaler.assertj.core.map;
 
 import io.github.rascaler.assertj.core.AbstractSizeComparableAssert;
-import org.apache.commons.collections4.CollectionUtils;
+import io.github.rascaler.assertj.util.CollectionUtils;
 
 import java.util.Arrays;
 import java.util.Collection;

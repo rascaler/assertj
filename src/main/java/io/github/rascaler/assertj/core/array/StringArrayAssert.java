@@ -1,7 +1,5 @@
 package io.github.rascaler.assertj.core.array;
 
-import io.github.rascaler.assertj.core.AbstractArrayAssert;
-
 
 public  class StringArrayAssert extends AbstractArrayAssert<StringArrayAssert, String[]> {
 

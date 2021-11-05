@@ -1,12 +1,11 @@
 package io.github.rascaler.assertj.core.calendar;
 
 import io.github.rascaler.assertj.core.AbstractAssert;
-import io.github.rascaler.assertj.core.Assert;
 
 
 abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, ACTUAL>, ACTUAL extends Comparable<? super ACTUAL>>
         extends AbstractAssert<SELF, ACTUAL>
-        implements Assert<SELF, ACTUAL>, CalendarAssert<SELF, ACTUAL>{
+        implements CalendarAssert<SELF, ACTUAL>{
 
     protected AbstractCalendarAssert(ACTUAL actual, Class<?> selfType) {
         super(actual, selfType);

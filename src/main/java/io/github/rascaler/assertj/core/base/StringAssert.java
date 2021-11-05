@@ -1,8 +1,8 @@
 package io.github.rascaler.assertj.core.base;
 
 import io.github.rascaler.assertj.core.AbstractAssert;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.math.NumberUtils;
+import io.github.rascaler.assertj.util.NumberUtils;
+import io.github.rascaler.assertj.util.StringUtils;
 
 public class StringAssert extends AbstractAssert<StringAssert, String> {
 

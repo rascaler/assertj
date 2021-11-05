@@ -1,7 +1,11 @@
 package io.github.rascaler.assertj.core.number;
 
 
-public interface NumberAssert<SELF extends NumberAssert<SELF, ACTUAL>, ACTUAL extends Number> {
+import io.github.rascaler.assertj.core.Assert;
+import io.github.rascaler.assertj.core.ComparableAssert;
+
+public interface NumberAssert<SELF extends NumberAssert<SELF, ACTUAL>, ACTUAL extends Number & Comparable<? super ACTUAL>>
+extends ComparableAssert<SELF, ACTUAL>, Assert<SELF, ACTUAL> {
 
   /**
    * Verifies that the actual value is equal to zero.

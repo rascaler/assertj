@@ -1,6 +1,7 @@
-package io.github.rascaler.assertj.core;
+package io.github.rascaler.assertj.core.array;
 
-import org.apache.commons.lang3.ArrayUtils;
+import io.github.rascaler.assertj.core.AbstractSizeComparableAssert;
+import io.github.rascaler.assertj.util.ArrayUtils;
 
 import java.util.Collection;
 import java.util.HashSet;

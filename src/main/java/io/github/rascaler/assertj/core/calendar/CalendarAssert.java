@@ -1,7 +1,9 @@
 package io.github.rascaler.assertj.core.calendar;
 
 
-public interface CalendarAssert<SELF extends CalendarAssert<SELF, ACTUAL>, ACTUAL extends Comparable<? super ACTUAL>> {
+import io.github.rascaler.assertj.core.Assert;
+
+public interface CalendarAssert<SELF extends CalendarAssert<SELF, ACTUAL>, ACTUAL extends Comparable<? super ACTUAL>> extends Assert<SELF, ACTUAL> {
 
     SELF isEqualTo(ACTUAL expected);
 
