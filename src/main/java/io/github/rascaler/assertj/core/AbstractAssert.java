@@ -33,7 +33,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   protected final ACTUAL actual;
   protected final SELF myself;
-  protected boolean passed = true;
+  protected boolean passed = false;
   protected   Logger log;
 
   // 异常转换器
@@ -59,7 +59,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isEqualTo(Object expected) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = expected.equals(this.actual);
@@ -68,7 +68,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isNotEqualTo(Object other) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = !other.equals(this.actual);
@@ -77,7 +77,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isNull() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = Objects.isNull(this.actual);
@@ -86,7 +86,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isNotNull() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = !Objects.isNull(this.actual);
@@ -95,7 +95,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isIn(Object... values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     for (Object value : values) {
@@ -110,7 +110,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isNotIn(Object... values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     for (Object value : values) {
@@ -125,7 +125,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isIn(Iterable<?> values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     for (Object value : values) {
@@ -140,7 +140,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isNotIn(Iterable<?> values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     for (Object value : values) {
@@ -155,80 +155,80 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
 
   @Override
-  public SELF thenFailThrow(RuntimeException exception) {
-    if (!this.passed) {
+  public SELF thenThrow(RuntimeException exception) {
+    if (this.passed) {
       throw exception;
     }
     return myself;
   }
 
   @Override
-  public SELF thenFailThrow(RuntimeException exception, String msg) {
-    if (!this.passed) {
+  public SELF thenThrow(RuntimeException exception, String msg) {
+    if (this.passed) {
       log.error(msg);
     }
-    return thenFailThrow(exception);
+    return thenThrow(exception);
   }
 
   @Override
-  public SELF thenFailThrow(RuntimeException exception, String format, Object... arguments) {
-    if (!this.passed) {
+  public SELF thenThrow(RuntimeException exception, String format, Object... arguments) {
+    if (this.passed) {
       log.error(format, arguments);
     }
-    return thenFailThrow(exception);
+    return thenThrow(exception);
   }
 
   @Override
-  public SELF thenFailThrow(Error error) {
-    if (!this.passed) {
+  public SELF thenThrow(Error error) {
+    if (this.passed) {
       throw error;
     }
     return myself;
   }
 
   @Override
-  public SELF thenFailThrow(Error error, String msg) {
-    if (!this.passed) {
+  public SELF thenThrow(Error error, String msg) {
+    if (this.passed) {
       log.error(msg);
     }
-    return thenFailThrow(error);
+    return thenThrow(error);
   }
 
   @Override
-  public SELF thenFailThrow(Error error, String format, Object... arguments) {
-    if (!this.passed) {
+  public SELF thenThrow(Error error, String format, Object... arguments) {
+    if (this.passed) {
       log.error(format, arguments);
     }
-    return thenFailThrow(error);
+    return thenThrow(error);
   }
 
   @Override
-  public <T> SELF thenFailThrow(T obj) {
+  public <T> SELF thenThrow(T obj) {
     ExceptionConvertor convertor = mapping.get(obj.getClass());
     if (null == convertor) {
       throw new RuntimeException(String.format("cannot find exception convertor by [%s] class", obj.getClass()));
     }
-    if (!this.passed) {
+    if (this.passed) {
       throw convertor.getException(obj);
     }
     return myself;
   }
 
   @Override
-  public <T> SELF thenFailThrow(T obj, String format, Object... arguments) {
-    if (!this.passed) {
+  public <T> SELF thenThrow(T obj, String format, Object... arguments) {
+    if (this.passed) {
       log.error(format, arguments);
     }
-    return thenFailThrow(obj);
+    return thenThrow(obj);
   }
 
 
   @Override
-  public <T> SELF thenFailThrow(T obj, String msg) {
-    if (!this.passed) {
+  public <T> SELF thenThrow(T obj, String msg) {
+    if (this.passed) {
       log.error(msg);
     }
-    return thenFailThrow(obj);
+    return thenThrow(obj);
   }
 
   public boolean getResult() {

@@ -23,16 +23,16 @@ if (object == null) {
 ```
 假如你的方法体里有很多这种要判断的，那么可能一个简单的函数，都会变得冗长，而且语义上，看起来长篇大幅，肯定不如
 ```java
-assertThat(object).isNotNull().thenFailThrow(new BizException(OBJECT_CANNOT_BE_NULL))
+assertThat(object).isNotNull().thenThrow(new BizException(OBJECT_CANNOT_BE_NULL))
 ```
 多个验证共用一个异常
 ```java
-assertThat(object).isNotNull().isEqualTo(1).thenFailThrow(new BizException(OBJECT_CANNOT_BE_NULL))
+assertThat(object).isNotNull().isEqualTo(1).thenThrow(new BizException(OBJECT_CANNOT_BE_NULL))
 ```
 不同的验证用不同的异常
 ```java
-assertThat(object).isNotNull().thenFailThrow(new BizException(OBJECT_CANNOT_BE_NULL))
-        .isEqualTo(1).thenFailThrow(new BizException(OBJECT_IS_NOT_EQAULS))
+assertThat(object).isNotNull().thenThrow(new BizException(OBJECT_CANNOT_BE_NULL))
+        .isEqualTo(1).thenThrow(new BizException(OBJECT_IS_NOT_EQAULS))
 ```
 
 此外，本包是一个断言工具包,只判断对和错，所以不会对原生数据类型有任何的操作，比如做转换，日期格式化等,数据转换的操作应该在业务中处理，然后再执行断言。
@@ -66,8 +66,8 @@ import static Assertions.assertThat;
 public class Example {
     public static void main(String[] args) {
         String str = "str";
-        assertThat(str).isNotBlank().thenFailThrow(new BizException(OBJECT_CANNOT_BE_EMPTY))
-                .isAllUpperCase().thenFailThrow(new BizException()); 
+        assertThat(str).isNotBlank().thenThrow(new BizException(OBJECT_CANNOT_BE_EMPTY))
+                .isAllUpperCase().thenThrow(new BizException()); 
     }
 }
 ```
@@ -132,7 +132,7 @@ public class ApiExceptionConvertor implements ExceptionConvertor<String,ApiExcep
     @Override
     public ApiException getException(String obj) {
         String msg = ExceptionMessage.messages.get(obj);
-        assertThat(msg).isNotBlank().thenFailThrow(new RuntimeException("异常未定义"));
+        assertThat(msg).isNotBlank().thenThrow(new RuntimeException("异常未定义"));
         return new ApiException(obj, msg, null);
     }
 }
@@ -173,19 +173,19 @@ public class ExceptionTest {
 
     @Test
     public void testException() {
-        assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL);
+        assertThat(1).isLessThan(1).thenThrow(ExceptionMessage.FAIL);
     }
 
     @Test
     public void testExceptionWithLog() {
         // 无占位符
-        assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL,"日志测试");
+        assertThat(1).isLessThan(1).thenThrow(ExceptionMessage.FAIL,"日志测试");
     }
 
     @Test
     public void testExceptionWithLog2() {
         // 有占位符
-        assertThat(1).isLessThan(1).thenFailThrow(ExceptionMessage.FAIL,"日志测试[{}]", "占位符");
+        assertThat(1).isLessThan(1).thenThrow(ExceptionMessage.FAIL,"日志测试[{}]", "占位符");
     }
 }
 ```
@@ -210,23 +210,23 @@ public class StringExample {
         List<String> s = new ArrayList<>();
         s.add("string");
         s.add("test");
-        assertThat(str).isNull().thenFailThrow(exception);
-        assertThat(str).isNotNull().thenFailThrow(exception);
-        assertThat(str).isEqualTo("string").thenFailThrow(exception);
-        assertThat(str).isNotEqualTo("str").thenFailThrow(exception);
+        assertThat(str).isNull().thenThrow(exception);
+        assertThat(str).isNotNull().thenThrow(exception);
+        assertThat(str).isEqualTo("string").thenThrow(exception);
+        assertThat(str).isNotEqualTo("str").thenThrow(exception);
 
-        assertThat(str).isBlank().thenFailThrow(exception);
-        assertThat(str).isNotBlank().thenFailThrow(exception);
-        assertThat(str).isEmpty().thenFailThrow(exception);
-        assertThat(str).isNotEmpty().thenFailThrow(exception);
-        assertThat(str).isAllUpperCase().thenFailThrow(exception);
-        assertThat(str).isAllLowerCase().thenFailThrow(exception);
-        assertThat(str).isNumberCreatable().thenFailThrow(exception);
-        assertThat(str).isEqualTo("string").thenFailThrow(exception);
-        assertThat(str).contains("tr").thenFailThrow(exception);
-        assertThat(str).doseNotContains("aa").thenFailThrow(exception);
-        assertThat(str).startsWith("str").thenFailThrow(exception);
-        assertThat(str).endsWith("ing").thenFailThrow(exception);
+        assertThat(str).isBlank().thenThrow(exception);
+        assertThat(str).isNotBlank().thenThrow(exception);
+        assertThat(str).isEmpty().thenThrow(exception);
+        assertThat(str).isNotEmpty().thenThrow(exception);
+        assertThat(str).isAllUpperCase().thenThrow(exception);
+        assertThat(str).isAllLowerCase().thenThrow(exception);
+        assertThat(str).isNumberCreatable().thenThrow(exception);
+        assertThat(str).isEqualTo("string").thenThrow(exception);
+        assertThat(str).contains("tr").thenThrow(exception);
+        assertThat(str).doseNotContains("aa").thenThrow(exception);
+        assertThat(str).startsWith("str").thenThrow(exception);
+        assertThat(str).endsWith("ing").thenThrow(exception);
     }
 }
 ```
@@ -247,15 +247,15 @@ public class CharacterExample {
         List<Character> m = new ArrayList<>();
         m.add('a');
         m.add('b');
-        assertThat(c).isNull().thenFailThrow(exception);
-        assertThat(c).isNotNull().thenFailThrow(exception);
-        assertThat(c).isEqualTo('a').thenFailThrow(exception);
-        assertThat(c).isEqualTo('b').thenFailThrow(exception);
-        assertThat(c).isIn(m).thenFailThrow(exception);
-        assertThat(c).isIn('a','b').thenFailThrow(exception);
-        assertThat(c).isAscii().thenFailThrow(exception);
-        assertThat(c).isLowerCase().thenFailThrow(exception);
-        assertThat(c).isUpperCase().thenFailThrow(exception);
+        assertThat(c).isNull().thenThrow(exception);
+        assertThat(c).isNotNull().thenThrow(exception);
+        assertThat(c).isEqualTo('a').thenThrow(exception);
+        assertThat(c).isEqualTo('b').thenThrow(exception);
+        assertThat(c).isIn(m).thenThrow(exception);
+        assertThat(c).isIn('a','b').thenThrow(exception);
+        assertThat(c).isAscii().thenThrow(exception);
+        assertThat(c).isLowerCase().thenThrow(exception);
+        assertThat(c).isUpperCase().thenThrow(exception);
 
     }
 }
@@ -278,18 +278,18 @@ public class NumberExample {
         List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);
-        assertThat(num).isNull().thenFailThrow(exception);
-        assertThat(num).isNotNull().thenFailThrow(exception);
-        assertThat(num).isEqualTo(1).thenFailThrow(exception);
-        assertThat(num).isNotEqualTo(3).thenFailThrow(exception);
-        assertThat(num).isGreaterThan(0).thenFailThrow(exception);
-        assertThat(num).isGreaterThanOrEqualTo(1).thenFailThrow(exception);
-        assertThat(num).isLessThan(2).thenFailThrow(exception);
-        assertThat(num).isLessThanOrEqualTo(1).thenFailThrow(exception);
-        assertThat(num).isBetween(0,1).thenFailThrow(exception);
-        assertThat(num).isStrictlyBetween(0,2).thenFailThrow(exception);
-        assertThat(num).isStartInclusiveBetween(1,2).thenFailThrow(exception);
-        assertThat(num).isEndInclusiveBetween(0,1).thenFailThrow(exception);
+        assertThat(num).isNull().thenThrow(exception);
+        assertThat(num).isNotNull().thenThrow(exception);
+        assertThat(num).isEqualTo(1).thenThrow(exception);
+        assertThat(num).isNotEqualTo(3).thenThrow(exception);
+        assertThat(num).isGreaterThan(0).thenThrow(exception);
+        assertThat(num).isGreaterThanOrEqualTo(1).thenThrow(exception);
+        assertThat(num).isLessThan(2).thenThrow(exception);
+        assertThat(num).isLessThanOrEqualTo(1).thenThrow(exception);
+        assertThat(num).isBetween(0,1).thenThrow(exception);
+        assertThat(num).isStrictlyBetween(0,2).thenThrow(exception);
+        assertThat(num).isStartInclusiveBetween(1,2).thenThrow(exception);
+        assertThat(num).isEndInclusiveBetween(0,1).thenThrow(exception);
         assertThat(num).isIn(list);
     }
 }
@@ -312,16 +312,16 @@ public class BooleanExample {
         List<Boolean> list = new ArrayList<>();
         list.add(true);
         list.add(false);
-        assertThat(obj).isNull().thenFailThrow(exception);
-        assertThat(obj).isNotNull().thenFailThrow(exception);
-        assertThat(obj).isEqualTo(1).thenFailThrow(exception);
-        assertThat(obj).isNotEqualTo(3).thenFailThrow(exception);
-        assertThat(obj).isFalse().thenFailThrow(exception);
-        assertThat(obj).isTrue().thenFailThrow(exception);
-        assertThat(obj).isIn(list).thenFailThrow(exception);
-        assertThat(obj).isIn(true, false).thenFailThrow(exception);
-        assertThat(obj).isNotIn(list).thenFailThrow(exception);
-        assertThat(obj).isNotIn(true, false).thenFailThrow(exception);
+        assertThat(obj).isNull().thenThrow(exception);
+        assertThat(obj).isNotNull().thenThrow(exception);
+        assertThat(obj).isEqualTo(1).thenThrow(exception);
+        assertThat(obj).isNotEqualTo(3).thenThrow(exception);
+        assertThat(obj).isFalse().thenThrow(exception);
+        assertThat(obj).isTrue().thenThrow(exception);
+        assertThat(obj).isIn(list).thenThrow(exception);
+        assertThat(obj).isIn(true, false).thenThrow(exception);
+        assertThat(obj).isNotIn(list).thenThrow(exception);
+        assertThat(obj).isNotIn(true, false).thenThrow(exception);
     }
 }
 ```
@@ -345,28 +345,28 @@ public class ArrayExample {
         List<Integer> expect2 = new ArrayList<>();
         expect2.add(1);
         expect2.add(3);
-        assertThat(obj).isNull().thenFailThrow(exception);
-        assertThat(obj).isNotNull().thenFailThrow(exception);
-        assertThat(obj).isEqualTo(1).thenFailThrow(exception);
-        assertThat(obj).isNotEqualTo(3).thenFailThrow(exception);
-        assertThat(obj).isEmpty().thenFailThrow(exception);
-        assertThat(obj).isNotEmpty().thenFailThrow(exception);
-        assertThat(obj).isAllIn(expect).thenFailThrow(exception);
-        assertThat(obj).isAllIn(expect2).thenFailThrow(exception);
-        assertThat(obj).hasAnyIn(expect).thenFailThrow(exception);
-        assertThat(obj).hasAnyIn(expect2).thenFailThrow(exception);
-        assertThat(obj).hasNoneIn(expect).thenFailThrow(exception);
-        assertThat(obj).hasNoneIn(expect2).thenFailThrow(exception);
-        assertThat(obj).containsAll(expect).thenFailThrow(exception);
-        assertThat(obj).containsAll(expect2).thenFailThrow(exception);
-        assertThat(obj).isSizeEqualTo(2).thenFailThrow(exception);
-        assertThat(obj).isSizeBetween(1,3).thenFailThrow(exception);
-        assertThat(obj).isSizeStrictlyBetween(1,3).thenFailThrow(exception);
-        assertThat(obj).isSizeGreaterThan(1).thenFailThrow(exception);
-        assertThat(obj).isSizeGreaterThanOrEqualTo(2).thenFailThrow(exception);
-        assertThat(obj).isSizeGreaterThan(2).thenFailThrow(exception);
-        assertThat(obj).isSizeLessThan(3).thenFailThrow(exception);
-        assertThat(obj).isSizeLessThanOrEqualTo(2).thenFailThrow(exception);
+        assertThat(obj).isNull().thenThrow(exception);
+        assertThat(obj).isNotNull().thenThrow(exception);
+        assertThat(obj).isEqualTo(1).thenThrow(exception);
+        assertThat(obj).isNotEqualTo(3).thenThrow(exception);
+        assertThat(obj).isEmpty().thenThrow(exception);
+        assertThat(obj).isNotEmpty().thenThrow(exception);
+        assertThat(obj).isAllIn(expect).thenThrow(exception);
+        assertThat(obj).isAllIn(expect2).thenThrow(exception);
+        assertThat(obj).hasAnyIn(expect).thenThrow(exception);
+        assertThat(obj).hasAnyIn(expect2).thenThrow(exception);
+        assertThat(obj).hasNoneIn(expect).thenThrow(exception);
+        assertThat(obj).hasNoneIn(expect2).thenThrow(exception);
+        assertThat(obj).containsAll(expect).thenThrow(exception);
+        assertThat(obj).containsAll(expect2).thenThrow(exception);
+        assertThat(obj).isSizeEqualTo(2).thenThrow(exception);
+        assertThat(obj).isSizeBetween(1,3).thenThrow(exception);
+        assertThat(obj).isSizeStrictlyBetween(1,3).thenThrow(exception);
+        assertThat(obj).isSizeGreaterThan(1).thenThrow(exception);
+        assertThat(obj).isSizeGreaterThanOrEqualTo(2).thenThrow(exception);
+        assertThat(obj).isSizeGreaterThan(2).thenThrow(exception);
+        assertThat(obj).isSizeLessThan(3).thenThrow(exception);
+        assertThat(obj).isSizeLessThanOrEqualTo(2).thenThrow(exception);
     }
 }
 ```
@@ -388,28 +388,28 @@ public static final RuntimeException exception = new RuntimeException("失败");
         List<Integer> expect2 = new ArrayList<>();
         expect2.add(1);
         expect2.add(3);
-        assertThat(actual).isNull().thenFailThrow(exception);
-        assertThat(actual).isNotNull().thenFailThrow(exception);
-        assertThat(actual).isEqualTo(1).thenFailThrow(exception);
-        assertThat(actual).isNotEqualTo(3).thenFailThrow(exception);
-        assertThat(actual).isEmpty().thenFailThrow(exception);
-        assertThat(actual).isNotEmpty().thenFailThrow(exception);
-        assertThat(actual).isAllIn(expect).thenFailThrow(exception);
-        assertThat(actual).isAllIn(expect2).thenFailThrow(exception);
-        assertThat(actual).hasAnyIn(expect).thenFailThrow(exception);
-        assertThat(actual).hasAnyIn(expect2).thenFailThrow(exception);
-        assertThat(actual).hasNoneIn(expect).thenFailThrow(exception);
-        assertThat(actual).hasNoneIn(expect2).thenFailThrow(exception);
-        assertThat(actual).containsAll(expect).thenFailThrow(exception);
-        assertThat(actual).containsAll(expect2).thenFailThrow(exception);
-        assertThat(actual).isSizeEqualTo(2).thenFailThrow(exception);
-        assertThat(actual).isSizeBetween(1,3).thenFailThrow(exception);
-        assertThat(actual).isSizeStrictlyBetween(1,3).thenFailThrow(exception);
-        assertThat(actual).isSizeGreaterThan(1).thenFailThrow(exception);
-        assertThat(actual).isSizeGreaterThanOrEqualTo(2).thenFailThrow(exception);
-        assertThat(actual).isSizeGreaterThan(2).thenFailThrow(exception);
-        assertThat(actual).isSizeLessThan(3).thenFailThrow(exception);
-        assertThat(actual).isSizeLessThanOrEqualTo(2).thenFailThrow(exception);
+        assertThat(actual).isNull().thenThrow(exception);
+        assertThat(actual).isNotNull().thenThrow(exception);
+        assertThat(actual).isEqualTo(1).thenThrow(exception);
+        assertThat(actual).isNotEqualTo(3).thenThrow(exception);
+        assertThat(actual).isEmpty().thenThrow(exception);
+        assertThat(actual).isNotEmpty().thenThrow(exception);
+        assertThat(actual).isAllIn(expect).thenThrow(exception);
+        assertThat(actual).isAllIn(expect2).thenThrow(exception);
+        assertThat(actual).hasAnyIn(expect).thenThrow(exception);
+        assertThat(actual).hasAnyIn(expect2).thenThrow(exception);
+        assertThat(actual).hasNoneIn(expect).thenThrow(exception);
+        assertThat(actual).hasNoneIn(expect2).thenThrow(exception);
+        assertThat(actual).containsAll(expect).thenThrow(exception);
+        assertThat(actual).containsAll(expect2).thenThrow(exception);
+        assertThat(actual).isSizeEqualTo(2).thenThrow(exception);
+        assertThat(actual).isSizeBetween(1,3).thenThrow(exception);
+        assertThat(actual).isSizeStrictlyBetween(1,3).thenThrow(exception);
+        assertThat(actual).isSizeGreaterThan(1).thenThrow(exception);
+        assertThat(actual).isSizeGreaterThanOrEqualTo(2).thenThrow(exception);
+        assertThat(actual).isSizeGreaterThan(2).thenThrow(exception);
+        assertThat(actual).isSizeLessThan(3).thenThrow(exception);
+        assertThat(actual).isSizeLessThanOrEqualTo(2).thenThrow(exception);
     }
 }
 ```
@@ -437,20 +437,20 @@ public class MapExample {
         List<Integer> expectValues = new ArrayList<>();
         expectValues.add(1);
         expectValues.add(3);
-        assertThat(actual).isNull().thenFailThrow(exception);
-        assertThat(actual).isNotNull().thenFailThrow(exception);
-        assertThat(actual).isEqualTo(1).thenFailThrow(exception);
-        assertThat(actual).isNotEqualTo(3).thenFailThrow(exception);
-        assertThat(actual).isEmpty().thenFailThrow(exception);
-        assertThat(actual).isNotEmpty().thenFailThrow(exception);
-        assertThat(actual).containsKey("test").thenFailThrow(exception);
-        assertThat(actual).containsKeys("test","test1").thenFailThrow(exception);
-        assertThat(actual).containsValue(1).thenFailThrow(exception);
-        assertThat(actual).containsValues(1,2).thenFailThrow(exception);
-        assertThat(actual).doesNotContainKey("test3").thenFailThrow(exception);
-        assertThat(actual).doesNotContainValue(3).thenFailThrow(exception);
-        assertThat(actual).doesNotContainKeys(expectKeys).thenFailThrow(exception);
-        assertThat(actual).doesNotContainValues(expectValues).thenFailThrow(exception);
+        assertThat(actual).isNull().thenThrow(exception);
+        assertThat(actual).isNotNull().thenThrow(exception);
+        assertThat(actual).isEqualTo(1).thenThrow(exception);
+        assertThat(actual).isNotEqualTo(3).thenThrow(exception);
+        assertThat(actual).isEmpty().thenThrow(exception);
+        assertThat(actual).isNotEmpty().thenThrow(exception);
+        assertThat(actual).containsKey("test").thenThrow(exception);
+        assertThat(actual).containsKeys("test","test1").thenThrow(exception);
+        assertThat(actual).containsValue(1).thenThrow(exception);
+        assertThat(actual).containsValues(1,2).thenThrow(exception);
+        assertThat(actual).doesNotContainKey("test3").thenThrow(exception);
+        assertThat(actual).doesNotContainValue(3).thenThrow(exception);
+        assertThat(actual).doesNotContainKeys(expectKeys).thenThrow(exception);
+        assertThat(actual).doesNotContainValues(expectValues).thenThrow(exception);
     }
 }
 ```

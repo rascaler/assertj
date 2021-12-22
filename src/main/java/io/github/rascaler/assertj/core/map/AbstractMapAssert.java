@@ -22,7 +22,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF isEmpty() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = null == this.actual || this.actual.isEmpty();
@@ -31,7 +31,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF isNotEmpty() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = null != this.actual && !this.actual.isEmpty();
@@ -40,7 +40,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF containsKey(Object key) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.containsKey(key);
@@ -49,7 +49,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public final <T> SELF containsKeys(T... keys) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.containsAll(this.actual.keySet(), Arrays.asList(keys));
@@ -58,7 +58,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF containsKeys(Collection<?> keys) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.containsAll(this.actual.keySet(), keys);
@@ -67,7 +67,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF doesNotContainKey(Object key) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !this.actual.containsKey(key);
@@ -76,7 +76,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public <T> SELF doesNotContainKeys(T... keys) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !CollectionUtils.containsAll(this.actual.keySet(), Arrays.asList(keys));
@@ -85,7 +85,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF doesNotContainKeys(Collection<?> keys) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !CollectionUtils.containsAll(this.actual.keySet(), keys);
@@ -94,7 +94,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF containsValue(Object value) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.containsValue(value);
@@ -103,7 +103,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public final <T> SELF containsValues(T... values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.containsAll(this.actual.values(), Arrays.asList(values));
@@ -112,7 +112,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF containsValues(Collection<?> values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.containsAll(this.actual.values(), values);
@@ -121,7 +121,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF doesNotContainValue(Object value) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !this.actual.containsValue(value);
@@ -130,7 +130,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public <T> SELF doesNotContainValues(T... values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !CollectionUtils.containsAll(this.actual.values(), Arrays.asList(values));
@@ -139,7 +139,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF doesNotContainValues(Collection<?> values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !CollectionUtils.containsAll(this.actual.values(), values);

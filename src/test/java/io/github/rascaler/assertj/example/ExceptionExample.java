@@ -17,18 +17,18 @@ public class ExceptionExample {
 
     @Test
     public void testException() {
-        Assertions.assertThat(1).isLessThan(1).thenFailThrow("1000");
+        Assertions.assertThat(1).isLessThan(1).thenThrow("1000");
     }
 
     @Test
     public void testExceptionWithLog() {
         // 无占位符
-        Assertions.assertThat(1).isLessThan(1).thenFailThrow("1000","日志测试");
+        Assertions.assertThat(1).isLessThan(1).thenThrow("1000","日志测试");
     }
 
     @Test
     public void testExceptionWithLog2() {
         // 有占位符
-        Assertions.assertThat(1).isLessThan(1).thenFailThrow("1000","日志测试[{}]", "占位符");
+        Assertions.assertThat(1).isLessThan(1).thenThrow("1000","日志测试[{}]", "占位符");
     }
 }

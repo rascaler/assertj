@@ -14,7 +14,7 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
 
     @Override
     public SELF isEqualTo(ACTUAL expected) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.compareTo(expected) == 0;
@@ -23,7 +23,7 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
 
     @Override
     public SELF isBefore(ACTUAL boundary) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.compareTo(boundary) < 0;
@@ -32,7 +32,7 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
 
     @Override
     public SELF isBeforeOrEqualTo(ACTUAL boundary) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.compareTo(boundary) <= 0;
@@ -41,7 +41,7 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
 
     @Override
     public SELF isAfter(ACTUAL boundary) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.compareTo(boundary) > 0;
@@ -50,7 +50,7 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
 
     @Override
     public SELF isAfterOrEqualTo(ACTUAL boundary) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.compareTo(boundary) >= 0;
@@ -59,7 +59,7 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
 
     @Override
     public SELF isBetween(ACTUAL startInclusiveBoundary, ACTUAL endInclusiveBoundary) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.compareTo(startInclusiveBoundary) >= 0 && this.actual.compareTo(endInclusiveBoundary) <= 0;
@@ -68,7 +68,7 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
 
     @Override
     public SELF isStrictlyBetween(ACTUAL startExclusiveBoundary, ACTUAL endExclusiveBoundary) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.compareTo(startExclusiveBoundary) > 0 && this.actual.compareTo(endExclusiveBoundary) < 0;
@@ -77,7 +77,7 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
 
     @Override
     public SELF isStartInclusiveBetween(ACTUAL startInclusiveBoundary, ACTUAL endExclusiveBoundary) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.compareTo(startInclusiveBoundary) >= 0 && this.actual.compareTo(endExclusiveBoundary) < 0;
@@ -86,7 +86,7 @@ abstract class AbstractCalendarAssert<SELF extends AbstractCalendarAssert<SELF, 
 
     @Override
     public SELF isEndInclusiveBetween(ACTUAL startExclusiveBoundary, ACTUAL endInclusiveBoundary) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.compareTo(startExclusiveBoundary) > 0 && this.actual.compareTo(endInclusiveBoundary) <= 0;

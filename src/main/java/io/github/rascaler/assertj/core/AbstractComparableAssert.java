@@ -12,7 +12,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
 
   @Override
   public SELF isEqualTo(ACTUAL expected) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = this.actual.equals(expected);
@@ -22,7 +22,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isLessThan(ACTUAL boundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = this.actual.compareTo(boundary) < 0;
@@ -32,7 +32,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isLessThanOrEqualTo(ACTUAL boundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = this.actual.compareTo(boundary) <= 0;
@@ -42,7 +42,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isGreaterThan(ACTUAL boundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = this.actual.compareTo(boundary) > 0;
@@ -52,7 +52,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isGreaterThanOrEqualTo(ACTUAL boundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = this.actual.compareTo(boundary) >= 0;
@@ -62,7 +62,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isBetween(ACTUAL startInclusiveBoundary, ACTUAL endInclusiveBoundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = this.actual.compareTo(startInclusiveBoundary) >= 0
@@ -73,7 +73,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isStrictlyBetween(ACTUAL startExclusiveBoundary, ACTUAL endExclusiveBoundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = this.actual.compareTo(startExclusiveBoundary) > 0
@@ -83,7 +83,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
 
   @Override
   public SELF isStartInclusiveBetween(ACTUAL startInclusiveBoundary, ACTUAL endExclusiveBoundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = this.actual.compareTo(startInclusiveBoundary) >= 0
@@ -93,7 +93,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
 
   @Override
   public SELF isEndInclusiveBetween(ACTUAL startExclusiveBoundary, ACTUAL endInclusiveBoundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = this.actual.compareTo(startExclusiveBoundary) > 0

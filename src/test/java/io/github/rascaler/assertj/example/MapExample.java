@@ -22,19 +22,19 @@ public class MapExample {
         List<Integer> expectValues = new ArrayList<>();
         expectValues.add(1);
         expectValues.add(3);
-        Assertions.assertThat(actual).isNull().thenFailThrow(exception);
-        Assertions.assertThat(actual).isNotNull().thenFailThrow(exception);
-        Assertions.assertThat(actual).isEqualTo(1).thenFailThrow(exception);
-        Assertions.assertThat(actual).isNotEqualTo(3).thenFailThrow(exception);
-        Assertions.assertThat(actual).isEmpty().thenFailThrow(exception);
-        Assertions.assertThat(actual).isNotEmpty().thenFailThrow(exception);
-        Assertions.assertThat(actual).containsKey("test").thenFailThrow(exception);
-        Assertions.assertThat(actual).containsKeys("test","test1").thenFailThrow(exception);
-        Assertions.assertThat(actual).containsValue(1).thenFailThrow(exception);
-        Assertions.assertThat(actual).containsValues(1,2).thenFailThrow(exception);
-        Assertions.assertThat(actual).doesNotContainKey("test3").thenFailThrow(exception);
-        Assertions.assertThat(actual).doesNotContainValue(3).thenFailThrow(exception);
-        Assertions.assertThat(actual).doesNotContainKeys(expectKeys).thenFailThrow(exception);
-        Assertions.assertThat(actual).doesNotContainValues(expectValues).thenFailThrow(exception);
+        Assertions.assertThat(actual).isNull().thenThrow(exception);
+        Assertions.assertThat(actual).isNotNull().thenThrow(exception);
+        Assertions.assertThat(actual).isEqualTo(1).thenThrow(exception);
+        Assertions.assertThat(actual).isNotEqualTo(3).thenThrow(exception);
+        Assertions.assertThat(actual).isEmpty().thenThrow(exception);
+        Assertions.assertThat(actual).isNotEmpty().thenThrow(exception);
+        Assertions.assertThat(actual).containsKey("test").thenThrow(exception);
+        Assertions.assertThat(actual).containsKeys("test","test1").thenThrow(exception);
+        Assertions.assertThat(actual).containsValue(1).thenThrow(exception);
+        Assertions.assertThat(actual).containsValues(1,2).thenThrow(exception);
+        Assertions.assertThat(actual).doesNotContainKey("test3").thenThrow(exception);
+        Assertions.assertThat(actual).doesNotContainValue(3).thenThrow(exception);
+        Assertions.assertThat(actual).doesNotContainKeys(expectKeys).thenThrow(exception);
+        Assertions.assertThat(actual).doesNotContainValues(expectValues).thenThrow(exception);
     }
 }

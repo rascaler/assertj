@@ -9,7 +9,7 @@ public class ApiExceptionConvertor implements ExceptionConvertor<String,ApiExcep
     @Override
     public ApiException getException(String obj) {
         String msg = ExceptionMessage.messages.get(obj);
-        Assertions.assertThat(msg).isNotBlank().thenFailThrow(new RuntimeException("异常未定义"));
+        Assertions.assertThat(msg).isBlank().thenThrow(new RuntimeException("异常未定义"));
         return new ApiException(obj, msg, null);
     }
 }

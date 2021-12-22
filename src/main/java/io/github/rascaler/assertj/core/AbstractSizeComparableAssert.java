@@ -24,7 +24,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF hasOneSize() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = size() == 1;
@@ -33,7 +33,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF hasMoreThanOneSize() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = size() > 1;
@@ -42,7 +42,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF isSizeEqualTo(int boundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = size() == boundary;
@@ -51,7 +51,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF isSizeLessThan(int boundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = size() < boundary;
@@ -60,7 +60,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF isSizeLessThanOrEqualTo(int boundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = size() <= boundary;
@@ -69,7 +69,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF isSizeGreaterThan(int boundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = size() > boundary;
@@ -78,7 +78,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF isSizeGreaterThanOrEqualTo(int boundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = size() >= boundary;
@@ -87,7 +87,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF isSizeBetween(int startInclusiveBoundary, int endInclusiveBoundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = size() >= startInclusiveBoundary
@@ -97,7 +97,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF isSizeStrictlyBetween(int startExclusiveBoundary, int endExclusiveBoundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = size() > startExclusiveBoundary
@@ -107,7 +107,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF isSizeStartInclusiveBetween(int startInclusiveBoundary, int endExclusiveBoundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = size() >= startInclusiveBoundary
@@ -117,7 +117,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF isSizeEndInclusiveBetween(int startExclusiveBoundary, int endInclusiveBoundary) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = size() > startExclusiveBoundary

@@ -19,7 +19,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF isEmpty() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = null == this.actual || this.size() == 0;
@@ -28,7 +28,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF isNotEmpty() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = null != this.actual && this.size() > 0;
@@ -37,7 +37,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF hasEmptyElement() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     for (int i = 0; i < this.size(); i++) {
@@ -52,7 +52,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF containsAll(T... values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     if (null == values || values.length == 0) {
@@ -87,7 +87,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public  SELF containsAll(Collection<?> values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     if (values.isEmpty()) {
@@ -122,7 +122,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF containsAny(T... values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     if (this.size() < values.length) {
@@ -144,7 +144,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF containsAny(Collection<?> values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     if (this.size() < values.size()) {
@@ -166,7 +166,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF containsNone(T... values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     if (this.size() < values.length) {
@@ -188,7 +188,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF containsNone(Collection<?> values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     if (this.size() < values.size()) {
@@ -210,7 +210,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF hasAnyIn(T... values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = this.anyIn(values);
@@ -219,7 +219,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public  SELF hasAnyIn(Collection<?> values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = anyIn(values);
@@ -228,7 +228,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF isAllIn(T... values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     if (null == this.actual || this.size() == 0) {
@@ -260,7 +260,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF isAllIn(Collection<?> values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     if (null == this.actual || this.size() == 0) {
@@ -292,7 +292,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF hasNoneIn(T... values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = !this.anyIn(values);
@@ -301,7 +301,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF hasNoneIn(Collection<?> values) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = !this.anyIn(values);

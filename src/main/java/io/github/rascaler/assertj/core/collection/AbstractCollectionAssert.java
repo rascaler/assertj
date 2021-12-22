@@ -22,7 +22,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF isEmpty() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.isEmpty(this.actual);
@@ -31,7 +31,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF isNotEmpty() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.isNotEmpty(this.actual);
@@ -40,7 +40,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF hasEmptyElement() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         for (Object obj : this.actual) {
@@ -55,7 +55,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF hasOneSize() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.size() == 1;
@@ -64,7 +64,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF hasMoreThanOneSize() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.size() > 1;
@@ -73,7 +73,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public <T> SELF containsAll(T... values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.containsAll(this.actual, Arrays.asList(values));
@@ -82,7 +82,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF containsAll(Collection<?> values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.containsAll(this.actual, values);
@@ -91,7 +91,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public <T> SELF containsAny(T... values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.containsAny(this.actual, values);
@@ -100,7 +100,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF containsAny(Collection<?> values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.containsAny(this.actual, values);
@@ -109,7 +109,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public <T> SELF containsNone(T... values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !CollectionUtils.containsAny(this.actual, values);
@@ -118,7 +118,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF containsNone(Collection<?> values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !CollectionUtils.containsAny(this.actual, values);
@@ -127,7 +127,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public <T> SELF hasAnyIn(T... values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.containsAny(Arrays.asList(values), this.actual);
@@ -136,7 +136,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF hasAnyIn(Collection<?> values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.containsAny(values, this.actual);
@@ -145,7 +145,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public <T> SELF isAllIn(T... values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.containsAll(Arrays.asList(values), this.actual);
@@ -154,7 +154,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF isAllIn(Collection<?> values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.containsAll(values, this.actual);
@@ -163,7 +163,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public <T> SELF hasNoneIn(T... values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !CollectionUtils.containsAny(Arrays.asList(values), this.actual);
@@ -172,7 +172,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF hasNoneIn(Collection<?> values) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !CollectionUtils.containsAny(values, this.actual);

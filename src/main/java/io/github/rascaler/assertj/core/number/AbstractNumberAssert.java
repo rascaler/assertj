@@ -30,7 +30,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isEqualTo(ACTUAL expected) {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = actual.equals(expected);
@@ -39,7 +39,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isZero() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = actual.equals(getZero());
@@ -47,7 +47,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
   }
   @Override
   public SELF isNotZero() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = !actual.equals(getZero());
@@ -56,7 +56,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isOne() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = actual.equals(getOne());
@@ -65,7 +65,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isNotOne() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = !actual.equals(getOne());
@@ -74,7 +74,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isPositive() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = actual.compareTo(getZero()) > 0;
@@ -83,7 +83,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isNegative() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = actual.compareTo(getZero()) < 0;
@@ -92,7 +92,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isNotNegative() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = actual.compareTo(getZero()) >= 0;
@@ -101,7 +101,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isNotPositive() {
-    if (!this.passed) {
+    if (this.passed) {
       return myself;
     }
     this.passed = actual.compareTo(getZero()) <= 0;

@@ -10,7 +10,7 @@ public class CharacterAssert extends AbstractCharacterAssert<CharacterAssert> {
     }
 
     public CharacterAssert isLowerCase() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual >= 'a' && this.actual <= 'z';
@@ -18,7 +18,7 @@ public class CharacterAssert extends AbstractCharacterAssert<CharacterAssert> {
     }
 
     public CharacterAssert isUpperCase() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual >= 'A' && this.actual <= 'Z';
@@ -26,7 +26,7 @@ public class CharacterAssert extends AbstractCharacterAssert<CharacterAssert> {
     }
 
     public CharacterAssert isAscii() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = CharUtils.isAscii(this.actual);

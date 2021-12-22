@@ -11,7 +11,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isEmpty() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = StringUtils.isEmpty(this.actual);
@@ -19,7 +19,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isNotEmpty() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = StringUtils.isNotEmpty(this.actual);
@@ -27,7 +27,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isBlank() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = StringUtils.isBlank(this.actual);
@@ -35,7 +35,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isNotBlank() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = StringUtils.isNotBlank(this.actual);
@@ -43,7 +43,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert startsWith(String prefix) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = StringUtils.startsWith(this.actual, prefix);
@@ -51,7 +51,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert doseNotStartWith(String prefix) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !StringUtils.startsWith(this.actual, prefix);
@@ -59,7 +59,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert endsWith(String suffix) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = StringUtils.endsWith(this.actual, suffix);
@@ -67,7 +67,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert doesNotEndWith(String suffix) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !StringUtils.endsWith(this.actual, suffix);
@@ -75,7 +75,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert contains(String searchStr) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = this.actual.contains(searchStr);
@@ -83,7 +83,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert doesNotContain(String searchStr) {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = !this.actual.contains(searchStr);
@@ -91,7 +91,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isAllLowerCase() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = StringUtils.isAllLowerCase(this.actual);
@@ -99,7 +99,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isAllUpperCase() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = StringUtils.isAllUpperCase(this.actual);
@@ -107,7 +107,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isNumberCreatable() {
-        if (!this.passed) {
+        if (this.passed) {
             return myself;
         }
         this.passed = NumberUtils.isCreatable(this.actual);

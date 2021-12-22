@@ -14,18 +14,18 @@ public class NumberExample {
         List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);
-        Assertions.assertThat(num).isNull().thenFailThrow(exception);
-        Assertions.assertThat(num).isNotNull().thenFailThrow(exception);
-        Assertions.assertThat(num).isEqualTo(1).thenFailThrow(exception);
-        Assertions.assertThat(num).isNotEqualTo(3).thenFailThrow(exception);
-        Assertions.assertThat(num).isGreaterThan(0).thenFailThrow(exception);
-        Assertions.assertThat(num).isGreaterThanOrEqualTo(1).thenFailThrow(exception);
-        Assertions.assertThat(num).isLessThan(2).thenFailThrow(exception);
-        Assertions.assertThat(num).isLessThanOrEqualTo(1).thenFailThrow(exception);
-        Assertions.assertThat(num).isBetween(0,1).thenFailThrow(exception);
-        Assertions.assertThat(num).isStrictlyBetween(0,2).thenFailThrow(exception);
-        Assertions.assertThat(num).isStartInclusiveBetween(1,2).thenFailThrow(exception);
-        Assertions.assertThat(num).isEndInclusiveBetween(0,1).thenFailThrow(exception);
+        Assertions.assertThat(num).isNull().thenThrow(exception);
+        Assertions.assertThat(num).isNotNull().thenThrow(exception);
+        Assertions.assertThat(num).isEqualTo(1).thenThrow(exception);
+        Assertions.assertThat(num).isNotEqualTo(3).thenThrow(exception);
+        Assertions.assertThat(num).isGreaterThan(0).thenThrow(exception);
+        Assertions.assertThat(num).isGreaterThanOrEqualTo(1).thenThrow(exception);
+        Assertions.assertThat(num).isLessThan(2).thenThrow(exception);
+        Assertions.assertThat(num).isLessThanOrEqualTo(1).thenThrow(exception);
+        Assertions.assertThat(num).isBetween(0,1).thenThrow(exception);
+        Assertions.assertThat(num).isStrictlyBetween(0,2).thenThrow(exception);
+        Assertions.assertThat(num).isStartInclusiveBetween(1,2).thenThrow(exception);
+        Assertions.assertThat(num).isEndInclusiveBetween(0,1).thenThrow(exception);
         Assertions.assertThat(num).isIn(list);
     }
 }

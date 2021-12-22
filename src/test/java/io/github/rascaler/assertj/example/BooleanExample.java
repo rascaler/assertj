@@ -14,15 +14,15 @@ public class BooleanExample {
         List<Boolean> list = new ArrayList<>();
         list.add(true);
         list.add(false);
-        Assertions.assertThat(obj).isNull().thenFailThrow(exception);
-        Assertions.assertThat(obj).isNotNull().thenFailThrow(exception);
-        Assertions.assertThat(obj).isEqualTo(1).thenFailThrow(exception);
-        Assertions.assertThat(obj).isNotEqualTo(3).thenFailThrow(exception);
-        Assertions.assertThat(obj).isFalse().thenFailThrow(exception);
-        Assertions.assertThat(obj).isTrue().thenFailThrow(exception);
-        Assertions.assertThat(obj).isIn(list).thenFailThrow(exception);
-        Assertions.assertThat(obj).isIn(true, false).thenFailThrow(exception);
-        Assertions.assertThat(obj).isNotIn(list).thenFailThrow(exception);
-        Assertions.assertThat(obj).isNotIn(true, false).thenFailThrow(exception);
+        Assertions.assertThat(obj).isNull().thenThrow(exception);
+        Assertions.assertThat(obj).isNotNull().thenThrow(exception);
+        Assertions.assertThat(obj).isEqualTo(1).thenThrow(exception);
+        Assertions.assertThat(obj).isNotEqualTo(3).thenThrow(exception);
+        Assertions.assertThat(obj).isFalse().thenThrow(exception);
+        Assertions.assertThat(obj).isTrue().thenThrow(exception);
+        Assertions.assertThat(obj).isIn(list).thenThrow(exception);
+        Assertions.assertThat(obj).isIn(true, false).thenThrow(exception);
+        Assertions.assertThat(obj).isNotIn(list).thenThrow(exception);
+        Assertions.assertThat(obj).isNotIn(true, false).thenThrow(exception);
     }
 }
