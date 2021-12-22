@@ -35,6 +35,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
   protected final SELF myself;
   protected boolean passed = false;
   protected   Logger log;
+  protected boolean validated = false;
 
   // 异常转换器
   private static Map<Class<?>, ExceptionConvertor> mapping = new HashMap<>();
@@ -59,6 +60,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isEqualTo(Object expected) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -68,6 +70,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isNotEqualTo(Object other) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -77,6 +80,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isNull() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -86,6 +90,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isNotNull() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -95,6 +100,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isIn(Object... values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -110,6 +116,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isNotIn(Object... values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -125,6 +132,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isIn(Iterable<?> values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -140,6 +148,7 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF isNotIn(Iterable<?> values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -156,6 +165,9 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF thenThrow(RuntimeException exception) {
+    if (!validated) {
+      throw new RuntimeException("未对数据进行任何断言");
+    }
     if (this.passed) {
       throw exception;
     }

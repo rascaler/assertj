@@ -6,7 +6,7 @@
 
     <groupId>io.github.rascaler</groupId>
     <artifactId>assertj</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
     <name>assertj</name>
     <description>java toolkit for assert</description>

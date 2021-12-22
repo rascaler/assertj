@@ -30,6 +30,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isEqualTo(ACTUAL expected) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -39,6 +40,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isZero() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -47,6 +49,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
   }
   @Override
   public SELF isNotZero() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -56,6 +59,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isOne() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -65,6 +69,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isNotOne() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -74,6 +79,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isPositive() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -83,6 +89,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isNegative() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -92,6 +99,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isNotNegative() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -101,6 +109,7 @@ public abstract class AbstractNumberAssert<SELF extends AbstractNumberAssert<SEL
 
   @Override
   public SELF isNotPositive() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }

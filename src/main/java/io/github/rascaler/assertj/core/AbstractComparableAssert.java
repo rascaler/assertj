@@ -12,6 +12,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
 
   @Override
   public SELF isEqualTo(ACTUAL expected) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -22,6 +23,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isLessThan(ACTUAL boundary) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -32,6 +34,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isLessThanOrEqualTo(ACTUAL boundary) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -42,6 +45,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isGreaterThan(ACTUAL boundary) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -52,6 +56,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isGreaterThanOrEqualTo(ACTUAL boundary) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -62,6 +67,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isBetween(ACTUAL startInclusiveBoundary, ACTUAL endInclusiveBoundary) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -73,6 +79,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
   /** {@inheritDoc} */
   @Override
   public SELF isStrictlyBetween(ACTUAL startExclusiveBoundary, ACTUAL endExclusiveBoundary) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -83,6 +90,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
 
   @Override
   public SELF isStartInclusiveBetween(ACTUAL startInclusiveBoundary, ACTUAL endExclusiveBoundary) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -93,6 +101,7 @@ public abstract class AbstractComparableAssert<SELF extends AbstractComparableAs
 
   @Override
   public SELF isEndInclusiveBetween(ACTUAL startExclusiveBoundary, ACTUAL endInclusiveBoundary) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }

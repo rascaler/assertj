@@ -19,6 +19,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF isEmpty() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -28,6 +29,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF isNotEmpty() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -37,6 +39,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF hasEmptyElement() {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -52,6 +55,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF containsAll(T... values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -87,6 +91,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public  SELF containsAll(Collection<?> values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -122,6 +127,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF containsAny(T... values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -144,6 +150,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF containsAny(Collection<?> values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -166,6 +173,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF containsNone(T... values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -188,6 +196,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF containsNone(Collection<?> values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -210,6 +219,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF hasAnyIn(T... values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -219,6 +229,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public  SELF hasAnyIn(Collection<?> values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -228,6 +239,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF isAllIn(T... values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -260,6 +272,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF isAllIn(Collection<?> values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -292,6 +305,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public <T> SELF hasNoneIn(T... values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -301,6 +315,7 @@ implements ArrayAssert<SELF, ACTUAL> {
 
   @Override
   public SELF hasNoneIn(Collection<?> values) {
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
