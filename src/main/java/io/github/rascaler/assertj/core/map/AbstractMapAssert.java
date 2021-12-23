@@ -22,6 +22,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF isEmpty() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -31,6 +32,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF isNotEmpty() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -40,6 +42,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF containsKey(Object key) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -49,6 +52,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public final <T> SELF containsKeys(T... keys) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -58,6 +62,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF containsKeys(Collection<?> keys) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -67,6 +72,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF doesNotContainKey(Object key) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -76,6 +82,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public <T> SELF doesNotContainKeys(T... keys) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -85,6 +92,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF doesNotContainKeys(Collection<?> keys) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -94,6 +102,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF containsValue(Object value) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -103,6 +112,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public final <T> SELF containsValues(T... values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -112,6 +122,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF containsValues(Collection<?> values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -121,6 +132,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF doesNotContainValue(Object value) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -130,6 +142,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public <T> SELF doesNotContainValues(T... values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -139,6 +152,7 @@ public abstract class AbstractMapAssert<SELF extends AbstractMapAssert<SELF, ACT
 
     @Override
     public SELF doesNotContainValues(Collection<?> values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }

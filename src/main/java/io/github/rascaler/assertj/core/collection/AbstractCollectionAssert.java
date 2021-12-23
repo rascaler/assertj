@@ -22,7 +22,8 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF isEmpty() {
-        if (this.passed) {
+		this.validated = true;
+		if (this.passed) {
             return myself;
         }
         this.passed = CollectionUtils.isEmpty(this.actual);
@@ -31,6 +32,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF isNotEmpty() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -40,6 +42,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF hasEmptyElement() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -55,6 +58,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF hasOneSize() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -64,6 +68,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF hasMoreThanOneSize() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -73,6 +78,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public <T> SELF containsAll(T... values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -82,6 +88,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF containsAll(Collection<?> values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -91,6 +98,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public <T> SELF containsAny(T... values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -100,6 +108,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF containsAny(Collection<?> values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -109,6 +118,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public <T> SELF containsNone(T... values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -118,6 +128,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF containsNone(Collection<?> values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -127,6 +138,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public <T> SELF hasAnyIn(T... values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -136,6 +148,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF hasAnyIn(Collection<?> values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -145,6 +158,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public <T> SELF isAllIn(T... values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -154,6 +168,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF isAllIn(Collection<?> values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -163,6 +178,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public <T> SELF hasNoneIn(T... values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -172,6 +188,7 @@ public abstract class AbstractCollectionAssert<SELF extends AbstractCollectionAs
 
     @Override
     public SELF hasNoneIn(Collection<?> values) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }

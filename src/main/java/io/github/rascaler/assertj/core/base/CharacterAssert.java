@@ -10,6 +10,7 @@ public class CharacterAssert extends AbstractCharacterAssert<CharacterAssert> {
     }
 
     public CharacterAssert isLowerCase() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -18,6 +19,7 @@ public class CharacterAssert extends AbstractCharacterAssert<CharacterAssert> {
     }
 
     public CharacterAssert isUpperCase() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -26,6 +28,7 @@ public class CharacterAssert extends AbstractCharacterAssert<CharacterAssert> {
     }
 
     public CharacterAssert isAscii() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }

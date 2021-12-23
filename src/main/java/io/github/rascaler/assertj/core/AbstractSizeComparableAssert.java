@@ -24,7 +24,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF hasOneSize() {
-        this.validated = true;
+    this.validated = true;
     if (this.passed) {
       return myself;
     }
@@ -34,7 +34,7 @@ public abstract class AbstractSizeComparableAssert<SELF extends AbstractSizeComp
 
   @Override
   public SELF hasMoreThanOneSize() {
-        this.validated = true;
+    this.validated = true;
     if (this.passed) {
       return myself;
     }

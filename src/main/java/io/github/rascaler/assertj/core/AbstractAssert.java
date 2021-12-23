@@ -192,6 +192,9 @@ public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, 
 
   @Override
   public SELF thenThrow(Error error) {
+    if (!validated) {
+      throw new RuntimeException("未对数据进行任何断言");
+    }
     if (this.passed) {
       throw error;
     }

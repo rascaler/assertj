@@ -14,6 +14,7 @@ public class BooleanAssert extends AbstractAssert<BooleanAssert, Boolean> {
 
 
     public BooleanAssert isTrue() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }

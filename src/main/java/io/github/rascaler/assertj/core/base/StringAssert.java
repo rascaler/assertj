@@ -11,6 +11,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isEmpty() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -19,6 +20,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isNotEmpty() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -27,6 +29,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isBlank() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -35,6 +38,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isNotBlank() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -43,6 +47,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert startsWith(String prefix) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -51,6 +56,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert doseNotStartWith(String prefix) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -59,6 +65,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert endsWith(String suffix) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -67,6 +74,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert doesNotEndWith(String suffix) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -75,6 +83,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert contains(String searchStr) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -83,6 +92,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert doesNotContain(String searchStr) {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -91,6 +101,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isAllLowerCase() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -99,6 +110,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isAllUpperCase() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
@@ -107,6 +119,7 @@ public class StringAssert extends AbstractAssert<StringAssert, String> {
     }
 
     public StringAssert isNumberCreatable() {
+        this.validated = true;
         if (this.passed) {
             return myself;
         }
