@@ -66,6 +66,13 @@ public class Assertions {
   public static DoubleAssert assertThat(Double actual) {
     return new DoubleAssert(actual);
   }
+  public static LongAssert assertThat(long actual) {
+    return new LongAssert(actual);
+  }
+
+  public static LongAssert assertThat(Long actual) {
+    return new LongAssert(actual);
+  }
 
   public static DefaultCollectionAssert assertThat(Collection<?> actual) {
     return new DefaultCollectionAssert(actual);

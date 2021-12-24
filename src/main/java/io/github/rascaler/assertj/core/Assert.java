@@ -166,11 +166,11 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> {
    * @author wurenqing
    * @time 2021-09-29 17:11
    */
-  SELF thenFailThrow(RuntimeException exception);
+  SELF thenThrow(RuntimeException exception);
 
-  SELF thenFailThrow(RuntimeException exception, String msg);
+  SELF thenThrow(RuntimeException exception, String msg);
 
-  SELF thenFailThrow(RuntimeException exception, String format, Object... arguments);
+  SELF thenThrow(RuntimeException exception, String format, Object... arguments);
 
 
   /**
@@ -180,21 +180,11 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> {
    * @author wurenqing
    * @time 2021-09-29 17:11
    */
-  SELF thenFailThrow(Error error);
+  SELF thenThrow(Error error);
 
-  SELF thenFailThrow(Error error, String msg);
+  SELF thenThrow(Error error, String msg);
 
-  SELF thenFailThrow(Error error, String format, Object... arguments);
-
-  /**
-   * description: 断言失败抛异常
-   * 需要添加com.cybermax.assertj.core.exception.ExceptionConvertor才能正常使用
-   * @param obj
-   * @return SELF
-   * @author wurenqing
-   * @time 2021-09-29 17:11
-   */
-  <T> SELF thenFailThrow(T obj);
+  SELF thenThrow(Error error, String format, Object... arguments);
 
   /**
    * description: 断言失败抛异常
@@ -204,7 +194,7 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> {
    * @author wurenqing
    * @time 2021-09-29 17:11
    */
-  <T> SELF thenFailThrow(T obj, String format, Object... arguments);
+  <T> SELF thenThrow(T obj);
 
   /**
    * description: 断言失败抛异常
@@ -214,6 +204,16 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> {
    * @author wurenqing
    * @time 2021-09-29 17:11
    */
-  <T> SELF thenFailThrow(T obj, String msg);
+  <T> SELF thenThrow(T obj, String format, Object... arguments);
+
+  /**
+   * description: 断言失败抛异常
+   * 需要添加com.cybermax.assertj.core.exception.ExceptionConvertor才能正常使用
+   * @param obj
+   * @return SELF
+   * @author wurenqing
+   * @time 2021-09-29 17:11
+   */
+  <T> SELF thenThrow(T obj, String msg);
 
 }
