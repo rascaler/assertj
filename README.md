@@ -52,7 +52,7 @@ assertThat(object).isNotNull().thenThrow(new BizException(OBJECT_CANNOT_BE_NULL)
 <dependency>
     <groupId>io.github.rascaler</groupId>
     <artifactId>assertj</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.5</version>
 </dependency>
 ```
 
